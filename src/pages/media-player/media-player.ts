@@ -15,7 +15,6 @@ import { NavController, NavParams } from 'ionic-angular';
 export class MediaPlayerPage {
   private file: any = [];
   private user: any = [];
-  private fileid: any;
   private firstParam: any;
 
   private favorite: any;
@@ -31,9 +30,67 @@ export class MediaPlayerPage {
     console.log('ionViewDidLoad MediaPlayerPage');
   
     console.log(this.firstParam);
-
- 
+    this.getFile(this.firstParam);
+    
+    this.getFavorites(this.firstParam);
 
 
 }
+
+  getFile = (filen: any) => {
+    this.mediaService.getMediaFile(filen).subscribe(
+      res => {
+        console.log(res);
+        this.file = res;
+        this.getUsername(this.file.user_id);
+      }
+    );
+  }
+
+  getUsername = (user: any) => {
+    this.mediaService.getUserInfo(user).subscribe(
+      respon => {
+        console.log(respon);
+        this.user = respon;
+      }
+    );
+  }
+  getFavorites = (firstParam: any) => {
+    this.mediaService.getFavorites(firstParam).subscribe(
+      resp => {
+        this.favorite = resp.json();
+        console.log(this.favorite);
+        this.checkIfLiked();
+
+      }
+    );
+  }
+
+  checkIfLiked(){
+    let user = JSON.parse(window.localStorage.getItem("user"));
+    console.log(user);
+    for (let like of this.favorite) {
+      if (user.user_id == like.user_id) {
+        this.likes = true;
+      }
+
+    }
+  }
+
+  likeMedia() {
+    this.mediaService.likeMedia(this.firstParam).subscribe(
+      resp => {
+      console.log(resp.json());
+      console.log("liked!");
+    });
+  }
+
+  dislikeMedia() {
+    this.mediaService.dislikeMedia(this.firstParam).subscribe(
+      resp => {
+      console.log(resp.json());
+    });
+  }
+
+
 }

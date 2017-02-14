@@ -15,7 +15,31 @@
 
 
 <ion-content padding>
+<div *ngIf="file && user && favorite">
+  <h3>{{ file.title }}</h3>
 
+    
+  <h3>{{ file.title }}</h3>
+  <img *ngIf="file.media_type == 'image'" [alt]="file.title" [src]='url + file.filename'/>
+  <audio *ngIf="file.media_type == 'audio'" controls>
+    <source [src]='url + file.filename' [type]="file.mime_type">
+    Your browser does not support the audio element.
+  </audio>
+  <video *ngIf="file.media_type == 'video'" width="320" height="240" controls>
+    <source [src]='url + file.filename' [type]="file.mime_type">
+    Your browser does not support the video tag.
+  </video>
+  
+  <p>Description: {{ file.description }}</p>
+  <p>Username: {{ user.username }}</p>
+  <p>File size: {{ file.filesize }}</p>
+
+  <p>Liked: {{ favorite.length }}</p>
+ 
+  <button *ngIf="!likes" (click)="likeMedia()"  >Like this Media</button>
+  <button *ngIf="likes" (click)="dislikeMedia()" >Dislike this Media</button>
+
+</div>
 
 
 
