@@ -3,3 +3,9 @@ page-page2 {
         background-color: $bg-color;
     }
 }
+.item {
+    background-color: $btn-color;
+    .label {
+        color: #ffffff;
+    }
+}
