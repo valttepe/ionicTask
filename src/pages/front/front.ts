@@ -1,3 +1,4 @@
+import { MediaPlayerPage } from './../media-player/media-player';
 import { ThumbnailPipe } from './../../app/pipes/thumbnail.pipe';
 import { Media } from './../../providers/media';
 import { Component, Pipe } from '@angular/core';
@@ -27,6 +28,12 @@ export class FrontPage {
         this.images = res;
       }
     );
+  }
+
+  openFile = (fileid: any) =>{
+    this.navCtrl.push(MediaPlayerPage, {
+      firstPassed: fileid,
+    });
   }
 
 }

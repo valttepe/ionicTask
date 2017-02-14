@@ -9,7 +9,7 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Login</ion-title>
+    <ion-title>Front</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -19,7 +19,7 @@
   
 <ul>
   <li *ngFor="let image of images">
-    <a>
+    <a (click)="openFile(image.file_id)">
     <img *ngIf="image.media_type == 'image'" [alt]="image.title" [src]='url + ( image.filename | thumbnail: "small")'/>
     </a>
 
