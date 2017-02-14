@@ -14,3 +14,14 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+$button-font: Helvetica;
+$bg-color: #FFC107;
+$lg-color: #FFD968;
+$btn-color: #731AEA;
+$btn-shadow: #A46DEE;
+
+body {
+    padding: 0;
+    margin: 0;
+}
