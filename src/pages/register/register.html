@@ -6,37 +6,53 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <button ion-button menuToggle>
+    <ion-navbar>
+        <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Register</ion-title>
-  </ion-navbar>
+        <ion-title>Register</ion-title>
+    </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
 
-  <form #registerForm="ngForm" (ngSubmit)="register(registerForm.value)">
-  <p>
-    <label>Username:</label>
-    <input type="text" name="username"
-           ngModel required>
-  </p>
-  <p>
-    <label>email:</label>
-    <input type="email" name="email"
-           ngModel required>
-  </p>
-  <p>
-    <label>Password:</label>
-    <input type="password" name="password"
-           ngModel required>
-  </p>
-  <p>
-    <button type="submit" [disabled]="!registerForm.valid">Submit</button>
-  </p>
-</form>
+    <form #registerForm="ngForm" (ngSubmit)="register(registerForm.value)">
+
+        <ion-item>
+            <ion-label floating>Username</ion-label>
+            <ion-input type="text" name="username" [(ngModel)]="registerCredentials.username"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label floating>Email</ion-label>
+            <ion-input type="email" name="email" [(ngModel)]="registerCredentials.email"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label floating>Password</ion-label>
+            <ion-input type="password" name="password" [(ngModel)]="registerCredentials.password"></ion-input>
+        </ion-item>
+        <button ion-button>Submit</button>
+    </form>
+
+    <!--<form #registerForm="ngForm" (ngSubmit)="register(registerForm.value)">
+        <p>
+            <label>Username:</label>
+            <input type="text" name="username" ngModel required>
+        </p>
+        <p>
+            <label>email:</label>
+            <input type="email" name="email" ngModel required>
+        </p>
+        <p>
+            <label>Password:</label>
+            <input type="password" name="password" ngModel required>
+        </p>
+        <p>
+            <button type="submit" [disabled]="!registerForm.valid">Submit</button>
+        </p>
+    </form>-->
 
 </ion-content>
