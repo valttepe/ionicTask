@@ -24,9 +24,9 @@ export class UploadPage {
     console.log('ionViewDidLoad UploadPage');
   }
 
-  upload = (event: any, value: any) => {
-    const fileElement = event.target.querySelector('input[type=file]');
-    const file = fileElement.files[0];
+    upload = (event: any, value: any) => {
+    const fileELement = event.target.querySelector('input[type=file]');
+    const file = fileELement.files[0];
 
     const fd = new FormData();
     fd.append('file', file);
@@ -40,5 +40,4 @@ export class UploadPage {
       }
       );
   }
-
 }

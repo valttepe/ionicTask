@@ -18,19 +18,21 @@
 
  
 <form #loginForm="ngForm" (ngSubmit)="login(loginForm.value)">
-  <p>
-    <label>Username:</label>
-    <input type="text" name="username"
-           ngModel required>
-  </p>
-  <p>
-    <label>Password:</label>
-    <input type="password" name="password"
-           ngModel required>
-  </p>
-  <p>
-    <button type="submit" [disabled]="!loginForm.valid">Submit</button>
-  </p>
+   <ion-list>
+
+  <ion-item>
+    <ion-label floating>Username</ion-label>
+    <ion-input type="text" name="username" [(ngModel)]="registerCredentials.username"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>Password</ion-label>
+    <ion-input type="password" name="password" [(ngModel)]="registerCredentials.password"></ion-input>
+  </ion-item>
+
+  <button ion-button>Login</button>
+
+</ion-list>
 </form>
 
 </ion-content>

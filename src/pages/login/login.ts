@@ -19,6 +19,7 @@ export class LoginPage {
   private url: string = 'http://media.mw.metropolia.fi/wbma';
   
   private user: any = {};
+  registerCredentials = {email: '', password: ''};
   constructor(public navCtrl: NavController, public navParams: NavParams, public loginService: Login, private http: Http) { }
 
   ionViewDidLoad() {
@@ -33,8 +34,8 @@ export class LoginPage {
   }
 
   login = (value: any) => {
-    //console.log(value);
-    this.loginService.setUser(value);
+    console.log(value);
+    this.loginService.setUser(this.registerCredentials);
     this.loginService.login();
     this.navCtrl.setRoot(FrontPage);
     

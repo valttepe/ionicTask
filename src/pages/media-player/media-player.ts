@@ -33,7 +33,7 @@ export class MediaPlayerPage {
     this.getFile(this.firstParam);
     
     this.getFavorites(this.firstParam);
-    this.navCtrl.getActive();
+    
     
 
 }
