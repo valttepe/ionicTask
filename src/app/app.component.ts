@@ -1,4 +1,5 @@
 import { UploadPage } from './../pages/upload/upload';
+import { RegisterPage } from './../pages/register/register';
 import { FrontPage } from './../pages/front/front';
 import { LoginPage } from './../pages/login/login';
 import { Component, ViewChild } from '@angular/core';
@@ -28,7 +29,9 @@ export class MyApp {
       { title: 'Page Two', component: Page2 },
       { title: 'Login', component: LoginPage },
       { title: 'Front', component: FrontPage },
-      { title: 'Upload', component: UploadPage }
+      { title: 'Upload', component: UploadPage },
+      { title: 'Register', component: RegisterPage}
+//5465c023b2fc7dd701cfae7716214f50e708e8fb
     ];
 
   }

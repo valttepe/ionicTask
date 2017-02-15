@@ -15,10 +15,7 @@
 
 
 <ion-content padding>
-<div *ngIf="file && user && favorite">
-  <h3>{{ file.title }}</h3>
-
-    
+<div *ngIf="file && user && favorite">  
   <h3>{{ file.title }}</h3>
   <img *ngIf="file.media_type == 'image'" [alt]="file.title" [src]='url + file.filename'/>
   <audio *ngIf="file.media_type == 'audio'" controls>
