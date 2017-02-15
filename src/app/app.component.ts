@@ -31,7 +31,7 @@ export class MyApp {
       { title: 'Front', component: FrontPage },
       { title: 'Upload', component: UploadPage },
       { title: 'Register', component: RegisterPage}
-//5465c023b2fc7dd701cfae7716214f50e708e8fb
+
     ];
 
   }
