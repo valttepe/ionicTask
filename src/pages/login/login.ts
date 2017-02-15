@@ -1,3 +1,4 @@
+import { FrontPage } from './../front/front';
 import { Http } from '@angular/http';
 import { Login } from './../../providers/login';
 import { Component } from '@angular/core';
@@ -18,7 +19,7 @@ export class LoginPage {
   private url: string = 'http://media.mw.metropolia.fi/wbma';
   
   private user: any = {};
-  constructor(public loginService: Login, private http: Http) { }
+  constructor(public navCtrl: NavController, public navParams: NavParams, public loginService: Login, private http: Http) { }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
@@ -35,7 +36,8 @@ export class LoginPage {
     //console.log(value);
     this.loginService.setUser(value);
     this.loginService.login();
-
+    this.navCtrl.setRoot(FrontPage);
+    
     // this.http.post(this.url, this.user,.....)
   
 

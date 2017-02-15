@@ -33,7 +33,8 @@ export class MediaPlayerPage {
     this.getFile(this.firstParam);
     
     this.getFavorites(this.firstParam);
-
+    this.navCtrl.getActive();
+    
 
 }
 
@@ -89,6 +90,7 @@ export class MediaPlayerPage {
     this.mediaService.dislikeMedia(this.firstParam).subscribe(
       resp => {
       console.log(resp.json());
+      
     });
   }
 
