@@ -14,11 +14,9 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class UploadPage {
 
-  constructor(
-    public navCtrl: NavController,
-    public navParams: NavParams,
-    private mediaService: Media
-  ) { }
+  uploadCredentials = {file: '', title: '', description: ''};
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, private mediaService: Media) {}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad UploadPage');
