@@ -1,3 +1,4 @@
+import { UploadPage } from './../pages/upload/upload';
 import { MediaPlayerPage } from './../pages/media-player/media-player';
 import { ThumbnailPipe } from './pipes/thumbnail.pipe';
 import { FrontPage } from './../pages/front/front';
@@ -20,7 +21,8 @@ import { Page2 } from '../pages/page2/page2';
     LoginPage,
     FrontPage,
     ThumbnailPipe,
-    MediaPlayerPage
+    MediaPlayerPage,
+    UploadPage
 
   ],
   imports: [
@@ -33,7 +35,8 @@ import { Page2 } from '../pages/page2/page2';
     Page2,
     LoginPage,
     FrontPage,
-    MediaPlayerPage
+    MediaPlayerPage,
+    UploadPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, Login, Media]
 })
