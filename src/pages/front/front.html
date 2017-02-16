@@ -13,17 +13,12 @@
     </ion-navbar>
 </ion-header>
 
-
-<ion-content padding>
-
-    <ul>
-        <li *ngFor="let image of images">
+<ion-content>
+    <ion-card *ngFor="let image of images">
+        <ion-item>
             <a (click)="openFile(image.file_id)">
-                <!--<img *ngIf="image.media_type == 'image'" [alt]="image.title" [src]='url + ( image.filename | thumbnail: "small")'/>-->
                 <img [alt]="image.title" [src]='url + ( image.filename | thumbnail: "small")' />
             </a>
-
-        </li>
-    </ul>
-
+        </ion-item>
+    </ion-card>
 </ion-content>
