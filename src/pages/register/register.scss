@@ -1,3 +1,14 @@
 page-register {
-
+    .item-md {
+        padding-bottom: 1em;
+    }
+    .scroll-content {
+        display: flex;
+        height: 300px;
+        form {
+            height: 200px;
+            width: 50%;
+            margin: auto;
+        }
+    }
 }
