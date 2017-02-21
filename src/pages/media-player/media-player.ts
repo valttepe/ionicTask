@@ -56,6 +56,7 @@ export class MediaPlayerPage {
       }
     );
   }
+
   getFavorites = (firstParam: any) => {
     this.mediaService.getFavorites(firstParam).subscribe(
       resp => {
@@ -74,7 +75,6 @@ export class MediaPlayerPage {
       if (user.user_id == like.user_id) {
         this.likes = true;
       }
-
     }
   }
 
@@ -83,7 +83,8 @@ export class MediaPlayerPage {
       resp => {
       console.log(resp.json());
       console.log("liked!");
-    });
+    }
+    );
   }
 
   dislikeMedia() {
@@ -91,7 +92,8 @@ export class MediaPlayerPage {
       resp => {
       console.log(resp.json());
       
-    });
+    }
+    );
   }
 
 
