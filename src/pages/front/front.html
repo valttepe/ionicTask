@@ -16,9 +16,12 @@
 <ion-content>
     <ion-card *ngFor="let image of images">
         <ion-item>
-            <a (click)="openFile(image.file_id)">
-                <img [alt]="image.title" [src]='url + ( image.filename | thumbnail: "small")' />
-            </a>
+            <ion-thumbnail item-left>
+                <a (click)="openFile(image.file_id)">
+                    <img [alt]="image.title" [src]='url + ( image.filename | thumbnail: "small")' />
+                </a>
+            </ion-thumbnail>
+            <h2>Description: {{ file.description }}</h2>
         </ion-item>
     </ion-card>
 </ion-content>
