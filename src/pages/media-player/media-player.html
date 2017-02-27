@@ -48,7 +48,7 @@
             Comments
         </ion-list-header>
         <ion-item *ngFor="let comment of comments">
-            <h4> </h4>
+            <h4>{{comment.username}} </h4>
             <p>{{comment.comment}}</p>
             <p> {{comment.time_added}}</p>
         </ion-item>
@@ -56,7 +56,7 @@
     </ion-list>
 
 
-    <form #commentForm="ngForm" (ngSubmit)="postComment(commentForm.value)">
+    <form #commentForm="ngForm" (ngSubmit)="postComment(commentForm.value)" (ngSubmit)="onSubmit()">
 
         <ion-list inset>
 

@@ -156,6 +156,9 @@ export class MediaPlayerPage {
     }
   }
 
+  onSubmit():void{
+    this.commentCredentials.comment = '';
+  }
 
 }
 
