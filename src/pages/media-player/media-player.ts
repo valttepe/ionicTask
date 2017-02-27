@@ -128,7 +128,6 @@ export class MediaPlayerPage {
         console.log(resp);
         this.comments = resp;
         if (this.comments != null) {
-
           this.getCommentUsers();
           console.log("userlist");
           console.log(this.commentUser);
@@ -146,7 +145,10 @@ export class MediaPlayerPage {
           console.log("user");
           console.log(res);
           this.commentUser.push(res);
+          
         });
     }
   }
+
+
 }
