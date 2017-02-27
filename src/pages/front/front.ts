@@ -17,6 +17,7 @@ import { NavController, NavParams } from 'ionic-angular';
 export class FrontPage {
 
   private images: any =[];
+  private postUser: any = [];
   private url = "http://media.mw.metropolia.fi/wbma/uploads/";
   constructor(public navCtrl: NavController, public navParams: NavParams, private mediaService: Media) {}
 
@@ -26,6 +27,13 @@ export class FrontPage {
       res => {
         console.log(res);
         this.images = res;
+        this.postUser.length = this.images.length;
+        console.log(this.postUser);
+        if (this.images != null) {
+          this.getPostUsers();
+          console.log("userlist");
+          console.log(this.images[0]);
+        }
       }
     );
   }
@@ -35,5 +43,23 @@ export class FrontPage {
       firstPassed: fileid,
     });
   }
+
+  getPostUsers = () => {
+    for (let user of this.images) {
+      //console.log(user);
+      this.mediaService.getUserInfo(user.user_id).subscribe(
+        res => {
+          //console.log("user");
+          //console.log(res);
+          for (let i in this.images) {
+            if (this.images[i].user_id == res.user_id) {
+              this.images[i].username = res.username;
+            }
+          }
+        });
+    }
+  }
+
+
 
 }
