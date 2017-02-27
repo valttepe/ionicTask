@@ -10,8 +10,10 @@ import 'rxjs/add/operator/map';
 */
 @Injectable()
 export class Media {
+
   private url: string = 'http://media.mw.metropolia.fi/wbma';
   private token: any = {};
+
   constructor(public http: Http) {
     console.log('Hello Media Provider');
   }
@@ -40,12 +42,11 @@ export class Media {
       .map(
       resp => {
         resp.json();
-       // this.router.navigate(['front']);
+        //this.router.navigate(['front']);
       },
       error => {
         console.log(error);
-      }
-      );
+      });
   }
 
   //get one mediafile to media display page and needs file_id as parameter

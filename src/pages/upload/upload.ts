@@ -14,15 +14,15 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class UploadPage {
 
-  uploadCredentials = {file: '', title: '', description: ''};
+  uploadCredentials = { file: '', title: '', description: '' };
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private mediaService: Media) {}
+  constructor(public navCtrl: NavController, public navParams: NavParams, private mediaService: Media) { }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad UploadPage');
   }
 
-    upload = (event: any, value: any) => {
+  upload = (event: any, value: any) => {
     const fileELement = event.target.querySelector('input[type=file]');
     const file = fileELement.files[0];
 
