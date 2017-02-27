@@ -117,6 +117,7 @@ export class MediaPlayerPage {
     this.mediaService.postComment(this.commentCredentials).subscribe(
       resp => {
         console.log(resp);
+        this.getComments();
       }
     );
   }
@@ -127,10 +128,12 @@ export class MediaPlayerPage {
         console.log("Here is commentlist");
         console.log(resp);
         this.comments = resp;
+        this.commentUser.length = this.comments.length;
+        console.log(this.commentUser);
         if (this.comments != null) {
           this.getCommentUsers();
           console.log("userlist");
-          console.log(this.commentUser);
+          console.log(this.comments[0]);
         }
       });
 
@@ -144,11 +147,15 @@ export class MediaPlayerPage {
         res => {
           console.log("user");
           console.log(res);
-          this.commentUser.push(res);
-          
+          for (let i in this.comments) {
+            if (this.comments[i].user_id == res.user_id) {
+              this.comments[i].username = res.username;
+            }
+          }
         });
     }
   }
 
 
 }
+
