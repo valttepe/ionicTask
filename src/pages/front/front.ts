@@ -1,3 +1,5 @@
+import { Login } from './../../providers/login';
+import { LoginPage } from './../login/login';
 import { MediaPlayerPage } from './../media-player/media-player';
 import { ThumbnailPipe } from './../../app/pipes/thumbnail.pipe';
 import { Media } from './../../providers/media';
@@ -19,7 +21,7 @@ export class FrontPage {
   private images: any =[];
   private postUser: any = [];
   private url = "http://media.mw.metropolia.fi/wbma/uploads/";
-  constructor(public navCtrl: NavController, public navParams: NavParams, private mediaService: Media) {}
+  constructor(public navCtrl: NavController, public navParams: NavParams, private mediaService: Media, private loginService: Login) {}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad FrontPage');
@@ -29,7 +31,7 @@ export class FrontPage {
         this.images = res;
         this.postUser.length = this.images.length;
         console.log(this.postUser);
-        if (this.images != null) {
+        if (this.images != null && this.loginService.logged == true) {
           this.getPostUsers();
           console.log("userlist");
           console.log(this.images[0]);
@@ -58,6 +60,10 @@ export class FrontPage {
           }
         });
     }
+  }
+
+  getToLogin = () => {
+    this.navCtrl.setRoot(LoginPage);
   }
 
 
