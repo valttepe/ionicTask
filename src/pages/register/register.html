@@ -25,15 +25,17 @@
             <ion-input type="text" name="username" [(ngModel)]="registerCredentials.username"></ion-input>
         </ion-item>
 
+         <ion-item>
+            <ion-label floating>Password</ion-label>
+            <ion-input type="password" name="password" [(ngModel)]="registerCredentials.password"></ion-input>
+        </ion-item>
+
         <ion-item>
             <ion-label floating>Email</ion-label>
             <ion-input type="email" name="email" [(ngModel)]="registerCredentials.email"></ion-input>
         </ion-item>
 
-        <ion-item>
-            <ion-label floating>Password</ion-label>
-            <ion-input type="password" name="password" [(ngModel)]="registerCredentials.password"></ion-input>
-        </ion-item>
+       
         <button ion-button>Submit</button>
     </form>
 

@@ -16,18 +16,45 @@ import { NavController, NavParams } from 'ionic-angular';
 export class RegisterPage {
 
   registerCredentials = {username: '', password: '', email: ''};
+  private user: any ={};
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private loginService: Login) {}
+  constructor(
+        public navCtrl: NavController,
+        public navParams: NavParams,
+        private loginService: Login) {
+
+          }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RegisterPage');
   }
 
   register = (value: any) => {
-    //console.log(value);
-    this.loginService.setUser(value);
-    this.loginService.register();
-    this.navCtrl.setRoot(FrontPage);
+    console.log(value);
+    this.user = value;
+    this.loginService.setUser(this.user);
+    this.loginService.register().subscribe(
+      resp => {
+        console.log(resp);
+        this.user.user_id = resp.user_id;
+        this.loginService.setUser(this.user);
+        //login after Register
+        this.loginService.login().subscribe(
+          resp => {
+            console.log(resp);
+            this.user = resp.user;
+            this.user.token = resp.token;
+            this.loginService.setUser(this.user);
+            localStorage.setItem("user", JSON.stringify(this.user));
+            this.loginService.logged = true;
+            this.navCtrl.setRoot(FrontPage);
+          }
+        )
+      },
+      error => {
+        console.log(error);
+      }
+    );
   }
 
 }

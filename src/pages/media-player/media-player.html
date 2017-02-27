@@ -19,25 +19,59 @@
         <h3>{{ file.title }}</h3>
         <img *ngIf="file.media_type == 'image'" [alt]="file.title" [src]='url + file.filename' />
         <audio *ngIf="file.media_type == 'audio'" controls>
-    <source [src]='url + file.filename' [type]="file.mime_type">
-    Your browser does not support the audio element.
-  </audio>
+            <source [src]='url + file.filename' [type]="file.mime_type"> Your browser does not support the audio element.
+        </audio>
         <video *ngIf="file.media_type == 'video'" width="320" height="240" controls>
-    <source [src]='url + file.filename' type="file.mime_type">
-    Your browser does not support the video tag.
-  </video>
+            <source [src]='url + file.filename' type="file.mime_type"> Your browser does not support the video tag.
+        </video>
 
         <p>Description: {{ file.description }}</p>
         <p>Username: {{ user.username }}</p>
         <p>File size: {{ file.filesize }}</p>
 
-        <p>Liked: {{ favorite.length }}</p>
 
-        <button *ngIf="!likes" (click)="likeMedia()">Like this Media</button>
-        <button *ngIf="likes" (click)="dislikeMedia()">Dislike this Media</button>
+
+        <button *ngIf="!likes" (click)="likeMedia()" ion-button icon-left clear small>
+            <ion-icon name="thumbs-up" ></ion-icon>
+            <div>Likes {{ favorite.length }}</div>
+        </button>
+
+        <button *ngIf="likes" (click)="dislikeMedia()" ion-button icon-left clear small>
+            <ion-icon name="thumbs-down" ></ion-icon>
+            <div>Likes {{ favorite.length }}</div>
+        </button>
 
     </div>
+    
+    <ion-list>
+        <ion-list-header>
+            Comments
+        </ion-list-header>
+        <ion-item *ngFor="let comment of comments">
+            <h4> </h4>
+            <p>{{comment.comment}}</p>
+            <p> {{comment.time_added}}</p>
+        </ion-item>
+        
+    </ion-list>
 
+ 
+    <form #commentForm="ngForm" (ngSubmit)="postComment(commentForm.value)">
+
+        <ion-list inset>
+
+            <ion-item>
+                <ion-label>Comment</ion-label>
+                <ion-input type="text" name="comment" [(ngModel)]="commentCredentials.comment"></ion-input>
+            </ion-item>
+
+
+            <button ion-button>Comment</button>
+
+        </ion-list>
+
+    </form>
+    
 
 
 </ion-content>

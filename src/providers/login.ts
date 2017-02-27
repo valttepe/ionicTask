@@ -1,6 +1,6 @@
 import { NavController, NavParams } from 'ionic-angular';
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { Http, Headers, RequestOptions, Response } from '@angular/http';
 import 'rxjs/add/operator/map';
 
 /*
@@ -18,7 +18,7 @@ export class Login {
 
   private user: any = {};
 
-  constructor(public http: Http ) {
+  constructor(public http: Http) {
     console.log('Hello Login Provider');
   }
   setUser = (user) => {
@@ -31,48 +31,42 @@ export class Login {
     return this.user;
   }
 
- login = () => {
+  getUserInfo = () => {
+    const headers = new Headers({ 'x-access-token': this.getUser().token });
+    const options = new RequestOptions({ headers: headers });
+
+    return this.http.get(this.url + '/users/' + this.user.user_id, options)
+      .map(
+      (resp: Response) =>
+        resp.json()
+      );
+  };
+
+
+  login = () => {
     // this.http.post(this.url, this.user,.....)
     return this.http.post(this.url + '/login', this.user)
-      .subscribe(
-      resp => {
-        const dataFromServer = resp.json();
-        // save userdata to Local Storage
-        this.user = dataFromServer.user;
-        this.user.token = dataFromServer.token;
-        console.log(this.user);
-        localStorage.setItem("user", JSON.stringify(this.user));
-        this.logged = true;
-        // navigate to 'front'
-        //this.router.navigate(['front']);
-      },
-      error => {
-        console.log(error);
-      }
-      );
+      .map(
+      (resp: Response) =>
+        resp.json()
+      )
 
- }
-      
+  }
+
+  logout = () => {
+    localStorage.removeItem("user");
+    this.logged = false;
+    return true;
+  }
 
 
   register = () => {
     // this.http.post(this.url, this.user,.....)
     return this.http.post(this.url + '/users', this.user)
-      .subscribe(
-      resp => {
-        this.user.user_id = resp.json().user_id;
-        console.log(this.user);
-        //this.router.navigate(['login']);
-      },
-      error => {
-        console.log(error);
-      }
+      .map(
+        (resp: Response) =>
+          resp.json()
       );
   }
-
-
-
-
-
 }
 
