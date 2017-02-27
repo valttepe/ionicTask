@@ -25,3 +25,14 @@ body {
 ul {
     list-style-type: none;
 }
+
+.toolbar-background {
+    background-color: $bg-color;
+}
+
+.item {
+    background-color: $btn-color;
+    .label {
+        color: #fff;
+    }
+}
