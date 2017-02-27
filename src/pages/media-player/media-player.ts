@@ -59,6 +59,7 @@ export class MediaPlayerPage {
       }
     );
   }
+
   getFavorites = (firstParam: any) => {
     this.mediaService.getFavorites(firstParam).subscribe(
       resp => {
@@ -78,25 +79,38 @@ export class MediaPlayerPage {
       if (user.user_id == like.user_id) {
         this.likes = true;
       }
-
     }
   }
 
   likeMedia() {
     this.mediaService.likeMedia(this.firstParam).subscribe(
       resp => {
+<<<<<<< HEAD
         console.log(resp.json());
         console.log("liked!");
         this.getFavorites(this.firstParam);
       });
+=======
+      console.log(resp.json());
+      console.log("liked!");
+    }
+    );
+>>>>>>> 49f81738e7befb4ea2b6cb570afb2405a72c4316
   }
 
   dislikeMedia() {
     this.mediaService.dislikeMedia(this.firstParam).subscribe(
       resp => {
+<<<<<<< HEAD
         console.log(resp.json());
         this.getFavorites(this.firstParam);
       });
+=======
+      console.log(resp.json());
+      
+    }
+    );
+>>>>>>> 49f81738e7befb4ea2b6cb570afb2405a72c4316
   }
 
   postComment = (value: any) => {
