@@ -16,7 +16,7 @@ export class MediaPlayerPage {
   private file: any = [];
   private user: any = [];
   private firstParam: any;
-  commentCredentials = { file_id: '', comment: '' };
+  private commentCredentials = { file_id: '', comment: '' };
   private comments: any = [];
   private favorite: any;
   private likes = false;
@@ -110,7 +110,7 @@ export class MediaPlayerPage {
 
   postComment = (value: any) => {
     console.log(this.firstParam);
-    console.log(value);
+    console.log(value.comment);
     this.commentCredentials.file_id = this.firstParam;
     console.log(this.commentCredentials);
     this.mediaService.postComment(this.commentCredentials).subscribe(
@@ -127,7 +127,7 @@ export class MediaPlayerPage {
         //console.log("Here is commentlist");
         //console.log(resp);
         this.comments = resp;
-        
+
         //console.log(this.commentUser);
         if (this.comments != null) {
           this.getCommentUsers();
@@ -155,7 +155,7 @@ export class MediaPlayerPage {
     }
   }
 
-  onSubmit():void{
+  onSubmit(): void {
     this.commentCredentials.comment = '';
   }
 

@@ -39,7 +39,7 @@ export class Media {
     return this.http.post(this.url + '/media?token=' + JSON.parse(localStorage.getItem("user")).token, formContent)
       .map(
       resp => {
-        resp.json();
+        resp.json()
        // this.router.navigate(['front']);
       },
       error => {
@@ -53,7 +53,7 @@ export class Media {
   }
 
   getTagFilter = () => {
-    
+
   }
 
 
