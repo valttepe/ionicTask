@@ -25,6 +25,7 @@ body {
 ul {
     list-style-type: none;
 }
+<<<<<<< HEAD
 
 .toolbar-background {
     background-color: $bg-color;
@@ -35,4 +36,8 @@ ul {
     .label {
         color: #fff;
     }
+=======
+html {
+    background-color: $lg-color;
+>>>>>>> cleanup
 }

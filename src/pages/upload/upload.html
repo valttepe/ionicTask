@@ -18,7 +18,7 @@
 <ion-content padding>
 
 
-    <form #uploadForm="ngForm" (ngSubmit)="upload($event, uploadForm.value)">
+    <!--<form #uploadForm="ngForm" (ngSubmit)="upload($event, uploadForm.value)">
 
         <p>
             <label>Select File:</label>
@@ -37,7 +37,7 @@
 
         
         <button ion-button>Submit</button>
-    </form>
+    </form>-->
 
     <!--<form #uploadForm="ngForm" (ngSubmit)="upload($event, uploadForm.value)">
         <p>
@@ -56,5 +56,23 @@
             <button type="submit" [disabled]="!uploadForm.valid">Submit</button>
         </p>
     </form>-->
+    <!--<h3>Upload</h3>-->
+    <form #uploadForm="ngForm" (ngSubmit)="upload($event, uploadForm.value)">
+        <p>
+            <label>Select beer:</label>
+            <input type="file" name="file" ngModel>
+        </p>
+        <p>
+            <label>Beer name</label>
+            <input type="text" name="title" ngModel required>
+        </p>
+        <p>
+            <label>How was your beer?</label><br>
+            <input type="text" name="description" ngModel required>
+        </p>
+        <p>
+            <button type="submit" [disabled]="!uploadForm.valid">Submit</button>
+        </p>
+    </form>
 
 </ion-content>

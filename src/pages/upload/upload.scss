@@ -1,3 +1,37 @@
 page-upload {
-
+    .scroll-content {
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: center;
+        form{
+            font-family: $button-font;
+            color: white;
+            margin: auto;
+            margin-top: 5em;
+            padding: 1em 2em;
+            background-color: $btn-color;
+            p {
+                padding: 0.5em 0;
+                border-bottom: 2px solid $btn-shadow;
+                input {
+                    color: black;
+                }
+            }
+            button {
+                background-color: #4a7e84;
+                border: none;
+                font-family: Arial;
+                color: white;
+                text-align: center;
+                text-transform: uppercase;
+                padding: 0.625em;
+                font-size: 0.75em;
+                overflow: hidden;
+                position: relative;
+                margin-bottom: 1em;
+                min-height: 2.6em;
+                width: 100%;
+            }
+        }
+    }
 }
