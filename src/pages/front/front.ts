@@ -24,6 +24,9 @@ export class FrontPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad FrontPage');
+    if(this.loginService.logged == false){
+      this.navCtrl.setRoot(LoginPage);
+    }
     this.mediaService.getMedia().subscribe(
       res => {
         console.log(res);

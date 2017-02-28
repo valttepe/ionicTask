@@ -48,6 +48,15 @@ export class Media {
       );
   }
 
+  postTagFilter = () => {
+
+  }
+
+  getTagFilter = () => {
+    
+  }
+
+
   //get one mediafile to media display page and needs file_id as parameter
 
   getMediaFile = (fileid: any) => {
