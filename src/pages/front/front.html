@@ -29,9 +29,11 @@
                     <img [alt]="image.title" [src]='url + ( image.filename | thumbnail: "small")' />
                 </a>
             </ion-thumbnail>
+            <p style="color: white">@{{image.username}}</p>
             <h2 style="color: white">{{image.title}}</h2><br>
             <p style="color: white">{{image.description}}</p>
-            <p style="color: white">@{{image.username}}</p>
+            <!--<p style="float: right">{{ }}</p>-->
+
         </ion-item>
     </ion-card>
 </ion-content>
