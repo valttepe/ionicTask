@@ -20,10 +20,10 @@
 
     <form #uploadForm="ngForm" (ngSubmit)="upload($event, uploadForm.value)">
 
-        <ion-item>
-            <ion-label floating>File</ion-label>
-            <ion-input type="file" name="file" [(ngModel)]="uploadCredentials.file"></ion-input>
-        </ion-item>
+        <p>
+            <label>Select File:</label>
+            <input type="file" name="file" ngModel>
+        </p>
 
         <ion-item>
             <ion-label floating>Title</ion-label>
@@ -34,6 +34,8 @@
             <ion-label floating>Description</ion-label>
             <ion-input type="text" name="description" [(ngModel)]="uploadCredentials.description"></ion-input>
         </ion-item>
+
+        
         <button ion-button>Submit</button>
     </form>
 

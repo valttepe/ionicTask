@@ -16,7 +16,8 @@ export class MediaPlayerPage {
   private file: any = [];
   private user: any = [];
   private firstParam: any;
-
+  commentCredentials = { file_id: '', comment: '' };
+  private comments: any = [];
   private favorite: any;
   private likes = false;
 
@@ -28,15 +29,16 @@ export class MediaPlayerPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad MediaPlayerPage');
-  
+
     console.log(this.firstParam);
     this.getFile(this.firstParam);
-    
-    this.getFavorites(this.firstParam);
-    
-    
 
-}
+    this.getFavorites(this.firstParam);
+    this.getComments();
+
+
+
+  }
 
   getFile = (filen: any) => {
     this.mediaService.getMediaFile(filen).subscribe(
@@ -63,14 +65,15 @@ export class MediaPlayerPage {
         this.favorite = resp.json();
         console.log(this.favorite);
         this.checkIfLiked();
-
       }
     );
   }
 
-  checkIfLiked(){
+  checkIfLiked() {
     let user = JSON.parse(window.localStorage.getItem("user"));
     console.log(user);
+    console.log(this.favorite);
+    this.likes = false;
     for (let like of this.favorite) {
       if (user.user_id == like.user_id) {
         this.likes = true;
@@ -81,20 +84,80 @@ export class MediaPlayerPage {
   likeMedia() {
     this.mediaService.likeMedia(this.firstParam).subscribe(
       resp => {
-      console.log(resp.json());
-      console.log("liked!");
-    }
+
+        console.log(resp.json());
+        console.log("liked!");
+        this.getFavorites(this.firstParam);
+        console.log(resp.json());
+        console.log("liked!");
+      }
     );
+
   }
 
   dislikeMedia() {
     this.mediaService.dislikeMedia(this.firstParam).subscribe(
       resp => {
-      console.log(resp.json());
-      
-    }
+
+        console.log(resp.json());
+        this.getFavorites(this.firstParam);
+        console.log(resp.json());
+
+      }
+    );
+
+  }
+
+  postComment = (value: any) => {
+    console.log(this.firstParam);
+    console.log(value);
+    this.commentCredentials.file_id = this.firstParam;
+    console.log(this.commentCredentials);
+    this.mediaService.postComment(this.commentCredentials).subscribe(
+      resp => {
+        console.log(resp);
+        this.getComments();
+      }
     );
   }
 
+  getComments = () => {
+    this.mediaService.getComments(this.firstParam).subscribe(
+      resp => {
+        //console.log("Here is commentlist");
+        //console.log(resp);
+        this.comments = resp;
+        
+        //console.log(this.commentUser);
+        if (this.comments != null) {
+          this.getCommentUsers();
+          console.log("userlist");
+          console.log(this.comments);
+        }
+      });
+
+  }
+
+
+  getCommentUsers = () => {
+    for (let user of this.comments) {
+      //console.log(user);
+      this.mediaService.getUserInfo(user.user_id).subscribe(
+        res => {
+          //console.log("user");
+          //console.log(res);
+          for (let i in this.comments) {
+            if (this.comments[i].user_id == res.user_id) {
+              this.comments[i].username = res.username;
+            }
+          }
+        });
+    }
+  }
+
+  onSubmit():void{
+    this.commentCredentials.comment = '';
+  }
 
 }
+

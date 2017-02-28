@@ -1,3 +1,12 @@
 page-media-player {
-
+    .thumb-button {
+        color: #ee7600;
+    }
+    .button-md:hover:not(.disable-hover) {
+        background-color: #FFD968;
+    }
+    .comment-time {
+        color: white;
+        padding-left: 1em;
+    }
 }

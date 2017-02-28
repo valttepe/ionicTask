@@ -16,32 +16,52 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class LoginPage {
 
-  private url: string = 'http://media.mw.metropolia.fi/wbma';
-  registerCredentials = {username: '', password: ''};
-  
+  registerCredentials = { username: '', password: '' };
+
   private user: any = {};
-  constructor(public navCtrl: NavController, public navParams: NavParams, public loginService: Login, private http: Http) { }
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public loginService: Login,
+    private http: Http
+  ) { }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
     if (localStorage.getItem("user") !== null) {
       this.loginService.setUser(JSON.parse(localStorage.getItem("user")));
-      this.loginService.logged = true;
-      //this.router.navigate(['front']);
-    } else if (this.loginService.getUser().password !== undefined) {
-      this.loginService.login();
+      this.loginService.getUserInfo()
+        .subscribe(
+        resp => {
+          this.loginService.logged = true;
+          this.navCtrl.setRoot(FrontPage);
+        },
+        error => {
+          console.log(error);
+          this.loginService.logout();
+        }
+        )
     }
   }
 
   login = (value: any) => {
     console.log(this.registerCredentials);
     console.log(value);
-    this.loginService.setUser(this.registerCredentials);
-    this.loginService.login();
-    this.navCtrl.setRoot(FrontPage);
-    
-    // this.http.post(this.url, this.user,.....)
-  
+    this.loginService.setUser(value);
+    this.loginService.login().subscribe(
+      resp => {
+        this.user = resp.user;
+        console.log(this.user);
+        this.user.token = resp.token;
+        this.loginService.setUser(this.user);
+        localStorage.setItem("user", JSON.stringify(this.user));
+        this.loginService.logged = true;
+        this.navCtrl.setRoot(FrontPage);
+      },
+      error => {
+        console.log(error);
+      }
+    )
 
 
   }

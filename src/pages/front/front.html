@@ -10,6 +10,14 @@
       <ion-icon name="menu"></ion-icon>
     </button>
         <ion-title>Front</ion-title>
+        <button ion-button login class="loginbutton" (click)=getToLogin()>
+          <ion-icon name="log-in"></ion-icon>
+        </button>
+
+        <button ion-button login class="loginbutton" (click)=logout()>
+          <ion-icon name="log-out"></ion-icon>
+        </button>
+
     </ion-navbar>
 </ion-header>
 
@@ -21,7 +29,10 @@
                     <img [alt]="image.title" [src]='url + ( image.filename | thumbnail: "small")' />
                 </a>
             </ion-thumbnail>
-            <h2 style="color: white">{{image.title}}</h2>
+            <p style="color: white">@{{image.username}}</p>
+            <h2 style="color: white">{{image.title}}</h2><br>
+            <p style="color: white">{{image.description}}</p>
+            <!--<p style="float: right">{{ amount likes come here }}</p>-->
         </ion-item>
     </ion-card>
 </ion-content>

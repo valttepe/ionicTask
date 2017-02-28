@@ -49,6 +49,15 @@ export class Media {
       });
   }
 
+  postTagFilter = () => {
+
+  }
+
+  getTagFilter = () => {
+    
+  }
+
+
   //get one mediafile to media display page and needs file_id as parameter
 
   getMediaFile = (fileid: any) => {
@@ -93,6 +102,26 @@ export class Media {
     this.token = JSON.parse(localStorage.getItem("user")).token;
     console.log(this.token);
     return this.http.delete(this.url + `/favourites/file/${id}?token=` + this.token);
+  }
+
+  postComment = (comment: any) => {
+    console.log("postComment" + comment);
+    this.token = JSON.parse(localStorage.getItem("user")).token;
+    console.log(this.token);
+    return this.http.post(this.url + '/comments?token=' + this.token, comment)
+    .map(
+      re =>
+        re.json()
+      );
+  }
+
+  getComments = (id: number) => {
+    console.log("getComments");
+    return this.http.get(this.url + '/comments/file/' + id)
+    .map(
+      res =>
+        res.json()
+    );
   }
 
 }

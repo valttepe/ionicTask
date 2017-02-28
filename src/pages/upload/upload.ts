@@ -1,3 +1,4 @@
+import { FrontPage } from './../front/front';
 import { Media } from './../../providers/media';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
@@ -35,7 +36,13 @@ export class UploadPage {
       .subscribe(
       data => {
         console.log(data);
+        this.navCtrl.setRoot(FrontPage);
       }
       );
   }
+
+  filterTag = () => {
+
+  }
+
 }

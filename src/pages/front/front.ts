@@ -1,3 +1,5 @@
+import { Login } from './../../providers/login';
+import { LoginPage } from './../login/login';
 import { MediaPlayerPage } from './../media-player/media-player';
 import { ThumbnailPipe } from './../../app/pipes/thumbnail.pipe';
 import { Media } from './../../providers/media';
@@ -16,24 +18,60 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class FrontPage {
 
-  private images: any =[];
+  private images: any = [];
   private url = "http://media.mw.metropolia.fi/wbma/uploads/";
-  constructor(public navCtrl: NavController, public navParams: NavParams, private mediaService: Media) {}
+  constructor(public navCtrl: NavController, public navParams: NavParams, private mediaService: Media, private loginService: Login) { }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad FrontPage');
+    if (this.loginService.logged == false) {
+      this.navCtrl.setRoot(LoginPage);
+    }
     this.mediaService.getMedia().subscribe(
       res => {
         console.log(res);
         this.images = res;
+        if (this.images != null && this.loginService.logged == true) {
+          this.getPostUsers();
+          console.log("userlist");
+          console.log(this.images[0]);
+        }
       }
     );
   }
 
-  openFile = (fileid: any) =>{
+  openFile = (fileid: any) => {
     this.navCtrl.push(MediaPlayerPage, {
       firstPassed: fileid,
     });
   }
+
+  getPostUsers = () => {
+    for (let user of this.images) {
+      //console.log(user);
+      this.mediaService.getUserInfo(user.user_id).subscribe(
+        res => {
+          //console.log("user");
+          //console.log(res);
+          for (let i in this.images) {
+            if (this.images[i].user_id == res.user_id) {
+              this.images[i].username = res.username;
+            }
+          }
+        });
+    }
+  }
+
+  getToLogin() {
+    this.navCtrl.setRoot(LoginPage);
+  }
+
+  logout() {
+    localStorage.removeItem("user");
+    this.loginService.logged = false;
+    this.navCtrl.setRoot(LoginPage);
+  }
+
+
 
 }
