@@ -19,7 +19,6 @@ import { NavController, NavParams } from 'ionic-angular';
 export class FrontPage {
 
   private images: any =[];
-  private postUser: any = [];
   private url = "http://media.mw.metropolia.fi/wbma/uploads/";
   constructor(public navCtrl: NavController, public navParams: NavParams, private mediaService: Media, private loginService: Login) {}
 
@@ -29,8 +28,6 @@ export class FrontPage {
       res => {
         console.log(res);
         this.images = res;
-        this.postUser.length = this.images.length;
-        console.log(this.postUser);
         if (this.images != null && this.loginService.logged == true) {
           this.getPostUsers();
           console.log("userlist");
@@ -62,7 +59,7 @@ export class FrontPage {
     }
   }
 
-  getToLogin = () => {
+  getToLogin(){
     this.navCtrl.setRoot(LoginPage);
   }
 

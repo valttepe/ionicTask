@@ -18,7 +18,6 @@ export class MediaPlayerPage {
   private firstParam: any;
   commentCredentials = { file_id: '', comment: '' };
   private comments: any = [];
-  private commentUser: any = [];
   private favorite: any;
   private likes = false;
 
@@ -125,15 +124,15 @@ export class MediaPlayerPage {
   getComments = () => {
     this.mediaService.getComments(this.firstParam).subscribe(
       resp => {
-        console.log("Here is commentlist");
-        console.log(resp);
+        //console.log("Here is commentlist");
+        //console.log(resp);
         this.comments = resp;
-        this.commentUser.length = this.comments.length;
-        console.log(this.commentUser);
+        
+        //console.log(this.commentUser);
         if (this.comments != null) {
           this.getCommentUsers();
           console.log("userlist");
-          console.log(this.comments[0]);
+          console.log(this.comments);
         }
       });
 
@@ -142,11 +141,11 @@ export class MediaPlayerPage {
 
   getCommentUsers = () => {
     for (let user of this.comments) {
-      console.log(user);
+      //console.log(user);
       this.mediaService.getUserInfo(user.user_id).subscribe(
         res => {
-          console.log("user");
-          console.log(res);
+          //console.log("user");
+          //console.log(res);
           for (let i in this.comments) {
             if (this.comments[i].user_id == res.user_id) {
               this.comments[i].username = res.username;
