@@ -18,3 +18,7 @@ page-front {}
     background-color: #ee7600;
     padding: 1.5em;
 }
+
+.button-md:hover:not(.disable-hover) {
+    background-color: #ee7600;
+}

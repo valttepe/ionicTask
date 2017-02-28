@@ -32,13 +32,13 @@
 
 
         <button *ngIf="!likes" (click)="likeMedia()" ion-button icon-left clear small>
-            <ion-icon name="thumbs-up" ></ion-icon>
-            <div>Likes {{ favorite.length }}</div>
+            <ion-icon class="thumb-button" name="thumbs-up" ></ion-icon>
+            <div class="thumb-button">Likes {{ favorite.length }}</div>
         </button>
 
         <button *ngIf="likes" (click)="dislikeMedia()" ion-button icon-left clear small>
-            <ion-icon name="thumbs-down" ></ion-icon>
-            <div>Likes {{ favorite.length }}</div>
+            <ion-icon class="thumb-button" name="thumbs-down" ></ion-icon>
+            <div class="thumb-button">Likes {{ favorite.length }}</div>
         </button>
 
     </div>
@@ -48,9 +48,9 @@
             Comments
         </ion-list-header>
         <ion-item *ngFor="let comment of comments">
-            <h4>{{comment.username}} </h4>
-            <p>{{comment.comment}}</p>
-            <p> {{comment.time_added}}</p>
+            <h2>{{comment.username}} </h2>
+            <p class="comment-time">{{comment.comment}}</p>
+            <p class="comment-time"> {{comment.time_added}}</p>
         </ion-item>
 
     </ion-list>
