@@ -18,13 +18,13 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class FrontPage {
 
-  private images: any =[];
+  private images: any = [];
   private url = "http://media.mw.metropolia.fi/wbma/uploads/";
-  constructor(public navCtrl: NavController, public navParams: NavParams, private mediaService: Media, private loginService: Login) {}
+  constructor(public navCtrl: NavController, public navParams: NavParams, private mediaService: Media, private loginService: Login) { }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad FrontPage');
-    if(this.loginService.logged == false){
+    if (this.loginService.logged == false) {
       this.navCtrl.setRoot(LoginPage);
     }
     this.mediaService.getMedia().subscribe(
@@ -40,7 +40,7 @@ export class FrontPage {
     );
   }
 
-  openFile = (fileid: any) =>{
+  openFile = (fileid: any) => {
     this.navCtrl.push(MediaPlayerPage, {
       firstPassed: fileid,
     });
@@ -62,7 +62,13 @@ export class FrontPage {
     }
   }
 
-  getToLogin(){
+  getToLogin() {
+    this.navCtrl.setRoot(LoginPage);
+  }
+
+  logout() {
+    localStorage.removeItem("user");
+    this.loginService.logged = false;
     this.navCtrl.setRoot(LoginPage);
   }
 
