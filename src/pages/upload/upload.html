@@ -59,11 +59,11 @@
     <!--<h3>Upload</h3>-->
     <form #uploadForm="ngForm" (ngSubmit)="upload($event, uploadForm.value)">
         <p>
-            <label>Select beer:</label>
+            <label>Select beer:</label><br>
             <input type="file" name="file" ngModel>
         </p>
         <p>
-            <label>Beer name</label>
+            <label>Beer name</label><br>
             <input type="text" name="title" ngModel required>
         </p>
         <p>
