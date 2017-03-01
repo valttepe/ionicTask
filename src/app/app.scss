@@ -41,7 +41,36 @@ ul {
 html {
     background-color: $lg-color;
 
+
 }
 
 
+
+
+.scroll-content {
+    background-color: $lg-color;
+    ul {
+        display: flex;
+        flex-flow: column wrap;
+        align-content: center;
+        li {
+            padding: 1em;
+            width: 480px;
+        }
+    }
+}
+.toolbar-content {
+    //Flexboxes navbar so title and buttons are in row and not in column.
+    display: flex;
+    flex-flow: row wrap;
+}
+.loginbutton {
+    float: right;
+    background-color: #ee7600;
+    padding: 1.5em;
+}
+
+.button-md:hover:not(.disable-hover) {
+    background-color: #ee7600;
+}
 

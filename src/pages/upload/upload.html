@@ -57,12 +57,10 @@
         </p>
     </form>-->
     <!--<h3>Upload</h3>-->
-    <form #uploadForm="ngForm" (ngSubmit)="upload($event, uploadForm.value)">
-        <p>
-            <label>Select beer:</label><br>
-            <input type="file" name="file" ngModel>
-        </p>
-        <p>
+
+        
+
+        <!--<p>
             <label>Beer name</label><br>
             <input type="text" name="title" ngModel required>
         </p>
@@ -72,7 +70,24 @@
         </p>
         <p>
             <button type="submit" [disabled]="!uploadForm.valid">Submit</button>
-        </p>
-    </form>
+        </p>-->
+    <form #uploadForm="ngForm" (ngSubmit)="upload($event, uploadForm.value)">
+        <div class="upload-file">
+            <label>Select beer:</label><br>
+            <input type="file" name="file" ngModel>
+        </div>
 
+        <ion-item>
+            <ion-label floating>Title</ion-label>
+            <ion-input type="text" name="title" [(ngModel)]="uploadCredentials.title"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label stacked>Description</ion-label>
+            <ion-textarea name="description" [(ngModel)]="uploadCredentials.description"></ion-textarea>
+        </ion-item>
+
+        <button ion-button type="submit" [disabled]="!uploadForm.valid">Upload</button>
+
+    </form>
 </ion-content>
