@@ -1,6 +1,12 @@
-page-front {}
+page-front {
 
-.scroll-content {
+}
+
+/*
+Moved scss below to app.scss because these were global.
+*/
+
+/*.scroll-content {
     background-color: $lg-color;
     ul {
         display: flex;
@@ -21,4 +27,4 @@ page-front {}
 
 .button-md:hover:not(.disable-hover) {
     background-color: #ee7600;
-}
+}*/
