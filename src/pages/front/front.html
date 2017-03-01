@@ -24,14 +24,15 @@
 <ion-content>
     <ion-card *ngFor="let image of images">
         <ion-item>
-            <ion-thumbnail item-left>
+            <h2 style="color: white">{{image.title}}</h2>
+            <h2 class="imagetitle" style="color: white">@{{image.username}}</h2>
+            <!--<ion-thumbnail>-->
                 <a (click)="openFile(image.file_id)">
                     <img [alt]="image.title" [src]='url + ( image.filename | thumbnail: "small")' />
                 </a>
-            </ion-thumbnail>
-            <p style="color: white">@{{image.username}}</p>
-            <h2 style="color: white">{{image.title}}</h2><br>
+            <!--</ion-thumbnail>-->
             <p style="color: white">{{image.description}}</p>
+            
             <!--<p style="float: right">{{ amount likes come here }}</p>-->
         </ion-item>
     </ion-card>
