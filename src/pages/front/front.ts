@@ -30,7 +30,7 @@ export class FrontPage {
     
   }
 
-  getMedia = () => {
+  getMedia = (refresher = null) => {
     this.mediaService.getMedia().subscribe(
       res => {
         console.log(res);
@@ -39,6 +39,9 @@ export class FrontPage {
           this.getPostUsers();
           console.log("userlist");
           console.log(this.images[0]);
+          if(refresher != null){
+            refresher.complete();
+          }
         }
       }
     );
@@ -74,6 +77,12 @@ export class FrontPage {
   logout() {
     this.loginService.logout();
     this.navCtrl.setRoot(FrontPage);
+  }
+
+  doRefresh(refresher) {
+    console.log('Begin async operation', refresher);
+
+   this.getMedia(refresher);
   }
 
 
