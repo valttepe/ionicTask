@@ -40,13 +40,10 @@ export class Media {
     // this.http.post(this.url, this.user,.....)
     return this.http.post(this.url + '/media?token=' + JSON.parse(localStorage.getItem("user")).token, formContent)
       .map(
-      resp => {
-        resp.json();
+      resp => 
+        resp.json()
         //this.router.navigate(['front']);
-      },
-      error => {
-        console.log(error);
-      });
+     );
   }
 
   postTagFilter = () => {

@@ -24,9 +24,14 @@ export class FrontPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad FrontPage');
-    if (this.loginService.logged == false) {
-      this.navCtrl.setRoot(LoginPage);
-    }
+
+    this.loginService.checkIfLogged();
+    
+    this.getMedia();
+    
+  }
+
+  getMedia = (refresher = null) => {
     this.mediaService.getMedia().subscribe(
       res => {
         console.log(res);
@@ -35,10 +40,14 @@ export class FrontPage {
           this.getPostUsers();
           console.log("userlist");
           console.log(this.images[0]);
+          if(refresher != null){
+            refresher.complete();
+          }
         }
       }
     );
   }
+
 
   openFile = (fileid: any) => {
     this.navCtrl.push(MediaPlayerPage, {
@@ -67,9 +76,14 @@ export class FrontPage {
   }
 
   logout() {
-    localStorage.removeItem("user");
-    this.loginService.logged = false;
-    this.navCtrl.setRoot(LoginPage);
+    this.loginService.logout();
+    this.navCtrl.setRoot(FrontPage);
+  }
+
+  doRefresh(refresher) {
+    console.log('Begin async operation', refresher);
+
+   this.getMedia(refresher);
   }
 
 
