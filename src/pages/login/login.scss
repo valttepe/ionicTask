@@ -8,18 +8,14 @@ page-login {
     Because .scroll-content is inside page-login it doesn't flow out of this page.
     Background color can be changed from front.scss at this point, because it is set outside of front-page tags.
     */    
-        
-        /*display: flex;
+        display: flex;
         form {
             // Centers form.
             height: 300px;
-            width: 50%;
+            width: 90%;
             margin: auto;
             margin-top: 5em;
-            
-            // This block was without ion.
-            
-        }*/
+        }
     }
     .list {
     }
