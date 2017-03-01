@@ -31,9 +31,9 @@
             <h2 style="color: white">{{image.title}}</h2>
             <h2 class="imagetitle" style="color: white">@{{image.username}}</h2>
             <!--<ion-thumbnail>-->
-            <a (click)="openFile(image.file_id)">
-                <img [alt]="image.title" [src]='url + ( image.filename | thumbnail: "small")' />
-            </a>
+                <a (click)="openFile(image.file_id)">
+                    <img [alt]="image.title" [src]='url + ( image.filename | thumbnail: "medium")' />
+                </a>
             <!--</ion-thumbnail>-->
             <p style="color: white">{{image.description}}</p>
             <!--<p style="float: right">{{ amount likes come here }}</p>-->
