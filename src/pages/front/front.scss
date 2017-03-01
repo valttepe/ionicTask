@@ -3,12 +3,15 @@ page-front {
     //Social cards with flexbox
 
     //display: flex;
-    /*.card {
+    .card {
         //margin auto centers the content
         margin: auto;
+        margin-top: 1em;
+        margin-bottom: 1em ;
         width: 50%;
-        align-content: space-around;
-    }*/
+        //align-content: space-around;
+        
+    }
     .label {
         /*
         This is to adjust content on social
@@ -63,3 +66,16 @@ Moved scss below to app.scss because these were global.
 .button-md:hover:not(.disable-hover) {
     background-color: #ee7600;
 }*/
+
+
+/************
+MEDIA QUERIES
+*************/
+
+@media (max-width:413px) and (min-width:321px) {
+    page-front {
+        .card {
+            width:90%;
+        }
+    }
+}
