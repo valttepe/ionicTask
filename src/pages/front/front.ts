@@ -26,6 +26,7 @@ export class FrontPage {
     console.log('ionViewDidLoad FrontPage');
 
     this.loginService.checkIfLogged();
+    
     this.getMedia();
     
   }

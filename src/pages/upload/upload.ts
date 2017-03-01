@@ -16,6 +16,8 @@ import { NavController, NavParams } from 'ionic-angular';
 export class UploadPage {
 
   uploadCredentials = { file: '', title: '', description: '' };
+  private fileId: any = [];
+  private checkThumb: any = [];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private mediaService: Media) { }
 
@@ -36,9 +38,28 @@ export class UploadPage {
       .subscribe(
       data => {
         console.log(data);
+        this.fileId = data;
+        console.log(this.fileId);
+        this.checkThumbnails();
         this.navCtrl.setRoot(FrontPage);
       }
       );
+  }
+
+  checkThumbnails = () => {
+    this.mediaService.getMediaFile(this.fileId.file_id).subscribe(
+      res => {
+        console.log(res);
+        this.checkThumb = res;
+        if(this.checkThumb.thumbnails != null) {
+          this.navCtrl.setRoot(FrontPage);
+        }
+        else {
+          this.checkThumb();
+        }
+        
+      }
+    );
   }
 
   filterTag = () => {
