@@ -65,3 +65,15 @@ html {
 .button-md:hover:not(.disable-hover) {
     background-color: #ee7600;
 }
+
+/************
+MEDIA QUERIES
+*************/
+
+@media (max-width:413px) and (min-width:321px) {
+    page-front {
+        .card {
+            width:100%;
+        }
+    }
+}

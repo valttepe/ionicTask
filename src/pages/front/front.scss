@@ -1,5 +1,40 @@
 page-front {
 
+    //Social cards with flexbox
+
+    //display: flex;
+    /*.card {
+        //margin auto centers the content
+        margin: auto;
+        width: 50%;
+        align-content: space-around;
+    }*/
+    .label {
+        /*
+        This is to adjust content on social
+        cards.
+        */
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        h2 {
+            /*
+            Below is division of all blocks in the card
+            */
+            flex: 0 0 50%;
+            border-bottom: solid 1px $lg-color;
+        }
+        p {
+            flex: 0 0 100%;
+            padding: 0.5em;
+            margin: 0;
+            border-top: solid 1px $lg-color;
+        }
+        img {
+            padding: 0.2em;
+            margin: 0;
+        }
+    }
 }
 
 /*
