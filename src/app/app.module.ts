@@ -1,3 +1,4 @@
+import { ProfilePage } from './../pages/profile/profile';
 import { UploadPage } from './../pages/upload/upload';
 import { RegisterPage } from './../pages/register/register';
 import { MediaPlayerPage } from './../pages/media-player/media-player';
@@ -20,7 +21,8 @@ import { MyApp } from './app.component';
     ThumbnailPipe,
     MediaPlayerPage,
     UploadPage,
-    RegisterPage
+    RegisterPage,
+    ProfilePage
 
   ],
   imports: [
@@ -33,7 +35,8 @@ import { MyApp } from './app.component';
     FrontPage,
     MediaPlayerPage,
     UploadPage,
-    RegisterPage
+    RegisterPage,
+    ProfilePage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, Login, Media]
 })
