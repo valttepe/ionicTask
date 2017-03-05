@@ -40,11 +40,6 @@ export class FrontPage {
         this.fill = res;
         this.getFilteredFiles();
         //this.images = res;
-        if (this.images != null && this.loginService.logged == true) {
-          this.getPostUsers();
-          console.log("userlist");
-          console.log(this.images[0]);
-        }
         if(refresher != null){
             refresher.complete();
           }
@@ -75,6 +70,11 @@ export class FrontPage {
         }
       }
     }
+    if (this.images != null && this.loginService.logged == true) {
+          this.getPostUsers();
+          console.log("userlist");
+          console.log(this.images[0]);
+        }
   }
 
 
