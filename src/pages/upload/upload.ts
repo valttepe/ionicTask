@@ -18,6 +18,7 @@ export class UploadPage {
   uploadCredentials = { file: '', title: '', description: '' };
   private fileId: any = [];
   private checkThumb: any = [];
+  private filter = {file_id: '', tag: '#HereForBeer'};
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private mediaService: Media) { }
 
@@ -41,7 +42,8 @@ export class UploadPage {
         this.fileId = data;
         console.log(this.fileId);
         this.checkThumbnails();
-        this.navCtrl.setRoot(FrontPage);
+        this.filterTag();
+        //this.navCtrl.setRoot(FrontPage);
       }
       );
   }
@@ -63,7 +65,13 @@ export class UploadPage {
   }
 
   filterTag = () => {
-
+    this.filter.file_id = this.fileId.file_id;
+    console.log(this.filter);
+    this.mediaService.postTagFilter(this.filter).subscribe(
+      res => {
+        console.log(res);
+      }
+    );
   }
 
 }
