@@ -1,3 +1,5 @@
+import { ProfilePage } from './../profile/profile';
+import { Login } from './../../providers/login';
 import { FrontPage } from './../front/front';
 import { Media } from './../../providers/media';
 import { Component } from '@angular/core';
@@ -17,12 +19,17 @@ export class UploadPage {
 
   uploadCredentials = { file: '', title: '', description: '' };
   private fileId: any = [];
-  private filter = {file_id: '', tag: '#HereForBeer'};
+  private filter = { file_id: '', tag: '#HereForBeer' };
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private mediaService: Media) { }
+  constructor(public navCtrl: NavController,
+    public navParams: NavParams,
+    private mediaService: Media,
+    private loginService: Login
+  ) { }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad UploadPage');
+    this.checkIflog();
   }
 
   upload = (event: any, value: any) => {
@@ -54,6 +61,31 @@ export class UploadPage {
         console.log(res);
       }
     );
+  }
+
+  checkIflog = () => {
+    if (localStorage.getItem("user") != null) {
+      console.log("you are logged in");
+      this.loginService.logged = true;
+
+      let setshow = document.querySelector(".logoutbutton");
+      setshow.setAttribute("id", "show");
+
+      let setprof = document.querySelector(".profilebutton");
+      setprof.setAttribute("id", "show");
+    }
+    else {
+      console.log("you are not logged in");
+
+    }
+  }
+  getToProfile() {
+    this.navCtrl.setRoot(ProfilePage);
+  }
+
+  logout() {
+    this.loginService.logout();
+    this.navCtrl.setRoot(FrontPage);
   }
 
 }
