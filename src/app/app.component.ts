@@ -1,3 +1,4 @@
+import { ProfilePage } from './../pages/profile/profile';
 import { UploadPage } from './../pages/upload/upload';
 import { RegisterPage } from './../pages/register/register';
 import { FrontPage } from './../pages/front/front';
@@ -24,7 +25,8 @@ export class MyApp {
       { title: 'Login', component: LoginPage },
       { title: 'Front', component: FrontPage },
       { title: 'Upload', component: UploadPage },
-      { title: 'Register', component: RegisterPage}
+      { title: 'Register', component: RegisterPage},
+      { title: 'Profile', component: ProfilePage}
 
     ];
 

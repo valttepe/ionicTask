@@ -42,16 +42,24 @@ export class Media {
       .map(
       resp => 
         resp.json()
-        //this.router.navigate(['front']);
      );
   }
 
-  postTagFilter = () => {
-
+  postTagFilter = (filetag: any) => {
+    this.token = JSON.parse(localStorage.getItem("user")).token;
+    return this.http.post(this.url + '/tags?token=' + this.token, filetag )
+      .map(
+        resp =>
+          resp.json()
+      );
   }
 
   getTagFilter = () => {
-
+    return this.http.get(this.url + '/tags/%23HereForBeer')
+      .map(
+        res => 
+          res.json()
+      );
   }
 
 
