@@ -41,27 +41,10 @@ export class UploadPage {
         console.log(data);
         this.fileId = data;
         console.log(this.fileId);
-        this.checkThumbnails();
         this.filterTag();
-        //this.navCtrl.setRoot(FrontPage);
+        this.navCtrl.setRoot(FrontPage);
       }
       );
-  }
-
-  checkThumbnails = () => {
-    this.mediaService.getMediaFile(this.fileId.file_id).subscribe(
-      res => {
-        console.log(res);
-        this.checkThumb = res;
-        if(this.checkThumb.thumbnails != null) {
-          this.navCtrl.setRoot(FrontPage);
-        }
-        else {
-          this.checkThumb();
-        }
-        
-      }
-    );
   }
 
   filterTag = () => {

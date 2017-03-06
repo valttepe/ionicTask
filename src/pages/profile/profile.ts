@@ -1,3 +1,5 @@
+import { Login } from './../../providers/login';
+import { Media } from './../../providers/media';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
@@ -13,7 +15,10 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class ProfilePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  constructor( public navCtrl: NavController,
+               public navParams: NavParams,
+               private mediaService: Media,
+               private loginService: Login) {}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProfilePage');

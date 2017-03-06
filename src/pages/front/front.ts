@@ -21,8 +21,7 @@ export class FrontPage {
   private images: any = [];
   private fill: any = [];
   private url = "http://media.mw.metropolia.fi/wbma/uploads/";
-  private filtered: any = [];
-  private files: any = [];
+  private num: number = 0;
   constructor(public navCtrl: NavController, public navParams: NavParams, private mediaService: Media, private loginService: Login) { }
 
   ionViewDidLoad() {
@@ -37,7 +36,7 @@ export class FrontPage {
   getMedia = (refresher = null) => {
     this.mediaService.getMedia().subscribe(
       res => {
-        this.fill = res;
+        //this.fill = res;
         this.getFilteredFiles();
         //this.images = res;
         if(refresher != null){
@@ -50,32 +49,28 @@ export class FrontPage {
   getFilteredFiles = () =>{
     this.mediaService.getTagFilter().subscribe(
       res => {
-        console.log(res);
-        this.filtered = res;
-        this.checkIfHasTag();
+        //console.log(res);
+        this.fill = res;
+        //console.log(this.fill.length);
+        this.num = this.fill.length -1;
+        //console.log(this.num);
+        for(let file in this.fill){
+          //console.log(this.fill[this.num]);
+          //console.log(this.num);
+          this.images.push(this.fill[this.num]);
+          this.num = this.num - 1;
+        }
+        //console.log(this.images);
+        if (this.images != null && this.loginService.logged == true) {
+          this.getPostUsers();
+          //console.log("userlist");
+          //console.log(this.images[0]);
+        }
       }
-    )
+    );
   }
 
-  checkIfHasTag = () =>{
-    for(let file of this.fill){
-      console.log(file.file_id);
-      for(let id of this.filtered){
-        console.log("this is log");
-        console.log(id.file_id);
-        if(file.file_id == id.file_id){
-          this.files.push(file);
-          console.log(this.files);
-          this.images = this.files;
-        }
-      }
-    }
-    if (this.images != null && this.loginService.logged == true) {
-          this.getPostUsers();
-          console.log("userlist");
-          console.log(this.images[0]);
-        }
-  }
+
 
 
   openFile = (fileid: any) => {
