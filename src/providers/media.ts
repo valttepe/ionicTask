@@ -129,4 +129,20 @@ export class Media {
     );
   }
 
+  getRating = (id: number) => {
+    return this.http.get(this.url + '/ratings/file/' + id)
+    .map(
+      res =>
+        res.json()
+    );
+  }
+
+  postRating = (filerate: any) => {
+      this.token = JSON.parse(localStorage.getItem("user")).token;
+      return this.http.post(this.url + '/ratings?token=' + this.token, filerate)
+      .map(
+        res =>
+          res.json()
+      );
+  }
 }

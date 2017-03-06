@@ -155,6 +155,14 @@ export class MediaPlayerPage {
     }
   }
 
+  postRating = (value: any) => {
+    this.mediaService.postRating(value).subscribe(
+      res => {
+        console.log(res);
+      }
+    );
+  }
+
   onSubmit(): void {
     this.commentCredentials.comment = '';
   }

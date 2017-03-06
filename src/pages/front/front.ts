@@ -22,7 +22,11 @@ export class FrontPage {
   private fill: any = [];
   private url = "http://media.mw.metropolia.fi/wbma/uploads/";
   private num: number = 0;
-  constructor(public navCtrl: NavController, public navParams: NavParams, private mediaService: Media, private loginService: Login) { }
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              private mediaService: Media,
+              private loginService: Login
+              ) { }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad FrontPage');
@@ -71,7 +75,9 @@ export class FrontPage {
   }
 
 
-
+checkIflog = () => {
+  
+}
 
   openFile = (fileid: any) => {
     this.navCtrl.push(MediaPlayerPage, {
