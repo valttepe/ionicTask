@@ -17,7 +17,6 @@ export class UploadPage {
 
   uploadCredentials = { file: '', title: '', description: '' };
   private fileId: any = [];
-  private checkThumb: any = [];
   private filter = {file_id: '', tag: '#HereForBeer'};
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private mediaService: Media) { }

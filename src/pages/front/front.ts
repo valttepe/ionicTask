@@ -3,7 +3,7 @@ import { LoginPage } from './../login/login';
 import { MediaPlayerPage } from './../media-player/media-player';
 import { ThumbnailPipe } from './../../app/pipes/thumbnail.pipe';
 import { Media } from './../../providers/media';
-import { Component, Pipe } from '@angular/core';
+import { Component, Pipe, ViewChild } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
 /*
@@ -30,11 +30,8 @@ export class FrontPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad FrontPage');
-
-    this.loginService.checkIfLogged();
-
     this.getMedia();
-
+    this.checkIflog();
   }
 
   getMedia = (refresher = null) => {
@@ -81,7 +78,23 @@ export class FrontPage {
 
 
 checkIflog = () => {
-  
+  if(localStorage.getItem("user") != null) {
+    console.log("you are logged in");
+    this.loginService.logged = true;
+
+    let sethidden = document.querySelector(".loginbutton");
+    sethidden.setAttribute("id","dontshow");
+
+    let setshow = document.querySelector(".logoutbutton");
+    setshow.setAttribute("id", "show");
+
+    let setprof = document.querySelector(".profilebutton");
+    setprof.setAttribute("id","show");
+  }
+  else{
+    console.log("you are not logged in");
+    
+  }
 }
 
   openFile = (fileid: any) => {
