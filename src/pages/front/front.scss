@@ -1,5 +1,6 @@
 page-front {
 
+
     #show {
         display: block;
     }
@@ -7,8 +8,8 @@ page-front {
     #dontshow {
         display: none;
     }
-    //Social cards with flexbox
 
+    //Social cards with flexbox
     //display: flex;
     .card {
         //margin auto centers the content
@@ -47,9 +48,11 @@ page-front {
     }
 }
 
+
 /*
 Moved scss below to app.scss because these were global.
 */
+
 
 /*.scroll-content {
     background-color: $lg-color;

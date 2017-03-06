@@ -35,18 +35,11 @@ ul {
     .label {
         color: #fff;
     }
-
-    }
+}
 
 html {
     background-color: $lg-color;
-
-
 }
-
-
-
-
 
 .scroll-content {
     background-color: $lg-color;
@@ -60,11 +53,13 @@ html {
         }
     }
 }
+
 .toolbar-content {
     //Flexboxes navbar so title and buttons are in row and not in column.
     display: flex;
     flex-flow: row wrap;
 }
+
 .loginbutton {
     float: right;
     background-color: #ee7600;
@@ -74,5 +69,3 @@ html {
 .button-md:hover:not(.disable-hover) {
     background-color: #ee7600;
 }
-
-

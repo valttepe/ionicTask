@@ -32,14 +32,15 @@ export class FrontPage {
     console.log('ionViewDidLoad FrontPage');
 
     this.loginService.checkIfLogged();
-    
+
     this.getMedia();
-    
+
   }
 
   getMedia = (refresher = null) => {
     this.mediaService.getMedia().subscribe(
       res => {
+
         //this.fill = res;
         this.getFilteredFiles();
         //this.images = res;
@@ -69,7 +70,11 @@ export class FrontPage {
           this.getPostUsers();
           //console.log("userlist");
           //console.log(this.images[0]);
+
         }
+
+
+
       }
     );
   }
@@ -113,7 +118,7 @@ checkIflog = () => {
   doRefresh(refresher) {
     console.log('Begin async operation', refresher);
 
-   this.getMedia(refresher);
+    this.getMedia(refresher);
   }
 
 
