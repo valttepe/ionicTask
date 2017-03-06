@@ -62,6 +62,11 @@ export class Media {
       );
   }
 
+  postUserTags = (tags: any) => {
+    this.token = JSON.parse(localStorage.getItem("user")).token;
+    return this.http.post(this.url + '/tags?token=' + this.token, tags)
+  }
+
 
   //get one mediafile to media display page and needs file_id as parameter
 
