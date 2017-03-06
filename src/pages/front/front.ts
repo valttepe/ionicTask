@@ -1,3 +1,4 @@
+import { ProfilePage } from './../profile/profile';
 import { Login } from './../../providers/login';
 import { LoginPage } from './../login/login';
 import { MediaPlayerPage } from './../media-player/media-player';
@@ -121,6 +122,9 @@ checkIflog = () => {
 
   getToLogin() {
     this.navCtrl.setRoot(LoginPage);
+  }
+  getToProfile() {
+    this.navCtrl.setRoot(ProfilePage);
   }
 
   logout() {
