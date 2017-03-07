@@ -7,9 +7,11 @@
 <ion-header>
     <ion-navbar>
         <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
+      <ion-icon class="white-text" name="menu"></ion-icon>
     </button>
-        <ion-title>MediaFile</ion-title> 
+        <ion-title>
+            <h2 class="white-text">MediaFile</h2>
+        </ion-title>
         <button ion-button class="profilebutton" id="dontshow" (click)="getToProfile()">
         <ion-icon name="person"></ion-icon>
         </button>
@@ -68,7 +70,7 @@
         <ion-item *ngFor="let comment of comments">
             <h2>{{comment.username}} </h2>
             <p class="comment-time">{{comment.comment}}</p>
-            <p class="comment-time"> {{comment.time_added}}</p>
+            <p class="comment-time">{{comment.time_added}}</p>
         </ion-item>
 
     </ion-list>

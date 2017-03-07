@@ -9,12 +9,13 @@ page-media-player {
         color: white;
         padding-left: 1em;
     }
-    
     #show {
         display: block;
     }
-
     #dontshow {
         display: none;
+    }
+    .white-text {
+        color: white;
     }
 }

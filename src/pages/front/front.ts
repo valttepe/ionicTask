@@ -31,8 +31,9 @@ export class FrontPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad FrontPage');
-    this.getMedia();
     this.checkIflog();
+    this.getMedia();
+    
   }
 
   getMedia = (refresher = null) => {
@@ -94,7 +95,6 @@ checkIflog = () => {
   }
   else{
     console.log("you are not logged in");
-    
   }
 }
 

@@ -10,7 +10,9 @@
         <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-        <ion-title>Register</ion-title>
+        <ion-title>
+            <h2 class="white-text">Register</h2>
+        </ion-title>
         <button ion-button login class="loginbutton" id="show" (click)=getToLogin()>
           <ion-icon name="log-in"></ion-icon>
         </button>
@@ -25,20 +27,20 @@
 
         <ion-item>
             <ion-label floating>Username</ion-label>
-            <ion-input type="text" name="username" [(ngModel)]="registerCredentials.username" required></ion-input>
+            <ion-input class="white-text" type="text" name="username" [(ngModel)]="registerCredentials.username" required></ion-input>
         </ion-item>
 
-         <ion-item>
+        <ion-item>
             <ion-label floating>Password</ion-label>
-            <ion-input type="password" name="password" [(ngModel)]="registerCredentials.password" required></ion-input>
+            <ion-input class="white-text" type="password" name="password" [(ngModel)]="registerCredentials.password" required></ion-input>
         </ion-item>
 
         <ion-item>
             <ion-label floating>Email</ion-label>
-            <ion-input type="email" name="email" [(ngModel)]="registerCredentials.email" required></ion-input>
+            <ion-input class="white-text" type="email" name="email" [(ngModel)]="registerCredentials.email" required></ion-input>
         </ion-item>
 
-       
+
         <button ion-button [disabled]="!registerForm.valid">Submit</button>
     </form>
 
