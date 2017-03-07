@@ -1,3 +1,7 @@
+import { Login } from './../../providers/login';
+import { FrontPage } from './../front/front';
+import { ProfilePage } from './../profile/profile';
+import { LoginPage } from './../login/login';
 import { Media } from './../../providers/media';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
@@ -23,13 +27,21 @@ export class MediaPlayerPage {
 
   private url = "http://media.mw.metropolia.fi/wbma/uploads/";
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private mediaService: Media) {
+  constructor(public navCtrl: NavController,
+    public navParams: NavParams,
+    private mediaService: Media,
+    private loginService: Login
+  ) {
     this.firstParam = this.navParams.get('firstPassed');
   }
 
+ ionViewCanEnter(){
+   this.checkIflog();
+ }
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad MediaPlayerPage');
-
+    this.checkIflog();
     console.log(this.firstParam);
     this.getFile(this.firstParam);
 
@@ -155,8 +167,51 @@ export class MediaPlayerPage {
     }
   }
 
+  postRating = (value: any) => {
+    this.mediaService.postRating(value).subscribe(
+      res => {
+        console.log(res);
+      }
+    );
+  }
+
   onSubmit(): void {
     this.commentCredentials.comment = '';
+  }
+
+  getToLogin() {
+    this.navCtrl.setRoot(LoginPage);
+  }
+  getToProfile() {
+    this.navCtrl.setRoot(ProfilePage);
+  }
+
+  logout() {
+    this.loginService.logout();
+    this.navCtrl.setRoot(FrontPage);
+  }
+
+  checkIflog = () => {
+    if (localStorage.getItem("user") != null) {
+      console.log("you are logged in");
+      this.loginService.logged = true;
+
+      let sethidden = document.querySelector(".loginbutton");
+      sethidden.setAttribute("id", "dontshow");
+      console.log(sethidden);
+
+      let setshow = document.querySelector(".logoutbutton");
+      setshow.setAttribute("id", "show");
+      console.log(setshow);
+
+      let setprof = document.querySelector(".profilebutton");
+      setprof.setAttribute("id", "show");
+      console.log(setprof);
+    }
+    else {
+      console.log("you are not logged in");
+
+    }
   }
 
 }

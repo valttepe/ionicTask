@@ -1,3 +1,4 @@
+import { LoginPage } from './../login/login';
 import { FrontPage } from './../front/front';
 import { Login } from './../../providers/login';
 import { Component } from '@angular/core';
@@ -15,18 +16,19 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class RegisterPage {
 
-  registerCredentials = {username: '', password: '', email: ''};
-  private user: any ={};
+  registerCredentials = { username: '', password: '', email: '' };
+  private user: any = {};
 
   constructor(
-        public navCtrl: NavController,
-        public navParams: NavParams,
-        private loginService: Login) {
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    private loginService: Login) {
 
-          }
+  }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RegisterPage');
+    this.checkIflog();
   }
 
   register = (value: any) => {
@@ -57,4 +59,20 @@ export class RegisterPage {
     );
   }
 
+  checkIflog = () => {
+    if (localStorage.getItem("user") != null) {
+      console.log("you are logged in");
+      this.loginService.logged = true;
+      this.navCtrl.setRoot(FrontPage);
+
+    }
+    else {
+      console.log("you are not logged in");
+
+    }
+  }
+
+  getToLogin() {
+    this.navCtrl.setRoot(LoginPage);
+  }
 }

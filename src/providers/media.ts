@@ -62,6 +62,11 @@ export class Media {
       );
   }
 
+  postUserTags = (tags: any) => {
+    this.token = JSON.parse(localStorage.getItem("user")).token;
+    return this.http.post(this.url + '/tags?token=' + this.token, tags)
+  }
+
 
   //get one mediafile to media display page and needs file_id as parameter
 
@@ -129,4 +134,20 @@ export class Media {
     );
   }
 
+  getRating = (id: number) => {
+    return this.http.get(this.url + '/ratings/file/' + id)
+    .map(
+      res =>
+        res.json()
+    );
+  }
+
+  postRating = (filerate: any) => {
+      this.token = JSON.parse(localStorage.getItem("user")).token;
+      return this.http.post(this.url + '/ratings?token=' + this.token, filerate)
+      .map(
+        res =>
+          res.json()
+      );
+  }
 }

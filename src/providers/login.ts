@@ -31,12 +31,6 @@ export class Login {
     return this.user;
   }
 
-  checkIfLogged = () => {
-    if(localStorage.getItem("user")!= null){
-      this.logged = true;
-    }
-  }
-
   getUserInfo = () => {
     const headers = new Headers({ 'x-access-token': this.getUser().token });
     const options = new RequestOptions({ headers: headers });

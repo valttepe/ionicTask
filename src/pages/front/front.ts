@@ -1,9 +1,10 @@
+import { ProfilePage } from './../profile/profile';
 import { Login } from './../../providers/login';
 import { LoginPage } from './../login/login';
 import { MediaPlayerPage } from './../media-player/media-player';
 import { ThumbnailPipe } from './../../app/pipes/thumbnail.pipe';
 import { Media } from './../../providers/media';
-import { Component, Pipe } from '@angular/core';
+import { Component, Pipe, ViewChild } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
 /*
@@ -22,15 +23,16 @@ export class FrontPage {
   private fill: any = [];
   private url = "http://media.mw.metropolia.fi/wbma/uploads/";
   private num: number = 0;
-  constructor(public navCtrl: NavController, public navParams: NavParams, private mediaService: Media, private loginService: Login) { }
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              private mediaService: Media,
+              private loginService: Login
+              ) { }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad FrontPage');
-
-    this.loginService.checkIfLogged();
-
     this.getMedia();
-
+    this.checkIflog();
   }
 
   getMedia = (refresher = null) => {
@@ -76,7 +78,25 @@ export class FrontPage {
   }
 
 
+checkIflog = () => {
+  if(localStorage.getItem("user") != null) {
+    console.log("you are logged in");
+    this.loginService.logged = true;
 
+    let sethidden = document.querySelector(".loginbutton");
+    sethidden.setAttribute("id","dontshow");
+
+    let setshow = document.querySelector(".logoutbutton");
+    setshow.setAttribute("id", "show");
+
+    let setprof = document.querySelector(".profilebutton");
+    setprof.setAttribute("id","show");
+  }
+  else{
+    console.log("you are not logged in");
+    
+  }
+}
 
   openFile = (fileid: any) => {
     this.navCtrl.push(MediaPlayerPage, {
@@ -102,6 +122,9 @@ export class FrontPage {
 
   getToLogin() {
     this.navCtrl.setRoot(LoginPage);
+  }
+  getToProfile() {
+    this.navCtrl.setRoot(ProfilePage);
   }
 
   logout() {

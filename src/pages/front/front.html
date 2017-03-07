@@ -9,14 +9,23 @@
         <button ion-button menuToggle>
       <ion-icon class="white-text" name="menu"></ion-icon>
     </button>
+<<<<<<< HEAD
         <ion-title>
             <h2 class="white-text">Here for Beer?</h2>
         </ion-title>
         <button ion-button login class="loginbutton" (click)=getToLogin()>
+=======
+        <ion-title>Front</ion-title>
+        <button ion-button class="profilebutton" id="dontshow" (click)="getToProfile()">
+        <ion-icon name="person"></ion-icon>
+        </button>
+
+        <button ion-button login class="loginbutton" id="show" (click)=getToLogin()>
+>>>>>>> c786aa0f4280f7e5102812869e1c7f349bbdcb6b
           <ion-icon name="log-in"></ion-icon>
         </button>
 
-        <button ion-button login class="loginbutton" (click)=logout()>
+        <button ion-button login class="logoutbutton" id="dontshow" (click)=logout()>
           <ion-icon name="log-out"></ion-icon>
         </button>
 
