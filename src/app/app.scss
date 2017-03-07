@@ -71,6 +71,7 @@ html {
     background-color: #ee7600;
     padding: 1.5em;
 }
+
 .profilebutton {
     float: right;
     background-color: #ee7600;
@@ -79,4 +80,16 @@ html {
 
 .button-md:hover:not(.disable-hover) {
     background-color: #ee7600;
+}
+
+.bar-button-default-md,
+.bar-button-clear-md-default,
+.bar-button-md-default {
+    color: white;
+}
+
+.bar-button-default-md:hover:not(.disable-hover),
+.bar-button-clear-md-default:hover:not(.disable-hover),
+.bar-button-md-default:hover:not(.disable-hover) {
+    color: white;
 }

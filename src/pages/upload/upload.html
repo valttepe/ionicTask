@@ -8,9 +8,11 @@
 
     <ion-navbar>
         <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
+      <ion-icon class="white-text" name="menu"></ion-icon>
     </button>
-        <ion-title>Upload</ion-title>
+        <ion-title>
+            <h2 class="white-text">Upload</h2>
+        </ion-title>
         <button ion-button class="profilebutton" id="dontshow" (click)="getToProfile()">
         <ion-icon name="person"></ion-icon>
         </button>
@@ -64,9 +66,9 @@
     </form>-->
     <!--<h3>Upload</h3>-->
 
-        
 
-        <!--<p>
+
+    <!--<p>
             <label>Beer name</label><br>
             <input type="text" name="title" ngModel required>
         </p>
@@ -84,13 +86,13 @@
         </div>
 
         <ion-item>
-            <ion-label floating>Title</ion-label>
-            <ion-input type="text" name="title" [(ngModel)]="uploadCredentials.title"></ion-input>
+            <ion-label floating>Share the brand</ion-label>
+            <ion-input class="white-text" type="text" name="title" [(ngModel)]="uploadCredentials.title"></ion-input>
         </ion-item>
 
         <ion-item>
-            <ion-label stacked>Description</ion-label>
-            <ion-textarea name="description" [(ngModel)]="uploadCredentials.description"></ion-textarea>
+            <ion-label stacked>How did you like it?</ion-label>
+            <ion-textarea class="white-text" name="description" [(ngModel)]="uploadCredentials.description"></ion-textarea>
         </ion-item>
 
         <button ion-button type="submit" [disabled]="!uploadForm.valid">Upload</button>
