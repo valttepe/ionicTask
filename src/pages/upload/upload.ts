@@ -18,7 +18,9 @@ import { NavController, NavParams } from 'ionic-angular';
 export class UploadPage {
 
   uploadCredentials = { file: '', title: '', description: '' };
+  private tags: any = [];
   private fileId: any = [];
+  private rating: number;
   private filter = { file_id: '', tag: '#HereForBeer' };
 
   constructor(public navCtrl: NavController,
