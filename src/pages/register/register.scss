@@ -3,7 +3,7 @@ page-register {
         padding-bottom: 1em;
     }
     .scroll-content {
-    /*
+        /*
     Makes floxbox out of it's content and centers register and login forms
     Because .scroll-content is inside page-register it doesn't flow out of this page.
     Background color can be changed from front.scss at this point, because it is set outside of front-page tags.
@@ -19,5 +19,8 @@ page-register {
     }
     .fixed.content {
         background-color: $bg-color;
+    }
+    .white-text {
+        color: white;
     }
 }
