@@ -5,10 +5,9 @@ page-front {
         //margin auto centers the content
         margin: auto;
         margin-top: 1em;
-        margin-bottom: 1em ;
+        margin-bottom: 1em;
         width: 50%;
         //align-content: space-around;
-        
     }
     .label {
         /*
@@ -36,6 +35,9 @@ page-front {
             margin: 0;
         }
     }
+    .white-text {
+        color: white;
+    }
 }
 
 
@@ -55,7 +57,7 @@ Moved scss below to app.scss because these were global.
             width: 480px;
         }
     }
-}
+}*/
 
 .loginbutton {
     float: right;
@@ -63,6 +65,8 @@ Moved scss below to app.scss because these were global.
     padding: 1.5em;
 }
 
+
+/*
 .button-md:hover:not(.disable-hover) {
     background-color: #ee7600;
 }*/
@@ -75,7 +79,7 @@ MEDIA QUERIES
 @media (max-width:413px) and (min-width:321px) {
     page-front {
         .card {
-            width:90%;
+            width: 90%;
         }
     }
 }

@@ -7,9 +7,11 @@
 <ion-header>
     <ion-navbar>
         <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
+      <ion-icon class="white-text" name="menu"></ion-icon>
     </button>
-        <ion-title>Front</ion-title>
+        <ion-title>
+            <h2 class="white-text">Here for Beer?</h2>
+        </ion-title>
         <button ion-button login class="loginbutton" (click)=getToLogin()>
           <ion-icon name="log-in"></ion-icon>
         </button>
@@ -28,14 +30,14 @@
     </ion-refresher>
     <ion-card *ngFor="let image of images">
         <ion-item>
-            <h2 style="color: white">{{image.title}}</h2>
-            <h2 class="imagetitle" style="color: white">@{{image.username}}</h2>
+            <h2 class="white-text">{{image.title}}</h2>
+            <h2 class="imagetitle" class="white-text">@{{image.username}}</h2>
             <!--<ion-thumbnail>-->
-                <a (click)="openFile(image.file_id)">
-                    <img [alt]="image.title" [src]='url + ( image.filename | thumbnail: "medium")' />
-                </a>
+            <a (click)="openFile(image.file_id)">
+                <img [alt]="image.title" [src]='url + ( image.filename | thumbnail: "medium")' />
+            </a>
             <!--</ion-thumbnail>-->
-            <p style="color: white">{{image.description}}</p>
+            <p class="white-text">{{image.description}}</p>
             <!--<p style="float: right">{{ amount likes come here }}</p>-->
         </ion-item>
     </ion-card>
