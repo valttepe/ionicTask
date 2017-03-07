@@ -67,12 +67,6 @@ export class UploadPage {
     if (localStorage.getItem("user") != null) {
       console.log("you are logged in");
       this.loginService.logged = true;
-
-      let setshow = document.querySelector(".logoutbutton");
-      setshow.setAttribute("id", "show");
-
-      let setprof = document.querySelector(".profilebutton");
-      setprof.setAttribute("id", "show");
     }
     else {
       console.log("you are not logged in");
