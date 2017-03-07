@@ -62,6 +62,8 @@ html {
 }
 ion-header {
     ion-navbar {
+    }
+}
         .loginbutton {
             /*float: right;*/
             background-color: #ee7600;
@@ -83,8 +85,6 @@ ion-header {
         .button-md:hover:not(.disable-hover) {
             background-color: #ee7600;
         }
-    }
-}
 
 .bar-button-default-md,
 .bar-button-clear-md-default,
