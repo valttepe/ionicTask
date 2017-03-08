@@ -2,8 +2,9 @@ import { ProfilePage } from './../profile/profile';
 import { Login } from './../../providers/login';
 import { FrontPage } from './../front/front';
 import { Media } from './../../providers/media';
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { Keyboard } from 'ionic-native';
 
 /*
   Generated class for the Upload page.
@@ -16,7 +17,8 @@ import { NavController, NavParams } from 'ionic-angular';
   templateUrl: 'upload.html'
 })
 export class UploadPage {
-
+  
+  @ViewChild('focusInput') myInput;
   uploadCredentials = { file: '', title: '', description: '' };
   private tags: any = [];
   private fileId: any = [];
@@ -28,12 +30,17 @@ export class UploadPage {
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     private mediaService: Media,
-    private loginService: Login
+    private loginService: Login,
+    private NavController: NavController
   ) { }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad UploadPage');
     this.checkIflog();
+    setTimeout(() => {
+      Keyboard.show();
+      this.myInput.setFocus();
+    },150);
   }
 
   upload = (event: any, value: any) => {

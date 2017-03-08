@@ -87,18 +87,24 @@
             <label>Select beer:</label><br>
             <input type="file" name="file" ngModel>
         </div>
-
+<ion-list>
         <ion-item>
             <ion-label floating>Share the brand</ion-label>
-            <ion-input class="white-text" type="text" name="title" [(ngModel)]="uploadCredentials.title"></ion-input>
+            <ion-input #focusInput class="white-text" type="text" name="title" [(ngModel)]="uploadCredentials.title"></ion-input>
         </ion-item>
 
         <ion-item>
             <ion-label stacked>How did you like it?</ion-label>
-            <ion-textarea class="white-text" name="description" [(ngModel)]="uploadCredentials.description"></ion-textarea>
+            <ion-textarea #focusInput class="white-text" name="description" [(ngModel)]="uploadCredentials.description"></ion-textarea>
         </ion-item>
 
         <ion-item>
+            <ion-label>Tags</ion-label>
+            <ion-input #focusInput class="white-text" name="tag" [(ngModel)]="tags"> </ion-input>
+        </ion-item>
+
+        <ion-item>
+
             <ion-label>Rate beer </ion-label>
             <ion-range min="1" max="5" name="rate" step="1" snaps="true" [(ngModel)]="Rating" color="secondary" pin="true" (ionChange)=changeValue($event)>
                 <ion-label range-left>1</ion-label>
@@ -106,14 +112,8 @@
             </ion-range>
         </ion-item>
         
-        <ion-item>
-            <ion-label floating>Tags</ion-label>
-            <ion-input class="white-text" type="text" name="title" [(ngModel)]="tags"></ion-input>
-        </ion-item>
-        
-        
-        
-        
+
+</ion-list>
 
         <button ion-button type="submit" [disabled]="!uploadForm.valid">Upload</button>
 

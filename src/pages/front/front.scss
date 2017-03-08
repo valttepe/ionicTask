@@ -65,11 +65,11 @@ Moved scss below to app.scss because these were global.
     }
 }*/
 
-.loginbutton {
+/*.loginbutton {
     float: right;
     background-color: #ee7600;
     padding: 1.5em;
-}
+}*/
 
 
 /*
@@ -82,7 +82,7 @@ Moved scss below to app.scss because these were global.
 MEDIA QUERIES
 *************/
 
-@media (max-width:413px) and (min-width:321px) {
+@media (max-width:413px) and (min-width:319px) {
     page-front {
         .card {
             width: 90%;
