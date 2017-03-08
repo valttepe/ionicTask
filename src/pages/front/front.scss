@@ -14,36 +14,37 @@ page-front {
         margin-bottom: 1em;
         width: 50%;
         //align-content: space-around;
-    }
-    .label {
-        /*
-        This is to adjust content on social
-        cards.
-        */
-        display: flex;
-        flex-flow: row wrap;
-        justify-content: center;
-        h2 {
+       .label {
             /*
-            Below is division of all blocks in the card
+            This is to adjust content on social
+            cards.
             */
-            flex: 0 0 50%;
-            border-bottom: solid 1px $lg-color;
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: center;
+            h2 {
+                /*
+                Below is division of all blocks in the card
+                */
+                flex: 0 0 50%;
+                border-bottom: solid 1px $lg-color;
+            }
+            p {
+                flex: 0 0 100%;
+                padding: 0.5em;
+                margin: 0;
+                border-top: solid 1px $lg-color;
+            }
+            img {
+                padding: 0.2em;
+                margin: 0;
+            }
         }
-        p {
-            flex: 0 0 100%;
-            padding: 0.5em;
-            margin: 0;
-            border-top: solid 1px $lg-color;
-        }
-        img {
-            padding: 0.2em;
-            margin: 0;
+        .white-text {
+            color: white;
         }
     }
-    .white-text {
-        color: white;
-    }
+    
 }
 
 

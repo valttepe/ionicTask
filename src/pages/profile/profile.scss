@@ -1,5 +1,24 @@
-page-profile {}
+page-profile {
+    .white-text {
+        color: $w-color;
+    }
+     .container {
+        width: 60%;
+        border:solid;
+        background-color: $btn-color;
+        height: 50em;
+        margin: auto;
 
-.white-text {
-    color: white;
+        ion-row {
+            width: 50%;
+        }
+    }
+
+    @media (max-width: 500px) {
+        .container {
+            width:100%;
+        }
+        
+    }  
 }
+
