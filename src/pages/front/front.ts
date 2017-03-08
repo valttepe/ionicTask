@@ -4,7 +4,7 @@ import { LoginPage } from './../login/login';
 import { MediaPlayerPage } from './../media-player/media-player';
 import { ThumbnailPipe } from './../../app/pipes/thumbnail.pipe';
 import { Media } from './../../providers/media';
-import { Component, Pipe, ViewChild } from '@angular/core';
+import { Component, Pipe, ViewChild, Output, EventEmitter } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
 /*
@@ -18,7 +18,8 @@ import { NavController, NavParams } from 'ionic-angular';
   templateUrl: 'front.html',
 })
 export class FrontPage {
-
+  
+  @Output() menuPages = new EventEmitter();
   private images: any = [];
   private fill: any = [];
   private url = "http://media.mw.metropolia.fi/wbma/uploads/";
@@ -138,6 +139,8 @@ export class FrontPage {
   logout() {
     this.loginService.logout();
     this.navCtrl.setRoot(FrontPage);
+    location.reload();
+    //this.menuPages.emit(false);
   }
 
   doRefresh(refresher) {
