@@ -1,3 +1,4 @@
+import { RegisterPage } from './../register/register';
 import { FrontPage } from './../front/front';
 import { Http } from '@angular/http';
 import { Login } from './../../providers/login';
@@ -65,4 +66,8 @@ export class LoginPage {
 
 
   }
+   getToRegister() {
+    this.navCtrl.setRoot(RegisterPage);
+  }
+
 }

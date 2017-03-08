@@ -1,4 +1,4 @@
-page-register {
+/*page-register {
     .item-md {
         padding-bottom: 1em;
     }
@@ -8,7 +8,9 @@ page-register {
     Because .scroll-content is inside page-register it doesn't flow out of this page.
     Background color can be changed from front.scss at this point, because it is set outside of front-page tags.
     */
-        display: flex;
+
+
+/*   display: flex;
         form {
             // Centers form.
             height: 300px;
@@ -23,4 +25,4 @@ page-register {
     .white-text {
         color: white;
     }
-}
+}*/

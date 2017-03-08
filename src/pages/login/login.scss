@@ -12,12 +12,53 @@ page-login {
         form {
             // Centers form.
             height: 300px;
-            width: 90%;
+            width: 100%;
             margin: auto;
             margin-top: 5em;
         }
     }
     .white-text {
         color: white;
+    }
+    .login-content {
+        background: #FFD968;
+    }
+    .login-box {
+        background: #ee7600;
+        /*padding: 20px 20px 0px 10px;
+        margin-top: 30px;
+        max-width: 20em;*/
+    }
+    ion-item {
+        border-radius: 30px !important;
+        padding-left: 30px !important;
+        font-size: 0.9em;
+        margin-bottom: 10px;
+        border: 1px solid #ffffff;
+        border-bottom: 0px !important;
+        box-shadow: none !important;
+    }
+    .signup-col {
+        margin: 0px 16px 0px 16px;
+        padding-bottom: 20px;
+    }
+    .submit-btn {
+        background: #4169e1;
+        border-radius: 30px !important;
+        border: 1px solid #ffffff;
+        width: 100%;
+    }
+    .register-btn {
+        color: #ffffff;
+        font-size: 0.7em;
+    }
+    .scroll-content form {
+        margin-top: 0;
+    }
+    img {
+        padding: 0 5px 0 5px;
+    }
+    .list-md[inset] {
+        margin: 0;
     }
 }
