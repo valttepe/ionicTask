@@ -24,16 +24,16 @@ export class FrontPage {
   private url = "http://media.mw.metropolia.fi/wbma/uploads/";
   private num: number = 0;
   constructor(public navCtrl: NavController,
-              public navParams: NavParams,
-              private mediaService: Media,
-              private loginService: Login
-              ) { }
+    public navParams: NavParams,
+    private mediaService: Media,
+    private loginService: Login
+  ) { }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad FrontPage');
     this.checkIflog();
     this.getMedia();
-    
+
   }
 
   getMedia = (refresher = null) => {
@@ -43,23 +43,23 @@ export class FrontPage {
         //this.fill = res;
         this.getFilteredFiles();
         //this.images = res;
-        if(refresher != null){
-            refresher.complete();
-          }
+        if (refresher != null) {
+          refresher.complete();
+        }
       }
     );
   }
 
-  getFilteredFiles = () =>{
+  getFilteredFiles = () => {
     this.mediaService.getTagFilter().subscribe(
       res => {
         //console.log(res);
         this.fill = res;
-        this.images =[];
+        this.images = [];
         //console.log(this.fill.length);
-        this.num = this.fill.length -1;
+        this.num = this.fill.length - 1;
         //console.log(this.num);
-        for(let file in this.fill){
+        for (let file in this.fill) {
           //console.log(this.fill[this.num]);
           //console.log(this.num);
           this.images.push(this.fill[this.num]);
@@ -80,32 +80,36 @@ export class FrontPage {
   }
 
 
-checkIflog = () => {
-  if(localStorage.getItem("user") != null) {
-    console.log("you are logged in");
-    this.loginService.logged = true;
+  checkIflog = () => {
+    if (localStorage.getItem("user") != null) {
+      console.log("you are logged in");
+      this.loginService.logged = true;
 
-    let sethidden = document.querySelector(".loginbutton");
-    sethidden.setAttribute("id","dontshow");
+      let sethidden = document.querySelector(".loginbutton");
+      sethidden.setAttribute("id", "dontshow");
 
-    let setshow = document.querySelector(".logoutbutton");
-    setshow.setAttribute("id", "show");
+      let setshow = document.querySelector(".logoutbutton");
+      setshow.setAttribute("id", "show");
 
-    let setprof = document.querySelector(".profilebutton");
-    setprof.setAttribute("id","show");
+      let setprof = document.querySelector(".profilebutton");
+      setprof.setAttribute("id", "show");
+    }
+    else {
+      console.log("you are not logged in");
+
+      /*let sethidden = document.querySelector();
+      sethidden.setAttribute();*/
+    }
   }
-  else{
-    console.log("you are not logged in");
-
-    /*let sethidden = document.querySelector();
-    sethidden.setAttribute();*/
-  }
-}
 
   openFile = (fileid: any) => {
-    this.navCtrl.push(MediaPlayerPage, {
-      firstPassed: fileid,
-    });
+    if (localStorage.getItem("user") != null) {
+      this.navCtrl.push(MediaPlayerPage, {
+        firstPassed: fileid,
+      });
+
+    }
+
   }
 
   getPostUsers = () => {
