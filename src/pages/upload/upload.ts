@@ -3,7 +3,7 @@ import { Login } from './../../providers/login';
 import { FrontPage } from './../front/front';
 import { Media } from './../../providers/media';
 import { Component, ViewChild } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, ToastController } from 'ionic-angular';
 import { Keyboard } from 'ionic-native';
 
 /*
@@ -31,8 +31,9 @@ export class UploadPage {
     public navParams: NavParams,
     private mediaService: Media,
     private loginService: Login,
-    private NavController: NavController
-  ) { }
+    private NavController: NavController,
+    private toastCtrl: ToastController
+    ) { }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad UploadPage');
@@ -64,6 +65,7 @@ export class UploadPage {
         this.postRating(this.userRating);
         this.filterTag();
         this.navCtrl.setRoot(FrontPage);
+        this.presentToast();
       }
       );
   }
@@ -109,5 +111,19 @@ export class UploadPage {
     this.loginService.logout();
     this.navCtrl.setRoot(FrontPage);
   }
+
+  presentToast() {
+  let toast = this.toastCtrl.create({
+    message: 'Your beer has been shared!',
+    duration: 5000,
+    position: 'middle'
+  });
+
+  toast.onDidDismiss(() => {
+    console.log('Dismissed toast');
+  });
+
+  toast.present();
+}
 
 }
