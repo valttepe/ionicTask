@@ -12,17 +12,6 @@
         <ion-title>
             <h2 class="white-text">MediaFile</h2>
         </ion-title>
-        <button ion-button class="profilebutton" id="dontshow" (click)="getToProfile()">
-        <ion-icon name="person"></ion-icon>
-        </button>
-
-        <button ion-button login class="loginbutton" id="show" (click)=getToLogin()>
-          <ion-icon name="log-in"></ion-icon>
-        </button>
-
-        <button ion-button login class="logoutbutton" id="dontshow" (click)=logout()>
-          <ion-icon name="log-out"></ion-icon>
-        </button>
     </ion-navbar>
 </ion-header>
 
@@ -41,7 +30,7 @@
         <p>Description: {{ file.description }}</p>
         <p>Username: {{ user.username }}</p>
         <p>File size: {{ file.filesize }}</p>
-
+        <p>Rate: {{showrate}}</p>
 
 
         <button *ngIf="!likes" (click)="likeMedia()" ion-button icon-left clear small>
@@ -54,12 +43,7 @@
             <div class="thumb-button">Likes {{ favorite.length }}</div>
         </button>
 
-        
-             <ion-label>Rate beer </ion-label>
-            <ion-range min="1" max="5" name="rate" step="1" snaps="true" [(ngModel)]="Rating" color="secondary" pin="true" (ionChange)=changeValue($event)>
-                <ion-label range-left>1</ion-label>
-                <ion-label range-right>5</ion-label>
-            </ion-range>
+
     </div>
 
     <ion-list>

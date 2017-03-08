@@ -25,6 +25,7 @@ export class MediaPlayerPage {
   private favorite: any;
   private likes = false;
   private rate: any = 1;
+  private showrate: any;
   private userRating: any = { file_id: '', rating: '' };
 
   private url = "http://media.mw.metropolia.fi/wbma/uploads/";
@@ -37,13 +38,9 @@ export class MediaPlayerPage {
     this.firstParam = this.navParams.get('firstPassed');
   }
 
- ionViewCanEnter(){
-   this.checkIflog();
- }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad MediaPlayerPage');
-    this.checkIflog();
     console.log(this.firstParam);
     this.getFile(this.firstParam);
 
@@ -59,10 +56,7 @@ export class MediaPlayerPage {
       res => {
         console.log(res);
         this.file = res;
-        this.userRating.file_id = this.firstParam;
-        this.userRating.rating = this.rate;
-        console.log(this.userRating);
-        this.postRating(this.userRating);
+        this.getRating(this.firstParam);
         this.getUsername(this.file.user_id);
       }
     );
@@ -173,14 +167,26 @@ export class MediaPlayerPage {
     }
   }
 
- changeValue = (event) =>{
+  changeValue = (event) => {
     this.rate = event.value;
   }
-
-  postRating = (id: any) =>{
+/*
+  postIfClicked = () =>{
+    
+  }
+  postRating = (id: any) => {
     this.mediaService.postRating(id).subscribe(
       res => {
         console.log(res);
+      }
+    );
+  }
+*/
+  getRating = (id: any) => {
+    this.mediaService.getRating(id).subscribe(
+      res => {
+        console.log(res);
+        this.showrate = res[0].rating;
       }
     );
   }
@@ -199,29 +205,6 @@ export class MediaPlayerPage {
   logout() {
     this.loginService.logout();
     this.navCtrl.setRoot(FrontPage);
-  }
-
-  checkIflog = () => {
-    if (localStorage.getItem("user") != null) {
-      console.log("you are logged in");
-      this.loginService.logged = true;
-
-      let sethidden = document.querySelector(".loginbutton");
-      sethidden.setAttribute("id", "dontshow");
-      console.log(sethidden);
-
-      let setshow = document.querySelector(".logoutbutton");
-      setshow.setAttribute("id", "show");
-      console.log(setshow);
-
-      let setprof = document.querySelector(".profilebutton");
-      setprof.setAttribute("id", "show");
-      console.log(setprof);
-    }
-    else {
-      console.log("you are not logged in");
-
-    }
   }
 
 }
