@@ -24,7 +24,7 @@ export class LoginPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     public loginService: Login,
-    private http: Http
+    private http: Http,
   ) { }
 
   ionViewDidLoad() {
@@ -43,6 +43,7 @@ export class LoginPage {
         }
         )
     }
+
   }
 
   login = (value: any) => {
