@@ -95,6 +95,9 @@ checkIflog = () => {
   }
   else{
     console.log("you are not logged in");
+
+    /*let sethidden = document.querySelector();
+    sethidden.setAttribute();*/
   }
 }
 
