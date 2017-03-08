@@ -13,53 +13,38 @@
         <ion-title>
             <h2 class="white-text">Register</h2>
         </ion-title>
-        <button ion-button login class="loginbutton" id="show" (click)=getToLogin()>
+        <!--<button ion-button login class="loginbutton" id="show" (click)=getToLogin()>
           <ion-icon name="log-in"></ion-icon>
-        </button>
+        </button>-->
     </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+    <div class="register-content">
+        <form #registerForm="ngForm" (ngSubmit)="register(registerForm.value)">
 
-    <form #registerForm="ngForm" (ngSubmit)="register(registerForm.value)">
+            <ion-item>
+                <ion-label floating>Username</ion-label>
+                <ion-input class="white-text" type="text" name="username" [(ngModel)]="registerCredentials.username" required></ion-input>
+                <br>
+            </ion-item>
 
-        <ion-item>
-            <ion-label floating>Username</ion-label>
-            <ion-input class="white-text" type="text" name="username" [(ngModel)]="registerCredentials.username" required></ion-input>
-        </ion-item>
+            <ion-item>
+                <ion-label floating>Password</ion-label>
+                <ion-input class="white-text" type="password" name="password" [(ngModel)]="registerCredentials.password" required></ion-input>
+                <br>
+            </ion-item>
 
-        <ion-item>
-            <ion-label floating>Password</ion-label>
-            <ion-input class="white-text" type="password" name="password" [(ngModel)]="registerCredentials.password" required></ion-input>
-        </ion-item>
-
-        <ion-item>
-            <ion-label floating>Email</ion-label>
-            <ion-input class="white-text" type="email" name="email" [(ngModel)]="registerCredentials.email" required></ion-input>
-        </ion-item>
+            <ion-item>
+                <ion-label floating>Email</ion-label>
+                <ion-input class="white-text" type="email" name="email" [(ngModel)]="registerCredentials.email" required></ion-input>
+                <br><br><br>
+            </ion-item>
 
 
-        <button ion-button [disabled]="!registerForm.valid">Submit</button>
-    </form>
-
-    <!--<form #registerForm="ngForm" (ngSubmit)="register(registerForm.value)">
-        <p>
-            <label>Username:</label>
-            <input type="text" name="username" ngModel required>
-        </p>
-        <p>
-            <label>email:</label>
-            <input type="email" name="email" ngModel required>
-        </p>
-        <p>
-            <label>Password:</label>
-            <input type="password" name="password" ngModel required>
-        </p>
-        <p>
-            <button type="submit" [disabled]="!registerForm.valid">Submit</button>
-        </p>
-    </form>-->
-
+            <button ion-button [disabled]="!registerForm.valid">Submit</button>
+        </form>
+    </div>
 </ion-content>
