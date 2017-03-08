@@ -2,7 +2,7 @@ import { RegisterPage } from './../register/register';
 import { FrontPage } from './../front/front';
 import { Http } from '@angular/http';
 import { Login } from './../../providers/login';
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
 /*
@@ -17,6 +17,7 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class LoginPage {
 
+  @Output() menuPages = new EventEmitter();
   registerCredentials = { username: '', password: '' };
 
   private user: any = {};
@@ -59,6 +60,8 @@ export class LoginPage {
         localStorage.setItem("user", JSON.stringify(this.user));
         this.loginService.logged = true;
         this.navCtrl.setRoot(FrontPage);
+        location.reload();
+        //this.menuPages.emit(true);
       },
       error => {
         console.log(error);
