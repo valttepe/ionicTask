@@ -24,6 +24,8 @@ export class MediaPlayerPage {
   private comments: any = [];
   private favorite: any;
   private likes = false;
+  private rate: any = 1;
+  private userRating: any = { file_id: '', rating: '' };
 
   private url = "http://media.mw.metropolia.fi/wbma/uploads/";
 
@@ -57,6 +59,10 @@ export class MediaPlayerPage {
       res => {
         console.log(res);
         this.file = res;
+        this.userRating.file_id = this.firstParam;
+        this.userRating.rating = this.rate;
+        console.log(this.userRating);
+        this.postRating(this.userRating);
         this.getUsername(this.file.user_id);
       }
     );
@@ -167,8 +173,12 @@ export class MediaPlayerPage {
     }
   }
 
-  postRating = (value: any) => {
-    this.mediaService.postRating(value).subscribe(
+ changeValue = (event) =>{
+    this.rate = event.value;
+  }
+
+  postRating = (id: any) =>{
+    this.mediaService.postRating(id).subscribe(
       res => {
         console.log(res);
       }
