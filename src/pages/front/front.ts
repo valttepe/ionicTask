@@ -55,6 +55,7 @@ export class FrontPage {
       res => {
         //console.log(res);
         this.fill = res;
+        this.images =[];
         //console.log(this.fill.length);
         this.num = this.fill.length -1;
         //console.log(this.num);
