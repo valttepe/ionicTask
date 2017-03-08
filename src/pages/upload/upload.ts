@@ -21,7 +21,9 @@ export class UploadPage {
   private tags: any = [];
   private fileId: any = [];
   private rating: number;
+  private rate: any = 1;
   private filter = { file_id: '', tag: '#HereForBeer' };
+  private userRating = { file_id: '', rating: '' };
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
@@ -49,8 +51,12 @@ export class UploadPage {
         console.log(data);
         this.fileId = data;
         console.log(this.fileId);
+        this.userRating.file_id = this.fileId.file_id;
+        this.userRating.rating = this.rate;
+        console.log(this.userRating);
+        this.postRating(this.userRating);
         this.filterTag();
-        this.navCtrl.setRoot(FrontPage);
+        //this.navCtrl.setRoot(FrontPage);
       }
       );
   }
@@ -75,6 +81,19 @@ export class UploadPage {
 
     }
   }
+
+  changeValue = (event) =>{
+    this.rate = event.value;
+  }
+
+  postRating = (id: any) =>{
+    this.mediaService.postRating(id).subscribe(
+      res => {
+        console.log(res);
+      }
+    );
+  }
+
   getToProfile() {
     this.navCtrl.setRoot(ProfilePage);
   }

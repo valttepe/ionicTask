@@ -81,6 +81,8 @@
             <button type="submit" [disabled]="!uploadForm.valid">Submit</button>
         </p>-->
     <form #uploadForm="ngForm" (ngSubmit)="upload($event, uploadForm.value)">
+        
+        
         <div class="upload-file">
             <label>Select beer:</label><br>
             <input type="file" name="file" ngModel>
@@ -97,17 +99,21 @@
         </ion-item>
 
         <ion-item>
-            <ion-label>Tags</ion-label>
-            <ion-input class="white-text" name="tag" [(ngModel)]="tags"> </ion-input>
-        </ion-item>
-
-        <ion-item>
             <ion-label>Rate beer </ion-label>
-            <ion-range min="1" max="5" name="rate" step="1" snaps="true" [(ngModel)]="Rating" color="secondary" pin="true">
+            <ion-range min="1" max="5" name="rate" step="1" snaps="true" [(ngModel)]="Rating" color="secondary" pin="true" (ionChange)=changeValue($event)>
                 <ion-label range-left>1</ion-label>
                 <ion-label range-right>5</ion-label>
             </ion-range>
         </ion-item>
+        
+        <ion-item>
+            <ion-label floating>Tags</ion-label>
+            <ion-input class="white-text" type="text" name="title" [(ngModel)]="tags"></ion-input>
+        </ion-item>
+        
+        
+        
+        
 
         <button ion-button type="submit" [disabled]="!uploadForm.valid">Upload</button>
 
