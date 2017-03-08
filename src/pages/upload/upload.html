@@ -13,8 +13,6 @@
         <ion-title>
             <h2 class="white-text">Upload</h2>
         </ion-title>
-        <button ion-button class="profilebutton" id="dontshow" (click)="getToProfile()">
-</button>
         <button ion-button class="profilebutton" id="show" (click)="getToProfile()">
 
         <ion-icon name="person"></ion-icon>
@@ -96,6 +94,19 @@
         <ion-item>
             <ion-label stacked>How did you like it?</ion-label>
             <ion-textarea class="white-text" name="description" [(ngModel)]="uploadCredentials.description"></ion-textarea>
+        </ion-item>
+
+        <ion-item>
+            <ion-label>Tags</ion-label>
+            <ion-input class="white-text" name="tag" [(ngModel)]="tags"> </ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label>Rate beer </ion-label>
+            <ion-range min="1" max="5" name="rate" step="1" snaps="true" [(ngModel)]="Rating" color="secondary" pin="true">
+                <ion-label range-left>1</ion-label>
+                <ion-label range-right>5</ion-label>
+            </ion-range>
         </ion-item>
 
         <button ion-button type="submit" [disabled]="!uploadForm.valid">Upload</button>
