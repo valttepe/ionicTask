@@ -3,7 +3,7 @@ import { FrontPage } from './../front/front';
 import { Http } from '@angular/http';
 import { Login } from './../../providers/login';
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, AlertController, ToastController } from 'ionic-angular';
 
 /*
   Generated class for the Login page.
@@ -25,6 +25,8 @@ export class LoginPage {
     public navParams: NavParams,
     public loginService: Login,
     private http: Http,
+    private alertCtrl: AlertController,
+    private toastCtrl: ToastController
   ) { }
 
   ionViewDidLoad() {
@@ -59,8 +61,10 @@ export class LoginPage {
         localStorage.setItem("user", JSON.stringify(this.user));
         this.loginService.logged = true;
         this.navCtrl.setRoot(FrontPage);
+        this.presentToast();
       },
       error => {
+        this.presentAlert();
         console.log(error);
       }
     )
@@ -70,5 +74,27 @@ export class LoginPage {
    getToRegister() {
     this.navCtrl.setRoot(RegisterPage);
   }
+  presentAlert(){
+    let alert = this.alertCtrl.create({
+      title: 'Username or password incorrect!',
+      subTitle: 'Please try again!',
+      buttons: ['OK']
+    });
+    alert.present();
+  }
+
+  presentToast() {
+  let toast = this.toastCtrl.create({
+    message: 'You have logged in',
+    duration: 3000,
+    position: 'middle'
+  });
+
+  toast.onDidDismiss(() => {
+    console.log('Dismissed toast');
+  });
+
+  toast.present();
+}
 
 }

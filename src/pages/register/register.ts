@@ -2,7 +2,7 @@ import { LoginPage } from './../login/login';
 import { FrontPage } from './../front/front';
 import { Login } from './../../providers/login';
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, ToastController } from 'ionic-angular';
 
 /*
   Generated class for the Register page.
@@ -22,7 +22,8 @@ export class RegisterPage {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    private loginService: Login) {
+    private loginService: Login,
+    private toastCtrl: ToastController) {
 
   }
 
@@ -50,6 +51,7 @@ export class RegisterPage {
             localStorage.setItem("user", JSON.stringify(this.user));
             this.loginService.logged = true;
             this.navCtrl.setRoot(FrontPage);
+            this.presentToast();
           }
         )
       },
@@ -75,4 +77,18 @@ export class RegisterPage {
   getToLogin() {
     this.navCtrl.setRoot(LoginPage);
   }
+
+  presentToast() {
+  let toast = this.toastCtrl.create({
+    message: 'User was added successfully',
+    duration: 3000,
+    position: 'middle'
+  });
+
+  toast.onDidDismiss(() => {
+    console.log('Dismissed toast');
+  });
+
+  toast.present();
+}
 }

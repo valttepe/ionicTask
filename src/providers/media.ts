@@ -83,6 +83,7 @@ export class Media {
   //gets all userdata from server and needs user_id as parameter
 
   getUserInfo = (userid: any) => {
+    console.log(localStorage.getItem("user"));
     return this.http.get(this.url + '/users/' + userid + '?token=' + JSON.parse(localStorage.getItem("user")).token)
       .map(
       re =>
