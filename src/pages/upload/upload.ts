@@ -2,8 +2,9 @@ import { ProfilePage } from './../profile/profile';
 import { Login } from './../../providers/login';
 import { FrontPage } from './../front/front';
 import { Media } from './../../providers/media';
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { Keyboard } from 'ionic-native';
 
 /*
   Generated class for the Upload page.
@@ -16,22 +17,30 @@ import { NavController, NavParams } from 'ionic-angular';
   templateUrl: 'upload.html'
 })
 export class UploadPage {
-
+  
+  @ViewChild('focusInput') myInput;
   uploadCredentials = { file: '', title: '', description: '' };
   private tags: any = [];
   private fileId: any = [];
   private rating: number;
+  private rate: any = 1;
   private filter = { file_id: '', tag: '#HereForBeer' };
+  private userRating = { file_id: '', rating: '' };
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     private mediaService: Media,
-    private loginService: Login
+    private loginService: Login,
+    private NavController: NavController
   ) { }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad UploadPage');
     this.checkIflog();
+    setTimeout(() => {
+      Keyboard.show();
+      this.myInput.setFocus();
+    },150);
   }
 
   upload = (event: any, value: any) => {
@@ -49,6 +58,10 @@ export class UploadPage {
         console.log(data);
         this.fileId = data;
         console.log(this.fileId);
+        this.userRating.file_id = this.fileId.file_id;
+        this.userRating.rating = this.rate;
+        console.log(this.userRating);
+        this.postRating(this.userRating);
         this.filterTag();
         this.navCtrl.setRoot(FrontPage);
       }
@@ -75,6 +88,19 @@ export class UploadPage {
 
     }
   }
+
+  changeValue = (event) =>{
+    this.rate = event.value;
+  }
+
+  postRating = (id: any) =>{
+    this.mediaService.postRating(id).subscribe(
+      res => {
+        console.log(res);
+      }
+    );
+  }
+
   getToProfile() {
     this.navCtrl.setRoot(ProfilePage);
   }

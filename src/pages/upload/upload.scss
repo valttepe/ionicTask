@@ -1,15 +1,17 @@
 page-upload {
     .scroll-content {
         display: flex;
-        flex-flow: column wrap;
+        flex-flow: column nowrap;
         justify-content: center;
         form {
             font-family: $button-font;
             color: white;
-            margin: auto;
-            margin-top: 5em;
+            margin: 5%;
+            //margin-top: 5em;
             padding: 1em 2em;
             background-color: $btn-color;
+           
+
             .upload-file {
                 padding: 0.5em 0;
                 border-bottom: 2px solid $btn-shadow;

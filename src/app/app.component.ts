@@ -21,14 +21,33 @@ export class MyApp {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
-    this.pages = [
-      { title: 'Login', component: LoginPage },
-      { title: 'Front', component: FrontPage },
-      { title: 'Upload', component: UploadPage },
-      { title: 'Register', component: RegisterPage},
-      { title: 'Profile', component: ProfilePage}
+    
+    if (localStorage.getItem("user") != null) {
+      this.pages = [
+        { title: 'Front', component: FrontPage },
+        { title: 'Upload', component: UploadPage },
+        { title: 'Profile', component: ProfilePage }
+      ];
+    }
+    else {
+      this.pages = [
 
-    ];
+        { title: 'Front', component: FrontPage },
+        { title: 'Login', component: LoginPage },
+        { title: 'Register', component: RegisterPage}
+
+      ];
+    }
+    /*this.pages = [
+
+        { title: 'Login', component: LoginPage },
+        { title: 'Front', component: FrontPage },
+        { title: 'Upload', component: UploadPage },
+        { title: 'Register', component: RegisterPage},
+        { title: 'Profile', component: ProfilePage}
+
+      ];*/
+    
 
   }
 
@@ -45,5 +64,25 @@ export class MyApp {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
+  }
+
+  menuPages() {
+    console.log('listing pages');
+    if (localStorage.getItem("user") != null) {
+      this.pages = [
+        { title: 'Front', component: FrontPage },
+        { title: 'Upload', component: UploadPage },
+        { title: 'Profile', component: ProfilePage }
+      ];
+    }
+    else {
+      this.pages = [
+
+        { title: 'Front', component: FrontPage },
+        { title: 'Login', component: LoginPage },
+        { title: 'Register', component: RegisterPage}
+
+      ];
+    }
   }
 }
