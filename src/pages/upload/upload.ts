@@ -63,7 +63,7 @@ export class UploadPage {
         console.log(this.userRating);
         this.postRating(this.userRating);
         this.filterTag();
-        //this.navCtrl.setRoot(FrontPage);
+        this.navCtrl.setRoot(FrontPage);
       }
       );
   }
