@@ -13,15 +13,15 @@
             <h2 style="color: white">Here for Beer?</h2>
         </ion-title>
 
-        <button ion-button class="profilebutton" id="dontshow" (click)="getToProfile()">
+        <button ion-button class="profilebutton" *ngIf="this.loginService.logged" (click)="getToProfile()">
             <ion-icon name="person"></ion-icon>
         </button>
 
-        <button ion-button login class="loginbutton" id="show" (click)=getToLogin()>
+        <button ion-button login class="loginbutton" *ngIf="!this.loginService.logged"  (click)=getToLogin()>
           <ion-icon name="log-in"></ion-icon>
         </button>
 
-        <button ion-button login class="logoutbutton" id="dontshow" (click)=logout()>
+        <button ion-button login class="logoutbutton" *ngIf="this.loginService.logged" (click)=logout()>
           <ion-icon name="log-out"></ion-icon>
         </button>
 

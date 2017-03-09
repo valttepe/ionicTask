@@ -14,7 +14,7 @@
             <h2 class="white-text">Profile</h2>
         </ion-title>
 
-        <button ion-button login class="logoutbutton" id="show" (click)=logout()>
+        <button ion-button login class="logoutbutton" *ngIf="this.loginService.logged" (click)=logout()>
           <ion-icon name="log-out"></ion-icon>
         </button>
     </ion-navbar>

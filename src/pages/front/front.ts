@@ -65,20 +65,6 @@ export class FrontPage {
       console.log("you are logged in");
       this.loginService.logged = true;
 
-      let sethidden = document.querySelector(".loginbutton");
-      sethidden.setAttribute("id", "dontshow");
-
-      let setshow = document.querySelector(".logoutbutton");
-      setshow.setAttribute("id", "show");
-
-      let setprof = document.querySelector(".profilebutton");
-      setprof.setAttribute("id", "show");
-    }
-    else {
-      console.log("you are not logged in");
-
-      /*let sethidden = document.querySelector();
-      sethidden.setAttribute();*/
     }
   }
 

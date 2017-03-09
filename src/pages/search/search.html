@@ -13,6 +13,17 @@
         <ion-title>
             <h2 class="white-text">Register</h2>
         </ion-title>
+        <button ion-button class="profilebutton" *ngIf="this.loginService.logged" (click)="getToProfile()">
+            <ion-icon name="person"></ion-icon>
+        </button>
+
+        <button ion-button login class="loginbutton" *ngIf="!this.loginService.logged" (click)=getToLogin()>
+          <ion-icon name="log-in"></ion-icon>
+        </button>
+
+        <button ion-button login class="logoutbutton" *ngIf="this.loginService.logged" (click)=logout()>
+          <ion-icon name="log-out"></ion-icon>
+        </button>
     </ion-navbar>
 
 </ion-header>
