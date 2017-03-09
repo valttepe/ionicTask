@@ -15,6 +15,9 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class ProfilePage {
 
+  private checklist = [];
+  private ownPosts = [];
+
   constructor( public navCtrl: NavController,
                public navParams: NavParams,
                private mediaService: Media,
@@ -22,6 +25,16 @@ export class ProfilePage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProfilePage');
+    this.getOwnPosts();
   }
 
+  getOwnPosts = () => {
+    this.mediaService.getTagFilter().subscribe(
+      res => {
+        console.log(res);
+        this.checklist = res;
+
+      }
+    );
+  }
 }

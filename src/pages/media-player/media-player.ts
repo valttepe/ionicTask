@@ -51,6 +51,12 @@ export class MediaPlayerPage {
 
   }
 
+   /*********
+   * 
+   * This is for getting file information on the screen and also username from the database
+   * 
+   *********/
+
   getFile = (filen: any) => {
     this.mediaService.getMediaFile(filen).subscribe(
       res => {
@@ -70,6 +76,12 @@ export class MediaPlayerPage {
       }
     );
   }
+
+   /*********
+   * 
+   * These are for the Like button and likecount
+   * 
+   *********/
 
   getFavorites = (firstParam: any) => {
     this.mediaService.getFavorites(firstParam).subscribe(
@@ -120,6 +132,12 @@ export class MediaPlayerPage {
 
   }
 
+   /*********
+   * 
+   * These are for the posting and getting comments
+   * 
+   *********/
+
   postComment = (value: any) => {
     console.log(this.firstParam);
     console.log(value.comment);
@@ -167,10 +185,20 @@ export class MediaPlayerPage {
     }
   }
 
+    onSubmit(): void {
+    this.commentCredentials.comment = '';
+  }
+
+   /*********
+   * 
+   * These are for the rating 
+   * 
+   *********/
+/*
   changeValue = (event) => {
     this.rate = event.value;
   }
-/*
+
   postIfClicked = () =>{
     
   }
@@ -189,22 +217,6 @@ export class MediaPlayerPage {
         this.showrate = res[0].rating;
       }
     );
-  }
-
-  onSubmit(): void {
-    this.commentCredentials.comment = '';
-  }
-
-  getToLogin() {
-    this.navCtrl.setRoot(LoginPage);
-  }
-  getToProfile() {
-    this.navCtrl.setRoot(ProfilePage);
-  }
-
-  logout() {
-    this.loginService.logout();
-    this.navCtrl.setRoot(FrontPage);
   }
 
 }
