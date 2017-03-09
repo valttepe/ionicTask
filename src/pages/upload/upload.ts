@@ -62,7 +62,7 @@ export class UploadPage {
 
     const fd = new FormData();
     if (this.base64Image) {
-      fd.append('file', this.dataURItoBlob(this.base64Image));
+      fd.append('file', this.dataURItoBlob(this.base64Image))
     } else {
       fd.append('file', file);
     }
@@ -138,7 +138,6 @@ export class UploadPage {
     toast.onDidDismiss(() => {
       console.log('Dismissed toast');
     });
-
     toast.present();
     }
     
@@ -186,7 +185,7 @@ export class UploadPage {
       console.log(err);
     });    
   }
-dataURItoBlob = (dataURI: any) => {
+  dataURItoBlob = (dataURI: any) => {
     'use strict'
     var byteString,
       mimestring
@@ -206,6 +205,4 @@ dataURItoBlob = (dataURI: any) => {
 
     return new Blob([new Uint8Array(content)], { type: mimestring });
   }
-
-
 }
