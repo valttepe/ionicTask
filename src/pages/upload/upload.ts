@@ -172,10 +172,14 @@ export class UploadPage {
     });
     actionSheet.present();
   }
+  /*
+  Function to take picture and it can be accessed from presentActionSheet
+  */
   takePicture(sourceType) {
     //Data from image
     Camera.getPicture({
       destinationType: Camera.DestinationType.DATA_URL,
+      sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
       allowEdit: true,
       targetWidth: 1000,
       targetHeight: 1000
