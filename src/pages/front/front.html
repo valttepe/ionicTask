@@ -64,18 +64,12 @@
 </ion-content>
 <ion-footer>
     <ion-toolbar>
+        <ion-tabs>
 
-        <button ion-button>
-                <ion-title>perkele</ion-title>
-        </button>
+            <ion-tab [root]="recentRoot"></ion-tab>
+            <ion-tab [root]="likedRoot"></ion-tab>
+            <ion-tab [root]="ratedRoot"></ion-tab>
 
-        <button ion-button>
-                <ion-title>santeri</ion-title>
-        </button>
-
-        <button ion-button>
-                <ion-title>apua</ion-title>
-        </button>
-
+        </ion-tabs>
     </ion-toolbar>
 </ion-footer>
