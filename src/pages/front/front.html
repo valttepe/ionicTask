@@ -10,7 +10,7 @@
             <ion-icon class="white-text" name="menu"></ion-icon>
         </button>
         <ion-title>
-            <h2 class="white-text">Here for Beer?</h2>
+            <h2 style="color: white">Here for Beer?</h2>
         </ion-title>
 
         <button ion-button class="profilebutton" id="dontshow" (click)="getToProfile()">
@@ -37,24 +37,21 @@
         <ion-item>
             <h2 class="white-text">{{image.title}}</h2>
             <h2 class="imagetitle" class="white-text">@{{image.username}}</h2>
-            <!--<ion-thumbnail>-->
             <a (click)="openFile(image.file_id)">
                 <img [alt]="image.title" [src]='url + ( image.filename | thumbnail: "medium")' />
             </a>
-            <!--</ion-thumbnail>-->
             <p class="white-text">{{image.description}}</p>
-            <!--<p style="float: right">{{ amount likes come here }}</p>-->
             <ion-row>
                 <ion-col>
                     <button ion-button icon-left clear small>
-        <ion-icon name="thumbs-up"></ion-icon>
-        <div>12 Likes</div>
+        <ion-icon class="white-text" name="thumbs-up"></ion-icon>
+        <div class="white-text">10 likes</div>
       </button>
                 </ion-col>
                 <ion-col>
                     <button ion-button icon-left clear small>
-        <ion-icon name="text"></ion-icon>
-        <div>4 Comments</div>
+        <ion-icon class="white-text" name="text"></ion-icon>
+        <div class="white-text">4 Comments</div>
       </button>
                 </ion-col>
             </ion-row>
