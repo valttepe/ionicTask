@@ -87,7 +87,7 @@
             <label>Select beer:</label><br>
             <input type="file" name="file" ngModel>
         </div>
-
+<ion-list>
         <ion-item>
             <button (click)="presentActionSheet()">Select Picture</button>
         </ion-item>
@@ -120,6 +120,6 @@
             </ion-item>
 
         <button ion-button type="submit" [disabled]="!uploadForm.valid">Upload</button>
-
+</ion-list>
     </form>
 </ion-content>
