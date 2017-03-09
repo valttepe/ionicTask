@@ -87,7 +87,12 @@
             <label>Select beer:</label><br>
             <input type="file" name="file" ngModel>
         </div>
-<ion-list>
+        <ion-item>
+            <button (click)="presentActionSheet()">Select Picture</button>
+        </ion-item>
+        <ion-item>
+            <img [src]="base64Image"/>
+        </ion-item>
         <ion-item>
             <ion-label floating>Share the brand</ion-label>
             <ion-input #focusInput class="white-text" type="text" name="title" [(ngModel)]="uploadCredentials.title"></ion-input>
@@ -112,8 +117,6 @@
             </ion-range>
         </ion-item>
         
-
-</ion-list>
 
         <button ion-button type="submit" [disabled]="!uploadForm.valid">Upload</button>
 

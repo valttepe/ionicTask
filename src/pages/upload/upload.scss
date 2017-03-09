@@ -13,11 +13,7 @@ page-upload {
            
 
             .upload-file {
-                padding: 0.5em 0;
-                border-bottom: 2px solid $btn-shadow;
-                input {
-                    color: black;
-                }
+                display: none;
             }
             button {
                 background-color: #4a7e84;
