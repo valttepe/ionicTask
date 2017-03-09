@@ -2,8 +2,8 @@ import { RegisterPage } from './../register/register';
 import { FrontPage } from './../front/front';
 import { Http } from '@angular/http';
 import { Login } from './../../providers/login';
-import { Component } from '@angular/core';
 import { NavController, NavParams, AlertController, ToastController } from 'ionic-angular';
+import { Component, Output, EventEmitter } from '@angular/core';
 
 /*
   Generated class for the Login page.
@@ -17,6 +17,7 @@ import { NavController, NavParams, AlertController, ToastController } from 'ioni
 })
 export class LoginPage {
 
+  @Output() menuPages = new EventEmitter();
   registerCredentials = { username: '', password: '' };
 
   private user: any = {};
@@ -62,6 +63,8 @@ export class LoginPage {
         this.loginService.logged = true;
         this.navCtrl.setRoot(FrontPage);
         this.presentToast();
+        location.reload();
+        //this.menuPages.emit(true);
       },
       error => {
         this.presentAlert();

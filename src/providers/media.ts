@@ -18,23 +18,12 @@ export class Media {
     console.log('Hello Media Provider');
   }
 
-  getMedia = () => {
-    return this.http.get(this.url + '/media')
-      .map(
-      res =>
-        res.json()
-
-      );
-  }
-
-  //this is used to get more media to front page
-
-  getNew = (amount: number) => {
-    //GET http://[BASE-URL]/media?start=10&limit=10
-    return this.http.get(this.url + `/media?limit=${amount}`);
-  };
-
   //uploading the media to server and takes formdata as parameter
+  /*********
+   * 
+   * These are for the Posting the media and setting filters to them and also getting posts to front and mediaplayer
+   * 
+   *********/
 
   postMedia = (formContent: any) => {
     // this.http.post(this.url, this.user,.....)
@@ -61,6 +50,12 @@ export class Media {
           res.json()
       );
   }
+
+   /*********
+   * 
+   * These are for the user defined tags and it is not implemented yet
+   * 
+   *********/
 
   postUserTags = (tags: any) => {
     this.token = JSON.parse(localStorage.getItem("user")).token;
@@ -91,7 +86,11 @@ export class Media {
       );
   }
 
-  //gets favorites to specific mediafile and needs file_id as parameter
+  /*********
+   * 
+   * These are for the Like button and likecount
+   * 
+   *********/
 
   getFavorites = (id: number) => {
     return this.http.get(this.url + `/favourites/file/${id}`);
@@ -115,6 +114,13 @@ export class Media {
     return this.http.delete(this.url + `/favourites/file/${id}?token=` + this.token);
   }
 
+   /*********
+   * 
+   * These are for the Posting and getting comments 
+   * 
+   *********/
+
+
   postComment = (comment: any) => {
     console.log("postComment" + comment);
     this.token = JSON.parse(localStorage.getItem("user")).token;
@@ -134,6 +140,12 @@ export class Media {
         res.json()
     );
   }
+
+   /*********
+   * 
+   * These are for the Posting rating and getting rating in the posts
+   * 
+   *********/
 
   getRating = (id: number) => {
     return this.http.get(this.url + '/ratings/file/' + id)

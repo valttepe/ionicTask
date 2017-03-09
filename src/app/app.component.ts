@@ -20,10 +20,11 @@ export class MyApp {
 
   constructor(public platform: Platform) {
     this.initializeApp();
+    this.menuPages();
 
     // used for an example of ngFor and navigation
     
-    if (localStorage.getItem("user") != null) {
+    /*if (localStorage.getItem("user") != null) {
       this.pages = [
         { title: 'Front', component: FrontPage },
         { title: 'Upload', component: UploadPage },
@@ -39,7 +40,7 @@ export class MyApp {
         { title: 'Register', component: RegisterPage}
 
       ];
-    }
+    }*/
     /*this.pages = [
 
         { title: 'Login', component: LoginPage },

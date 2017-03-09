@@ -4,7 +4,7 @@ import { LoginPage } from './../login/login';
 import { MediaPlayerPage } from './../media-player/media-player';
 import { ThumbnailPipe } from './../../app/pipes/thumbnail.pipe';
 import { Media } from './../../providers/media';
-import { Component, Pipe, ViewChild } from '@angular/core';
+import { Component, Pipe, ViewChild, Output, EventEmitter } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
 /*
@@ -18,11 +18,10 @@ import { NavController, NavParams } from 'ionic-angular';
   templateUrl: 'front.html',
 })
 export class FrontPage {
-
+  
+  @Output() menuPages = new EventEmitter();
   private images: any = [];
-  private fill: any = [];
   private url = "http://media.mw.metropolia.fi/wbma/uploads/";
-  private num: number = 0;
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     private mediaService: Media,
@@ -37,40 +36,21 @@ export class FrontPage {
   }
 
   getMedia = (refresher = null) => {
-    this.mediaService.getMedia().subscribe(
-      res => {
-
         //this.fill = res;
         this.getFilteredFiles();
         //this.images = res;
         if (refresher != null) {
           refresher.complete();
         }
-      }
-    );
   }
 
   getFilteredFiles = () => {
     this.mediaService.getTagFilter().subscribe(
       res => {
-        //console.log(res);
-        this.fill = res;
         this.images = [];
-        //console.log(this.fill.length);
-        this.num = this.fill.length - 1;
-        //console.log(this.num);
-        for (let file in this.fill) {
-          //console.log(this.fill[this.num]);
-          //console.log(this.num);
-          this.images.push(this.fill[this.num]);
-          this.num = this.num - 1;
-        }
-        //console.log(this.images);
+        this.images = res.reverse();
         if (this.images != null && this.loginService.logged == true) {
           this.getPostUsers();
-          //console.log("userlist");
-          //console.log(this.images[0]);
-
         }
 
 
@@ -138,6 +118,8 @@ export class FrontPage {
   logout() {
     this.loginService.logout();
     this.navCtrl.setRoot(FrontPage);
+    location.reload();
+    //this.menuPages.emit(false);
   }
 
   doRefresh(refresher) {
