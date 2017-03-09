@@ -61,7 +61,11 @@ export class UploadPage {
     const file = fileELement.files[0];
 
     const fd = new FormData();
-    fd.append('file', file);
+    if (this.base64Image) {
+      fd.append('file', this.dataURItoBlob(this.base64Image));
+    } else {
+      fd.append('file', file);
+    }
     fd.append('title', value.title);
     fd.append('description', value.description);
 
