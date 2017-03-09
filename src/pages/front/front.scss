@@ -47,6 +47,31 @@ page-front {
     ion-refresher {
         background-color: #FFD968;
     }
+<<<<<<< HEAD
+=======
+    .footer {
+        /*
+        This is fixed toolbar at bottom of the screen.
+        It stays at bottom even when scrolling down.
+        Functionality is that you can change what content is shown
+        on frontpage.
+        */
+        .toolbar {
+            /*Trying to flexbox*/
+            display: flex;
+            flex-flow: row wrap;
+            /*padding: 0;*/
+            .toolbar-content {
+                flex: 0 0 100%;
+                /*width: 100%;
+                height: 100%;*/
+                .ion-button {
+                    flex: 0 0 33%;
+                }
+            }
+        }
+    }
+>>>>>>> 62f761047725d93eb83e2cb1e387a32ecc8d8d6c
 }
 
 

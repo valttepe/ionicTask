@@ -82,12 +82,21 @@
         </p>-->
     <form #uploadForm="ngForm" (ngSubmit)="upload($event, uploadForm.value)">
 
-
+        <!-- upload-file is hidden is css because this block can't live without it -->
         <div class="upload-file">
             <label>Select beer:</label><br>
             <input type="file" name="file" ngModel>
         </div>
+
+        <!-- ion-list for all items in upload page -->
         <ion-list>
+            <ion-item>
+                <button (click)="presentActionSheet()">Select Picture</button>
+            </ion-item>
+
+            <ion-item>
+                <img [src]="base64Image" [hidden]="!this.base64Image" />
+            </ion-item>
             <ion-item>
                 <ion-label floating>Share the brand</ion-label>
                 <ion-input #focusInput class="white-text" type="text" name="title" [(ngModel)]="uploadCredentials.title"></ion-input>
@@ -97,7 +106,6 @@
                 <ion-label stacked>How did you like it?</ion-label>
                 <ion-textarea #focusInput class="white-text" name="description" [(ngModel)]="uploadCredentials.description"></ion-textarea>
             </ion-item>
-
             <ion-item>
                 <ion-label>Tags</ion-label>
                 <ion-input #focusInput class="white-text" name="tag" [(ngModel)]="tags"> </ion-input>
@@ -112,10 +120,7 @@
                 </ion-range>
             </ion-item>
 
-
+            <button ion-button type="submit" [disabled]="!uploadForm.valid">Upload</button>
         </ion-list>
-
-        <button ion-button type="submit" [disabled]="!uploadForm.valid">Upload</button>
-
     </form>
 </ion-content>

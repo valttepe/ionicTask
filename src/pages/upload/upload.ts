@@ -3,8 +3,8 @@ import { Login } from './../../providers/login';
 import { FrontPage } from './../front/front';
 import { Media } from './../../providers/media';
 import { Component, ViewChild } from '@angular/core';
-import { NavController, NavParams, ToastController } from 'ionic-angular';
-import { Keyboard } from 'ionic-native';
+import { NavController, NavParams, ToastController, ActionSheetController, Loading, Platform, LoadingController } from 'ionic-angular';
+import { Keyboard, Camera, File } from 'ionic-native';
 
 /*
   Generated class for the Upload page.
@@ -12,6 +12,9 @@ import { Keyboard } from 'ionic-native';
   See http://ionicframework.com/docs/v2/components/#navigation for more info on
   Ionic pages and navigation.
 */
+
+declare var cordova: any;
+
 @Component({
   selector: 'page-upload',
   templateUrl: 'upload.html'
@@ -27,12 +30,21 @@ export class UploadPage {
   private filter = { file_id: '', tag: '#HereForBeer' };
   private userRating = { file_id: '', rating: '' };
 
+  // Camera
+
+  base64Image: string;
+  /*lastImage: string = null;
+  loading: Loading;*/
+
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     private mediaService: Media,
     private loginService: Login,
     private NavController: NavController,
-    private toastCtrl: ToastController
+    private toastCtrl: ToastController,
+    public actionSheetCtrl: ActionSheetController,
+    public loadingCtrl: LoadingController,
+    private toastController: ToastController
     ) { }
 
   ionViewDidLoad() {
@@ -49,7 +61,11 @@ export class UploadPage {
     const file = fileELement.files[0];
 
     const fd = new FormData();
-    fd.append('file', file);
+    if (this.base64Image) {
+      fd.append('file', this.dataURItoBlob(this.base64Image))
+    } else {
+      fd.append('file', file);
+    }
     fd.append('title', value.title);
     fd.append('description', value.description);
 
@@ -65,7 +81,7 @@ export class UploadPage {
         this.postRating(this.userRating);
         this.filterTag();
         this.navCtrl.setRoot(FrontPage);
-        this.presentToast();
+        this.presentToast('kulli');
       }
       );
   }
@@ -112,18 +128,85 @@ export class UploadPage {
     this.navCtrl.setRoot(FrontPage);
   }
 
-  presentToast() {
-  let toast = this.toastCtrl.create({
-    message: 'Your beer has been shared!',
-    duration: 5000,
-    position: 'middle'
-  });
+  presentToast(text) {
+    let toast = this.toastCtrl.create({
+      message: 'Your beer has been shared!',
+      duration: 5000,
+      position: 'middle'
+    });
 
-  toast.onDidDismiss(() => {
-    console.log('Dismissed toast');
-  });
+    toast.onDidDismiss(() => {
+      console.log('Dismissed toast');
+    });
+    toast.present();
+    }
+    
 
-  toast.present();
-}
+  /*
+  Actionsheet for uploading pictures from gallery and from
+  devices Camera.
+  */
 
+  public presentActionSheet() {
+    console.log('actionsheet')
+    let actionSheet = this.actionSheetCtrl.create({
+      title: 'Select Image Source',
+      buttons: [
+        {
+          text: 'From gallery',
+          handler: () => {
+            this.takePicture(Camera.PictureSourceType.PHOTOLIBRARY);
+          }
+        },
+        {
+          text: 'Use camera',
+          handler: () => {
+            this.takePicture(Camera.PictureSourceType.CAMERA);
+          }
+        },
+        {
+          text: 'Cancel',
+          role: 'cancel'
+        }
+      ]
+    });
+    actionSheet.present();
+  }
+  /*
+  Function to take picture and it can be accessed from presentActionSheet
+  */
+  takePicture(sourceType) {
+    //Data from image
+    Camera.getPicture({
+      destinationType: Camera.DestinationType.DATA_URL,
+      sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
+      allowEdit: true,
+      targetWidth: 1000,
+      targetHeight: 1000
+    }).then((imageData) => {
+        this.base64Image = "data:image/jpeg;base64," + imageData;
+    }, (err) => {
+      console.log(err);
+    });    
+  }
+  dataURItoBlob = (dataURI: any) => {
+    'use strict'
+    var byteString,
+      mimestring
+
+    if (dataURI.split(',')[0].indexOf('base64') !== -1) {
+      byteString = atob(dataURI.split(',')[1])
+    } else {
+      byteString = decodeURI(dataURI.split(',')[1])
+    }
+
+    mimestring = dataURI.split(',')[0].split(':')[1].split(';')[0]
+
+    var content = new Array();
+    for (var i = 0; i < byteString.length; i++) {
+      content[i] = byteString.charCodeAt(i)
+    }
+
+    return new Blob([new Uint8Array(content)], { type: mimestring });
+  }
 }
