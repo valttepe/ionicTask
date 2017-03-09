@@ -1,3 +1,4 @@
+import { FrontPage } from './../front/front';
 import { Login } from './../../providers/login';
 import { Media } from './../../providers/media';
 import { Component } from '@angular/core';
@@ -36,5 +37,11 @@ export class ProfilePage {
 
       }
     );
+  }
+  logout() {
+    this.loginService.logout();
+    this.navCtrl.setRoot(FrontPage);
+    location.reload();
+    //this.menuPages.emit(false);
   }
 }

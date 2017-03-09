@@ -86,7 +86,7 @@ export class MediaPlayerPage {
   getFavorites = (firstParam: any) => {
     this.mediaService.getFavorites(firstParam).subscribe(
       resp => {
-        this.favorite = resp.json();
+        this.favorite = resp;
         console.log(this.favorite);
         this.checkIfLiked();
       }

@@ -18,10 +18,12 @@ import { NavController, NavParams } from 'ionic-angular';
   templateUrl: 'front.html',
 })
 export class FrontPage {
-  
+
   @Output() menuPages = new EventEmitter();
   private images: any = [];
   private url = "http://media.mw.metropolia.fi/wbma/uploads/";
+  
+
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     private mediaService: Media,
@@ -36,12 +38,12 @@ export class FrontPage {
   }
 
   getMedia = (refresher = null) => {
-        //this.fill = res;
-        this.getFilteredFiles();
-        //this.images = res;
-        if (refresher != null) {
-          refresher.complete();
-        }
+    //this.fill = res;
+    this.getFilteredFiles();
+    //this.images = res;
+    if (refresher != null) {
+      refresher.complete();
+    }
   }
 
   getFilteredFiles = () => {
@@ -49,8 +51,9 @@ export class FrontPage {
       res => {
         this.images = [];
         this.images = res.reverse();
+        this.getPostLikes();
         if (this.images != null && this.loginService.logged == true) {
-          this.getPostUsers();
+          this.getPostUsers();  
         }
 
 
@@ -79,9 +82,9 @@ export class FrontPage {
   }
 
   getPostUsers = () => {
-    for (let user of this.images) {
+    for (let image of this.images) {
       //console.log(user);
-      this.mediaService.getUserInfo(user.user_id).subscribe(
+      this.mediaService.getUserInfo(image.user_id).subscribe(
         res => {
           //console.log("user");
           //console.log(res);
@@ -90,6 +93,20 @@ export class FrontPage {
               this.images[i].username = res.username;
             }
           }
+        });
+    }
+  }
+
+  getPostLikes = () => {
+    for (let image of this.images) {
+      //console.log(user);
+      this.mediaService.getFavorites(image.file_id).subscribe(
+        res => {
+          //console.log("user");
+          console.log(res.length);
+          
+          image.likecount = res.length;
+          
         });
     }
   }

@@ -93,7 +93,11 @@ export class Media {
    *********/
 
   getFavorites = (id: number) => {
-    return this.http.get(this.url + `/favourites/file/${id}`);
+    return this.http.get(this.url + `/favourites/file/${id}`)
+      .map(
+        resp => 
+        resp.json()
+      );
   }
 
   //liking media and needs file_id as parameter
