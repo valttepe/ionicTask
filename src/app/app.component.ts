@@ -1,3 +1,4 @@
+import { SearchPage } from './../pages/search/search';
 import { ProfilePage } from './../pages/profile/profile';
 import { UploadPage } from './../pages/upload/upload';
 import { RegisterPage } from './../pages/register/register';
@@ -26,7 +27,8 @@ export class MyApp {
       this.pages = [
         { title: 'Front', component: FrontPage },
         { title: 'Upload', component: UploadPage },
-        { title: 'Profile', component: ProfilePage }
+        { title: 'Profile', component: ProfilePage },
+        { title: 'Search', component: SearchPage}
       ];
     }
     else {
@@ -72,7 +74,8 @@ export class MyApp {
       this.pages = [
         { title: 'Front', component: FrontPage },
         { title: 'Upload', component: UploadPage },
-        { title: 'Profile', component: ProfilePage }
+        { title: 'Profile', component: ProfilePage },
+        { title: 'Search', component: SearchPage}
       ];
     }
     else {

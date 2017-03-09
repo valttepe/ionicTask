@@ -1,3 +1,4 @@
+import { SearchPage } from './../pages/search/search';
 import { ProfilePage } from './../pages/profile/profile';
 import { UploadPage } from './../pages/upload/upload';
 import { RegisterPage } from './../pages/register/register';
@@ -22,7 +23,8 @@ import { MyApp } from './app.component';
     MediaPlayerPage,
     UploadPage,
     RegisterPage,
-    ProfilePage
+    ProfilePage,
+    SearchPage
 
   ],
   imports: [
@@ -36,7 +38,8 @@ import { MyApp } from './app.component';
     MediaPlayerPage,
     UploadPage,
     RegisterPage,
-    ProfilePage
+    ProfilePage,
+    SearchPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, Login, Media]
 })

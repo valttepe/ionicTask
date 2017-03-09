@@ -44,6 +44,9 @@ page-front {
     .white-text {
         color: white;
     }
+    ion-refresher {
+        background-color: #FFD968;
+    }
 }
 
 
@@ -64,6 +67,7 @@ Moved scss below to app.scss because these were global.
         }
     }
 }*/
+
 
 /*.loginbutton {
     float: right;
