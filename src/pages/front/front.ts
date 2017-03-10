@@ -52,6 +52,7 @@ export class FrontPage {
       res => {
         this.images = [];
         this.images = res.reverse();
+        console.log(this.images);
         this.getPostLikes();
         this.getPostComments();
         if (this.images != null && this.loginService.logged == true) {

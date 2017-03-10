@@ -17,7 +17,7 @@
             <ion-icon name="person"></ion-icon>
         </button>
 
-        <button ion-button login class="loginbutton" *ngIf="!this.loginService.logged"  (click)=getToLogin()>
+        <button ion-button login class="loginbutton" *ngIf="!this.loginService.logged" (click)=getToLogin()>
           <ion-icon name="log-in"></ion-icon>
         </button>
 
@@ -35,8 +35,8 @@
     </ion-refresher>
     <ion-card *ngFor="let image of images">
         <ion-item>
-            <h2 class="white-text">{{image.title}}</h2>
-            <h2 class="imagetitle" class="white-text">@{{image.username}}</h2>
+            <h2 class="white-text">@{{image.username}}</h2>
+            <h2 class="white-text" class="imagetitle">{{image.title}}</h2>
             <a (click)="openFile(image.file_id)">
                 <img [alt]="image.title" [src]='url + ( image.filename | thumbnail: "medium")' />
             </a>
@@ -55,6 +55,7 @@
       </button>
                 </ion-col>
             </ion-row>
+            <p class="white-text">Was posted on {{ image.time_added }}</p>
         </ion-item>
     </ion-card>
 
