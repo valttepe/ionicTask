@@ -22,7 +22,8 @@ export class FrontPage {
   @Output() menuPages = new EventEmitter();
   private images: any = [];
   private url = "http://media.mw.metropolia.fi/wbma/uploads/";
-  
+  private likecount: any = [];
+  private commentcount: any = [];
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
@@ -52,6 +53,7 @@ export class FrontPage {
         this.images = [];
         this.images = res.reverse();
         this.getPostLikes();
+        this.getPostComments();
         if (this.images != null && this.loginService.logged == true) {
           this.getPostUsers();  
         }
@@ -103,12 +105,29 @@ export class FrontPage {
       this.mediaService.getFavorites(image.file_id).subscribe(
         res => {
           //console.log("user");
-          console.log(res.length);
+          this.likecount = res;
           
-          image.likecount = res.length;
+          image.likecount = this.likecount.length;
           
         });
     }
+  }
+
+  getPostComments = () => {
+    for (let image of this.images) {
+      //console.log(user);
+      this.mediaService.getComments(image.file_id).subscribe(
+        res => {
+          //console.log("user");
+          this.commentcount = res;
+          console.log("comments");
+          console.log(this.commentcount);
+          
+          image.commentcount = this.commentcount.length;
+          
+        });
+    }
+
   }
 
   getToLogin() {
