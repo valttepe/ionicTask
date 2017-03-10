@@ -179,7 +179,7 @@ export class UploadPage {
     //Data from image
     Camera.getPicture({
       destinationType: Camera.DestinationType.DATA_URL,
-      sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
+      sourceType: Camera.PictureSourceType.CAMERA,
       allowEdit: true,
       targetWidth: 1000,
       targetHeight: 1000
@@ -188,6 +188,19 @@ export class UploadPage {
     }, (err) => {
       console.log(err);
     });    
+  }
+  choosePicture(sourceType) {
+    Camera.getPicture({
+      destinationType:Camera.DestinationType.DATA_URL,
+      sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
+      allowEdit: true,
+      targetWidth: 1000,
+      targetHeight: 1000
+    }).then((imageData) => {
+      this.base64Image = "data:image/jpeg;base64," + imageData;
+    }, (err) => {
+      console.log(err);
+    });
   }
   dataURItoBlob = (dataURI: any) => {
     'use strict'

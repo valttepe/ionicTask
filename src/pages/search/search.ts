@@ -1,3 +1,4 @@
+import { Login } from './../../providers/login';
 import { MediaPlayerPage } from './../media-player/media-player';
 import { Media } from './../../providers/media';
 import { Component } from '@angular/core';
@@ -21,7 +22,8 @@ export class SearchPage {
 
   constructor(public navCtrl: NavController, 
   public navParams: NavParams,
-  private mediaService: Media
+  private mediaService: Media,
+  private loginService: Login
   ) {
     this.getFilteredFiles();
     this.initializeItems();

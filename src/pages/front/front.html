@@ -13,15 +13,15 @@
             <h2 style="color: white">Here for Beer?</h2>
         </ion-title>
 
-        <button ion-button class="profilebutton" id="dontshow" (click)="getToProfile()">
+        <button ion-button class="profilebutton" *ngIf="this.loginService.logged" (click)="getToProfile()">
             <ion-icon name="person"></ion-icon>
         </button>
 
-        <button ion-button login class="loginbutton" id="show" (click)=getToLogin()>
+        <button ion-button login class="loginbutton" *ngIf="!this.loginService.logged"  (click)=getToLogin()>
           <ion-icon name="log-in"></ion-icon>
         </button>
 
-        <button ion-button login class="logoutbutton" id="dontshow" (click)=logout()>
+        <button ion-button login class="logoutbutton" *ngIf="this.loginService.logged" (click)=logout()>
           <ion-icon name="log-out"></ion-icon>
         </button>
 
@@ -45,7 +45,7 @@
                 <ion-col>
                     <button ion-button icon-left clear small>
         <ion-icon class="white-text" name="thumbs-up"></ion-icon>
-        <div class="white-text">10 likes</div>
+        <div class="white-text">{{image.likecount}} likes</div>
       </button>
                 </ion-col>
                 <ion-col>
@@ -61,18 +61,12 @@
 </ion-content>
 <ion-footer>
     <ion-toolbar>
+        <ion-tabs>
 
-        <button ion-button>
-                <ion-title>perkele</ion-title>
-        </button>
+            <ion-tab [root]="recentRoot"></ion-tab>
+            <ion-tab [root]="likedRoot"></ion-tab>
+            <ion-tab [root]="ratedRoot"></ion-tab>
 
-        <button ion-button>
-                <ion-title>santeri</ion-title>
-        </button>
-
-        <button ion-button>
-                <ion-title>apua</ion-title>
-        </button>
-
+        </ion-tabs>
     </ion-toolbar>
 </ion-footer>
