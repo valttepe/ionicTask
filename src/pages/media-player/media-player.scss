@@ -1,5 +1,56 @@
 page-media-player {
-    div {
+    .container {
+        width: 100%;
+        margin: auto;
+        h3{
+           width: inherit;
+           margin: inherit; 
+        }
+        img {
+            width: inherit;
+            margin: inherit;
+            display: block;
+            border-radius: 5px;
+        }
+
+    }
+    
+    .container {
+        
+
+                background-color: #FFD968;
+                p{
+                    margin-bottom: 0px;
+                }
+                .wrapping{
+                    background-color: inherit;
+                    height:30px;
+                    min-height:30px;
+                    padding-left: 5px;
+                    .item-inner{
+                        height:30px;
+                        min-height: 30px;
+                        .input-wrapper{
+                            height: 30px;
+                            .item-cover{
+                                height:30px;
+                                margin:0;
+                            }
+                            .post-time {
+                                color: black;
+                                font-size: 12px;
+                                padding:0px;
+                                
+                            }
+                            
+                        }
+                    } 
+                }
+                
+        
+            .datetime-disabled {
+            opacity: 1;
+            }
         .thumb-button {
             color: #ee7600;
         }
@@ -9,22 +60,68 @@ page-media-player {
     }
     ion-list {
         .comment-header {
+            .label{
+                color: black;
+            }
             width:50%;
+            
+            background-color: #FFD968;
         }
         .commentbox {
-            border-radius: 10px;
-            .comment-time {
+            border-radius: 8px;
+            margin: 5px;
+            .wrap{
+                display:flex;
+                height:30px;
+                h2 {
+                    width: 50%;
+                }
+
+                .wrapping{
+                    width:50%;
+                    height:30px;
+                    min-height:30px;
+                    .item-inner{
+                        height:12px;
+                        min-height: 12px;
+                        .input-wrapper{
+                            height: 12px;
+                            .item-cover{
+                                height:30px;
+                            }
+                            .comment-time {
+                                color: white;
+                                font-size: 12px;
+                                padding:0px;
+                            }
+                            
+                        }
+                    } 
+                }
+            }
+
+            .comment {
                 color: white;
                 padding-left: 1em;
                 overflow: hidden;
                 white-space: normal;
             }
+            
+
         .datetime-disabled{
             opacity: 1;
         }
         }
 
     }
+    form{
+        ion-list{
+            ion-item{
+                border-radius: 10px;
+            }
+        }
+    }
+    
 
     .white-text {
         color: white;

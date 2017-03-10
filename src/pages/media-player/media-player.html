@@ -18,7 +18,7 @@
 
 
 <ion-content padding>
-    <div *ngIf="file && user && favorite">
+    <div class="container" *ngIf="file && user && favorite">
         <h3>{{ file.title }}</h3>
         <img *ngIf="file.media_type == 'image'" [alt]="file.title" [src]='url + file.filename' />
         <audio *ngIf="file.media_type == 'audio'" controls>
@@ -27,23 +27,27 @@
         <video *ngIf="file.media_type == 'video'" width="320" height="240" controls>
             <source [src]='url + file.filename' type="file.mime_type"> Your browser does not support the video tag.
         </video>
+        <p>{{ user.username }}</p>
 
-        <p>Description: {{ file.description }}</p>
-        <p>Username: {{ user.username }}</p>
-        <p>File size: {{ file.filesize }}</p>
-        <p>Rate: {{showrate}}</p>
+        <ion-item class="wrapping">
+            <ion-datetime displayFormat="DD. MMMM YYYY" [(ngModel)]="file.time_added" class="post-time" disabled></ion-datetime>
+        </ion-item>
 
-
-        <button *ngIf="!likes" (click)="likeMedia()" ion-button icon-left clear small>
+        <div class="description">
+            <p>Description: {{ file.description }}</p>
+        </div>
+        <div class="likerate">
+            <button *ngIf="!likes" (click)="likeMedia()" ion-button icon-left clear small>
             <ion-icon class="thumb-button" name="thumbs-up" ></ion-icon>
             <div class="thumb-button">Likes {{ favorite.length }}</div>
         </button>
 
-        <button *ngIf="likes" (click)="dislikeMedia()" ion-button icon-left clear small>
+            <button *ngIf="likes" (click)="dislikeMedia()" ion-button icon-left clear small>
             <ion-icon class="thumb-button" name="thumbs-down" ></ion-icon>
             <div class="thumb-button">Likes {{ favorite.length }}</div>
         </button>
-
+            <p>Rate: {{showrate}}</p>
+        </div>
 
     </div>
 
@@ -52,11 +56,14 @@
             Comments
         </ion-list-header>
         <ion-item class="commentbox" *ngFor="let comment of comments">
-            <h2>{{comment.username}} </h2>
-            <p class="comment-time">{{comment.comment}}</p>
-            <ion-item>
-                <ion-datetime displayFormat="DD. MMMM YYYY" [(ngModel)]="comment.time_added" class="comment-time" disabled></ion-datetime>
-            </ion-item>
+            <div class="wrap">
+                <h2>{{comment.username}} </h2>
+                <ion-item class="wrapping">
+                    <ion-datetime displayFormat="DD. MMMM YYYY" [(ngModel)]="comment.time_added" class="comment-time" disabled></ion-datetime>
+                </ion-item>
+            </div>
+            <p class="comment">{{comment.comment}}</p>
+
         </ion-item>
 
     </ion-list>
@@ -64,10 +71,10 @@
 
     <form #commentForm="ngForm" (ngSubmit)="postComment(commentForm.value)" (ngSubmit)="onSubmit()">
 
-        <ion-list inset>
+        <ion-list>
 
             <ion-item>
-                <ion-label floating>Comment</ion-label>
+                <ion-label floating>Write a comment...</ion-label>
                 <ion-input style="color: white" type="text" name="comment" [(ngModel)]="commentCredentials.comment" required></ion-input>
             </ion-item>
 

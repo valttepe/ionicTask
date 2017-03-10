@@ -52,7 +52,7 @@ export class FrontPage {
       res => {
         this.images = [];
         this.images = res.reverse();
-        console.log(this.images);
+        //console.log(this.images);
         this.getPostLikes();
         this.getPostComments();
         if (this.images != null && this.loginService.logged == true) {
@@ -121,8 +121,8 @@ export class FrontPage {
         res => {
           //console.log("user");
           this.commentcount = res;
-          console.log("comments");
-          console.log(this.commentcount);
+          //console.log("comments");
+          //console.log(this.commentcount);
           
           image.commentcount = this.commentcount.length;
           

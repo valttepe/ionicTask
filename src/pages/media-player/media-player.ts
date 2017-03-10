@@ -41,7 +41,7 @@ export class MediaPlayerPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad MediaPlayerPage');
-    console.log(this.firstParam);
+    //console.log(this.firstParam);
     this.getFile(this.firstParam);
 
     this.getFavorites(this.firstParam);
@@ -60,7 +60,7 @@ export class MediaPlayerPage {
   getFile = (filen: any) => {
     this.mediaService.getMediaFile(filen).subscribe(
       res => {
-        console.log(res);
+        //console.log(res);
         this.file = res;
         this.getRating(this.firstParam);
         this.getUsername(this.file.user_id);
@@ -71,7 +71,7 @@ export class MediaPlayerPage {
   getUsername = (user: any) => {
     this.mediaService.getUserInfo(user).subscribe(
       respon => {
-        console.log(respon);
+        //console.log(respon);
         this.user = respon;
       }
     );
@@ -87,7 +87,7 @@ export class MediaPlayerPage {
     this.mediaService.getFavorites(firstParam).subscribe(
       resp => {
         this.favorite = resp;
-        console.log(this.favorite);
+        //console.log(this.favorite);
         this.checkIfLiked();
       }
     );
@@ -95,8 +95,8 @@ export class MediaPlayerPage {
 
   checkIfLiked() {
     let user = JSON.parse(window.localStorage.getItem("user"));
-    console.log(user);
-    console.log(this.favorite);
+    //console.log(user);
+    //console.log(this.favorite);
     this.likes = false;
     for (let like of this.favorite) {
       if (user.user_id == like.user_id) {
@@ -109,11 +109,11 @@ export class MediaPlayerPage {
     this.mediaService.likeMedia(this.firstParam).subscribe(
       resp => {
 
-        console.log(resp.json());
-        console.log("liked!");
+        //console.log(resp.json());
+        //console.log("liked!");
         this.getFavorites(this.firstParam);
-        console.log(resp.json());
-        console.log("liked!");
+        //console.log(resp.json());
+        //console.log("liked!");
       }
     );
 
@@ -123,9 +123,9 @@ export class MediaPlayerPage {
     this.mediaService.dislikeMedia(this.firstParam).subscribe(
       resp => {
 
-        console.log(resp.json());
+        //console.log(resp.json());
         this.getFavorites(this.firstParam);
-        console.log(resp.json());
+        //console.log(resp.json());
 
       }
     );
@@ -139,13 +139,13 @@ export class MediaPlayerPage {
    *********/
 
   postComment = (value: any) => {
-    console.log(this.firstParam);
-    console.log(value.comment);
+    //console.log(this.firstParam);
+    //console.log(value.comment);
     this.commentCredentials.file_id = this.firstParam;
-    console.log(this.commentCredentials);
+    //console.log(this.commentCredentials);
     this.mediaService.postComment(this.commentCredentials).subscribe(
       resp => {
-        console.log(resp);
+        //console.log(resp);
         this.getComments();
       }
     );
@@ -161,8 +161,8 @@ export class MediaPlayerPage {
         //console.log(this.commentUser);
         if (this.comments != null) {
           this.getCommentUsers();
-          console.log("userlist");
-          console.log(this.comments);
+          //console.log("userlist");
+          //console.log(this.comments);
         }
       });
 
@@ -213,7 +213,7 @@ export class MediaPlayerPage {
   getRating = (id: any) => {
     this.mediaService.getRating(id).subscribe(
       res => {
-        console.log(res);
+        //console.log(res);
         this.showrate = res[0].rating;
       }
     );
