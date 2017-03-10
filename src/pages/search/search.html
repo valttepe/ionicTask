@@ -11,7 +11,7 @@
       <ion-icon name="menu"></ion-icon>
     </button>
         <ion-title>
-            <h2 class="white-text">Register</h2>
+            <h2 class="white-text">Search</h2>
         </ion-title>
         <button ion-button class="profilebutton" *ngIf="this.loginService.logged" (click)="getToProfile()">
             <ion-icon name="person"></ion-icon>
@@ -30,12 +30,12 @@
 
 
 <ion-content padding>
-    <ion-searchbar (ionInput)="getItems($event)">
+    <ion-searchbar placeholder="Search title names..." (ionInput)="getItems($event)">
     </ion-searchbar>
     <ion-list inset>
 
         <ion-item *ngFor="let item of items">
-            <a (click)="openFile(item.file_id)">
+            <a class="white-text" (click)="openFile(item.file_id)">
                 <h2> {{ item.title }} </h2>
             </a>
         </ion-item>
