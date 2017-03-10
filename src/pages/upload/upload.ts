@@ -155,13 +155,14 @@ export class UploadPage {
         {
           text: 'From gallery',
           handler: () => {
-            this.takePicture(Camera.PictureSourceType.PHOTOLIBRARY);
+            /*this.choosePicture(Camera.PictureSourceType.PHOTOLIBRARY);*/
+            this.choosePicture();
           }
         },
         {
           text: 'Use camera',
           handler: () => {
-            this.takePicture(Camera.PictureSourceType.CAMERA);
+            this.takePicture();
           }
         },
         {
@@ -175,7 +176,7 @@ export class UploadPage {
   /*
   Function to take picture and it can be accessed from presentActionSheet
   */
-  takePicture(sourceType) {
+  takePicture() {
     //Data from image
     Camera.getPicture({
       destinationType: Camera.DestinationType.DATA_URL,
@@ -189,7 +190,7 @@ export class UploadPage {
       console.log(err);
     });    
   }
-  choosePicture(sourceType) {
+  choosePicture() {
     Camera.getPicture({
       destinationType:Camera.DestinationType.DATA_URL,
       sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
