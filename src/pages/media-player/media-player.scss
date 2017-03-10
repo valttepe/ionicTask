@@ -1,20 +1,31 @@
 page-media-player {
-    .thumb-button {
-        color: #ee7600;
+    div {
+        .thumb-button {
+            color: #ee7600;
+        }
+        .button-md:hover:not(.disable-hover) {
+            background-color: #FFD968;
+        }
     }
-    .button-md:hover:not(.disable-hover) {
-        background-color: #FFD968;
+    ion-list {
+        .comment-header {
+            width:50%;
+        }
+        .commentbox {
+            border-radius: 10px;
+            .comment-time {
+                color: white;
+                padding-left: 1em;
+                overflow: hidden;
+                white-space: normal;
+            }
+        .datetime-disabled{
+            opacity: 1;
+        }
+        }
+
     }
-    .comment-time {
-        color: white;
-        padding-left: 1em;
-    }
-    #show {
-        display: block;
-    }
-    #dontshow {
-        display: none;
-    }
+
     .white-text {
         color: white;
     }

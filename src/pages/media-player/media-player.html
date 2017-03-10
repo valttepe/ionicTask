@@ -48,13 +48,15 @@
     </div>
 
     <ion-list>
-        <ion-list-header>
+        <ion-list-header class="comment-header">
             Comments
         </ion-list-header>
-        <ion-item *ngFor="let comment of comments">
+        <ion-item class="commentbox" *ngFor="let comment of comments">
             <h2>{{comment.username}} </h2>
             <p class="comment-time">{{comment.comment}}</p>
-            <p class="comment-time">{{comment.time_added}}</p>
+            <ion-item>
+                <ion-datetime displayFormat="DD. MMMM YYYY" [(ngModel)]="comment.time_added" class="comment-time" disabled></ion-datetime>
+            </ion-item>
         </ion-item>
 
     </ion-list>

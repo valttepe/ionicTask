@@ -55,7 +55,9 @@
       </button>
                 </ion-col>
             </ion-row>
-            <p class="white-text">Was posted on {{ image.time_added }}</p>
+        </ion-item>
+        <ion-item>
+            <ion-datetime displayFormat="DD. MMMM YYYY" [(ngModel)]="image.time_added" class="white-text" disabled></ion-datetime>
         </ion-item>
     </ion-card>
 
