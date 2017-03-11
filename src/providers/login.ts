@@ -58,6 +58,7 @@ export class Login {
     this.logged = false;
     return true;
   }
+  
 
 
   register = () => {

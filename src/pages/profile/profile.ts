@@ -18,15 +18,22 @@ export class ProfilePage {
 
   private checklist = [];
   private ownPosts = [];
+  private username = String;
 
   constructor( public navCtrl: NavController,
                public navParams: NavParams,
                private mediaService: Media,
-               private loginService: Login) {}
+               private loginService: Login
+               ) {}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProfilePage');
+    this.getOwnUser();
     this.getOwnPosts();
+  }
+
+  getOwnUser = () => {
+      this.username = JSON.parse(localStorage.getItem("user")).username;
   }
 
   getOwnPosts = () => {
