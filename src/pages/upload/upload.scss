@@ -1,4 +1,12 @@
 page-upload {
+        .upload-file {
+                display: none;
+            }
+
+
+
+
+    /*
     .scroll-content {
         display: flex;
         flex-flow: column nowrap;
@@ -7,6 +15,7 @@ page-upload {
             font-family: $button-font;
             color: white;
             margin: 5%;
+            height: auto;
             //margin-top: 5em;
             padding: 1em 2em;
             background-color: $btn-color;
@@ -31,7 +40,7 @@ page-upload {
                 width: 100%;
             }
         }
-    }
+    }*/
     .white-text {
         color: white;
     }

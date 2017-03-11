@@ -34,32 +34,34 @@
         </ion-refresher-content>
     </ion-refresher>
     <ion-card *ngFor="let image of images">
-        <ion-item>
-            <h2 class="white-text">@{{image.username}}</h2>
-            <h2 class="white-text" class="imagetitle">{{image.title}}</h2>
-            <a (click)="openFile(image.file_id)">
-                <img [alt]="image.title" [src]='url + ( image.filename | thumbnail: "medium")' />
-            </a>
-            <p class="white-text">{{image.description}}</p>
-            <ion-row>
-                <ion-col>
-                    <button ion-button icon-left clear small>
-                        <ion-icon class="white-text" name="thumbs-up"></ion-icon>
-                        <div class="white-text">{{image.likecount}} likes</div>
-                    </button>
-                </ion-col>
-                <ion-col>
-                    <button ion-button icon-left clear small>
-                        <ion-icon class="white-text" name="text"></ion-icon>
-                        <div class="white-text">{{image.commentcount}} Comments</div>
-                    </button>
-                </ion-col>
-            </ion-row>
-        </ion-item>
-        <ion-item class="wrapping">
-            <ion-datetime displayFormat="DD. MMMM YYYY" [(ngModel)]="image.time_added" class="post-time" disabled></ion-datetime>
-        </ion-item>
+        <a (click)="openFile(image.file_id)">
+            <ion-item>
+                <h2 class="white-text">@{{image.username}}</h2>
+                <h2 class="white-text" class="imagetitle">{{image.title}}</h2>
+                
+                    <img [alt]="image.title" [src]='url + ( image.filename | thumbnail: "medium")' />
+                <p class="white-text">{{image.description}}</p>
+                <ion-row>
+                    <ion-col>
+                        <button ion-button icon-left clear small>
+                            <ion-icon class="white-text" name="thumbs-up"></ion-icon>
+                            <div class="white-text">{{image.likecount}} likes</div>
+                        </button>
+                    </ion-col>
+                    <ion-col>
+                        <button ion-button icon-left clear small>
+                            <ion-icon class="white-text" name="text"></ion-icon>
+                            <div class="white-text">{{image.commentcount}} Comments</div>
+                        </button>
+                    </ion-col>
+                </ion-row>
+            </ion-item>
+            <ion-item class="wrapping">
+                <ion-datetime displayFormat="DD. MMMM YYYY" [(ngModel)]="image.time_added" class="post-time" disabled></ion-datetime>
+            </ion-item>
+        </a>
     </ion-card>
+            
 
 </ion-content>
 <ion-footer>

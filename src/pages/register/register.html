@@ -23,28 +23,31 @@
 
 <ion-content padding>
     <div class="register-content">
+        <h2> Create new user </h2>
         <form #registerForm="ngForm" (ngSubmit)="register(registerForm.value)">
+            <ion-list inset>
+                <ion-item>
+                    <ion-label floating>Username</ion-label>
+                    <ion-input class="white-text" type="text" name="username" [(ngModel)]="registerCredentials.username" required></ion-input>
+                    <br>
+                </ion-item>
 
-            <ion-item>
-                <ion-label floating>Username</ion-label>
-                <ion-input class="white-text" type="text" name="username" [(ngModel)]="registerCredentials.username" required></ion-input>
-                <br>
-            </ion-item>
+                <ion-item>
+                    <ion-label floating>Password</ion-label>
+                    <ion-input class="white-text" type="password" name="password" [(ngModel)]="registerCredentials.password" required></ion-input>
+                    <br>
+                </ion-item>
 
-            <ion-item>
-                <ion-label floating>Password</ion-label>
-                <ion-input class="white-text" type="password" name="password" [(ngModel)]="registerCredentials.password" required></ion-input>
-                <br>
-            </ion-item>
+                <ion-item>
+                    <ion-label floating>Email</ion-label>
+                    <ion-input class="white-text" type="email" name="email" [(ngModel)]="registerCredentials.email" required></ion-input>
+                    <br><br><br>
+                </ion-item>
 
-            <ion-item>
-                <ion-label floating>Email</ion-label>
-                <ion-input class="white-text" type="email" name="email" [(ngModel)]="registerCredentials.email" required></ion-input>
-                <br><br><br>
-            </ion-item>
-
-
-            <button ion-button [disabled]="!registerForm.valid">Submit</button>
+                <ion-item class="border">
+                    <button ion-button [disabled]="!registerForm.valid">Create</button>
+                </ion-item>
+            </ion-list>
         </form>
     </div>
 </ion-content>

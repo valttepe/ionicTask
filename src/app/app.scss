@@ -44,16 +44,20 @@ html {
 
 .scroll-content {
     background-color: $lg-color;
+    /*
     ul {
         display: flex;
         flex-flow: column wrap;
         align-content: center;
         li {
             padding: 1em;
-            width: 480px;
+            width: 100%;
+            height:auto;
         }
     }
+    */
 }
+
 
 .toolbar-content {
     //Flexboxes navbar so title and buttons are in row and not in column.

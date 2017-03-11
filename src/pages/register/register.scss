@@ -1,4 +1,85 @@
 page-register {
+
+    .register-content {
+        border-radius:20px;
+        background-color: #ee7600;
+        width: 330px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top:20px;
+        h2 {
+            text-align: center;
+            padding-top: 30px;
+            color: white;
+        }
+        form{
+            .list{
+                margin:0;
+            }
+            .item-block {
+                width: 50%;
+                margin:auto;
+            }
+            .submit-btn {
+                background: #4169e1;
+                border-radius: 30px !important;
+                border: 1px solid #ffffff;
+                width: 100%;
+            }
+            .border {
+                height:40px;
+                margin-top: 20px;
+                margin-bottom: 20px;
+                .item-inner {
+                    border-bottom: none;
+                    .input-wrapper {
+                        height: 40px;
+                        .button-md{
+                            margin: 30px;
+                        }
+                    }
+                }
+            }
+
+
+        }
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /*
     .item-md {
         padding-bottom: 1em;
         color: #ee7600;
@@ -9,7 +90,7 @@ page-register {
     Makes floxbox out of it's content and centers register and login forms
     Because .scroll-content is inside page-register it doesn't flow out of this page.
     Background color can be changed from front.scss at this point, because it is set outside of front-page tags.
-    */
+    *//*
         display: flex;
         form {
             // Centers form.
@@ -30,5 +111,5 @@ page-register {
     }
     .scroll-content {
         background-color: #ee7600;
-    }
+    }*/
 }

@@ -20,14 +20,10 @@
 
     <div class="login-box">
         <h2 class="white-text">Here for Beer </h2>
-        <ion-grid>
-            <ion-row wrap class="logo-row">
-                <ion-col width-80>
-                    <img class="img" src="assets/hfb-logo.png" alt="logo" />
-                </ion-col>
-                <ion-col>
+
+                    <img src="assets/hfb-logo.png" alt="logo" />
                     <form #loginForm="ngForm" (ngSubmit)="login(loginForm.value)">
-                        <ion-list inset>
+                        <ion-list class="listing" inset>
                             <ion-item>
                                 <ion-label floating>Username</ion-label>
                                 <ion-input class="white-text" type="text" name="username" [(ngModel)]="registerCredentials.username"></ion-input>
@@ -37,14 +33,11 @@
                                 <ion-label floating>Password</ion-label>
                                 <ion-input class="white-text" type="password" name="password" [(ngModel)]="registerCredentials.password"></ion-input>
                             </ion-item>
-
+                            <ion-item class="border">
                             <button class="submit-btn" ion-button>Login</button>
-                            <button ion-button class="register-btn" block clear (click)="getToRegister()">Create New Account</button>
-
+                            </ion-item>
                         </ion-list>
                     </form>
-                </ion-col>
-            </ion-row>
-        </ion-grid>
+                    <button ion-button class="register-btn" block clear (click)="getToRegister()">Create New Account</button>
     </div>
 </ion-content>

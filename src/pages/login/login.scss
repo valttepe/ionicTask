@@ -1,4 +1,86 @@
 page-login {
+    .white-text {
+        color: white;
+    }
+
+    .login-box {
+        border-radius:20px;
+        background-color: #ee7600;
+        width: 330px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top:20px;
+
+        h2 {
+            text-align: center;
+            padding-top: 30px;
+        }
+        img {
+            width: 150px;
+            margin: auto;
+            display: block;
+        }
+        form{
+            .list{
+                margin:0;
+            }
+            .item-block {
+                width: 50%;
+                margin:auto;
+            }
+            .submit-btn {
+                background: #4169e1;
+                border-radius: 30px !important;
+                border: 1px solid #ffffff;
+                width: 100%;
+            }
+            .border {
+                height:40px;
+                margin-top: 10px;
+                .item-inner {
+                    border-bottom: none;
+                    .input-wrapper {
+                        height: 40px;
+                    }
+                }
+            }
+
+
+        }
+            .register-btn {
+                color: #ffffff;
+                font-size: 0.7em;
+                margin-top: 10px;
+                padding-bottom: 20px;
+            }
+        
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /*
     .item-md {
         padding-bottom: 1em;
     }
@@ -8,10 +90,11 @@ page-login {
     Because .scroll-content is inside page-login it doesn't flow out of this page.
     Background color can be changed from front.scss at this point, because it is set outside of front-page tags.
     */
+    /*
         display: flex;
         form {
             // Centers form.
-            height: 300px;
+            height: auto;
             width: 100%;
             margin: auto;
             margin-top: 5em;
@@ -28,6 +111,7 @@ page-login {
         /*padding: 20px 20px 0px 10px;
         margin-top: 30px;
         max-width: 20em;*/
+        /*
     }
     ion-item {
         border-radius: 30px !important;
@@ -64,4 +148,5 @@ page-login {
     .scroll-content {
         background-color: #ee7600;
     }
+    */
 }
