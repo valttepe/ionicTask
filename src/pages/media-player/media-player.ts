@@ -215,6 +215,7 @@ export class MediaPlayerPage {
       res => {
         //console.log(res);
         this.showrate = res[0].rating;
+        console.log(this.showrate);
       }
     );
   }

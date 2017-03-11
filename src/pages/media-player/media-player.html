@@ -27,27 +27,37 @@
         <video *ngIf="file.media_type == 'video'" width="320" height="240" controls>
             <source [src]='url + file.filename' type="file.mime_type"> Your browser does not support the video tag.
         </video>
-        <p>{{ user.username }}</p>
+        <p class="postuser">Posted by {{ user.username }}</p>
 
         <ion-item class="wrapping">
             <ion-datetime displayFormat="DD. MMMM YYYY" [(ngModel)]="file.time_added" class="post-time" disabled></ion-datetime>
         </ion-item>
 
         <div class="description">
-            <p>Description: {{ file.description }}</p>
+            <p class="question">How was it?</p>
+            <p class="answer">{{ file.description }}</p>
         </div>
-        <div class="likerate">
-            <button *ngIf="!likes" (click)="likeMedia()" ion-button icon-left clear small>
-            <ion-icon class="thumb-button" name="thumbs-up" ></ion-icon>
-            <div class="thumb-button">Likes {{ favorite.length }}</div>
-        </button>
+        <ion-row class="rating" justify-content-center >
+            <ion-col>
+                <button *ngIf="!likes" (click)="likeMedia()" ion-button icon-left clear small>
+                    <ion-icon class="thumb-button" name="thumbs-up" ></ion-icon>
+                    <div class="thumb-button">Likes {{ favorite.length }}</div>
+                </button>
 
-            <button *ngIf="likes" (click)="dislikeMedia()" ion-button icon-left clear small>
-            <ion-icon class="thumb-button" name="thumbs-down" ></ion-icon>
-            <div class="thumb-button">Likes {{ favorite.length }}</div>
-        </button>
-            <p>Rate: {{showrate}}</p>
-        </div>
+                <button *ngIf="likes" (click)="dislikeMedia()" ion-button icon-left clear small>
+                    <ion-icon class="thumb-button" name="thumbs-down" ></ion-icon>
+                    <div class="thumb-button">Likes {{ favorite.length }}</div>
+                </button>    
+            </ion-col>
+        </ion-row>
+        <ion-row class="rating" justify-content-center >
+                <ion-col class="ratetext">
+                    <p>Rating: </p>
+                </ion-col>
+                <ion-col class="rateicons" *ngFor="let n of [1,2,3,4,5]; let i = index;"  >
+                    <ion-icon *ngIf="i < showrate" name="beer"></ion-icon>
+                </ion-col>
+        </ion-row>
 
     </div>
 

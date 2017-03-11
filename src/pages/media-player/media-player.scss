@@ -1,57 +1,88 @@
 page-media-player {  
     .container {
-                width: 100%;
-                margin: auto;
-                background-color: #FFD968;
-                h3{
-                width: inherit;
-                margin: inherit; 
-                }
-                img {
-                    width: inherit;
-                    margin: inherit;
-                    display: block;
-                    border-radius: 5px;
-                }
-                p{
-                    margin-bottom: 0px;
-                }
-                .wrapping{
-                    background-color: inherit;
-                    height:30px;
-                    min-height:30px;
-                    padding-left: 5px;
-                    .item-inner{
+        width: 100%;
+        margin: auto;
+        background-color: #FFD968;
+        h3{
+        width: inherit;
+        margin: inherit; 
+        }
+        img {
+            width: inherit;
+            margin: inherit;
+            display: block;
+            border-radius: 5px;
+        }
+        .postuser{
+            margin-bottom: 0px;
+        }
+        .question{
+            margin-bottom: 0px;
+            margin-top: 5px;
+        }
+        .answer {
+            padding-left: 5px;
+        }
+        .wrapping{
+            background-color: inherit;
+            height:30px;
+            min-height:30px;
+            padding-left: 5px;
+            .item-inner{
+                height:30px;
+                min-height: 30px;
+                border-bottom: none;
+                .input-wrapper{
+                    height: 30px;
+                    .item-cover{
                         height:30px;
-                        min-height: 30px;
-                        border-bottom: none;
-                        .input-wrapper{
-                            height: 30px;
-                            .item-cover{
-                                height:30px;
-                                margin:0;
-                            }
-                            .post-time {
-                                color: black;
-                                font-size: 12px;
-                                padding:0px;
-                                
-                            }
-                            
-                        }
-                    } 
+                        margin:0;
+                    }
+                    .post-time {
+                        color: black;
+                        font-size: 12px;
+                        padding:0px;
+                        
+                    }
+                    
                 }
+            } 
+        }
                 
         
-            .datetime-disabled {
-            opacity: 1;
+        .datetime-disabled {
+        opacity: 1;
+        }
+
+        .rating{
+            display: flex;
+            .thumb-button {
+                color: #ee7600;
             }
-        .thumb-button {
-            color: #ee7600;
+            .button-md:hover:not(.disable-hover) {
+                background-color: #FFD968;
+            }
+            p {
+                margin-top: 0px;
+            }
+            .ratetext {
+                width: 60px;
+                max-width: 60px;
+            }
+            .rateicons {
+                width: 41px;
+                max-width: 41px;
+                ion-icon {
+                    padding-top:0px;
+
+                }
+                
+
+
+            }
         }
-        .button-md:hover:not(.disable-hover) {
-            background-color: #FFD968;
-        }
+
+        
     }
     ion-list {
         .comment-header {
