@@ -1,7 +1,53 @@
 page-upload {
-        .upload-file {
-                display: none;
+
+        .uploadcontent {
+            border-radius:20px;
+            background-color: $btn-color;
+            width: 330px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top:20px;
+            font-family: $button-font;
+            h2 {
+                text-align: center;
+                padding-top: 30px;
+                color: white;
             }
+            form {
+                color: white;
+                height: auto;
+                padding: 1em 2em;
+                
+                .upload-file {
+                    display: none;
+                }
+                button {
+                    background-color: #4a7e84;
+                    border: none;
+                    font-family: Arial;
+                    color: white;
+                    text-align: center;
+                    text-transform: uppercase;
+                    padding: 0.625em;
+                    font-size: 0.75em;
+                    overflow: hidden;
+                    position: relative;
+                    margin-bottom: 1em;
+                    min-height: 2.6em;
+                    width: 100%;
+                }
+                textarea.text-input{
+                    color: white;
+                }
+
+
+            }
+
+
+        }
+
+
+        
 
 
 

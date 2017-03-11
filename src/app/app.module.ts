@@ -24,8 +24,7 @@ import { MyApp } from './app.component';
     UploadPage,
     RegisterPage,
     ProfilePage,
-    SearchPage
-
+    SearchPage,
   ],
   imports: [
     IonicModule.forRoot(MyApp)
