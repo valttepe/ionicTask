@@ -1,3 +1,4 @@
+import { FrontPage } from './../front/front';
 import { Login } from './../../providers/login';
 import { MediaPlayerPage } from './../media-player/media-player';
 import { Media } from './../../providers/media';
@@ -82,6 +83,11 @@ export class SearchPage {
       });
 
     }
-
+  }
+  logout() {
+    this.loginService.logout();
+    this.navCtrl.setRoot(FrontPage);
+    location.reload();
+    //this.menuPages.emit(false);
   }
 }
