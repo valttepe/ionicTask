@@ -1,7 +1,9 @@
+import { MediaPlayerPage } from './../media-player/media-player';
 import { FrontPage } from './../front/front';
 import { Login } from './../../providers/login';
 import { Media } from './../../providers/media';
-import { Component } from '@angular/core';
+import { ThumbnailPipe } from './../../app/pipes/thumbnail.pipe';
+import { Component, Pipe } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
 /*
@@ -16,9 +18,10 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class ProfilePage {
 
-  private checklist = [];
-  private ownPosts = [];
-  private username = String;
+  private checklist:any = [];
+  private ownPosts:any = [];
+  private username: String;
+  private url = "http://media.mw.metropolia.fi/wbma/uploads/";
 
   constructor( public navCtrl: NavController,
                public navParams: NavParams,
@@ -40,10 +43,33 @@ export class ProfilePage {
     this.mediaService.getTagFilter().subscribe(
       res => {
         console.log(res);
+        console.log(JSON.parse(localStorage.getItem("user")).user_id);
         this.checklist = res;
-
+        console.log(this.checklist[0].user_id);
+        this.checkIfYours();
       }
     );
+  }
+
+
+  checkIfYours = () =>{
+    for(let post of this.checklist){
+        console.log(post);
+        if(post.user_id == JSON.parse(localStorage.getItem("user")).user_id){
+          this.ownPosts.push(post);
+        }
+    }
+    this.ownPosts.reverse();
+    console.log(this.ownPosts);
+
+  }
+  openFile = (fileid: any) => {
+    if (localStorage.getItem("user") != null) {
+      this.navCtrl.push(MediaPlayerPage, {
+        firstPassed: fileid,
+      });
+
+    }
   }
   logout() {
     this.loginService.logout();

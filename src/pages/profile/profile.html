@@ -29,33 +29,16 @@
 
         <p>Username: {{username}}</p>
         <ion-label>List of your posts </ion-label>
-        <ion-card *ngFor="let image of images">
-            <ion-item>
-                <h2 class="white-text">{{image.title}}</h2>
-                <h2 class="imagetitle" class="white-text">@{{image.username}}</h2>
-                <!--<ion-thumbnail>-->
-                <a (click)="openFile(image.file_id)">
-                    <img [alt]="image.title" [src]='url + ( image.filename | thumbnail: "medium")' />
+        <ion-list inset>
+            <ion-item *ngFor="let post of ownPosts">
+                <a class="white-text" (click)="openFile(post.file_id)">
+                    <ion-thumbnail item-left>
+                        <img [alt]="post.title" [src]='url +(post.filename | thumbnail: "small")'>
+                        <h2 class="title">{{post.title}}</h2>
+                    </ion-thumbnail>
                 </a>
-                <!--</ion-thumbnail>-->
-                <p class="white-text">{{image.description}}</p>
-                <!--<p style="float: right">{{ amount likes come here }}</p>-->
-                <ion-row>
-                    <ion-col>
-                        <button ion-button icon-left clear small>
-        <ion-icon name="thumbs-up"></ion-icon>
-        <div>12 Likes</div>
-      </button>
-                    </ion-col>
-                    <ion-col>
-                        <button ion-button icon-left clear small>
-        <ion-icon name="text"></ion-icon>
-        <div>4 Comments</div>
-      </button>
-                    </ion-col>
-                </ion-row>
             </ion-item>
-        </ion-card>
+        </ion-list>
     </div>
 
 </ion-content>
