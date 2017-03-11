@@ -38,6 +38,36 @@ page-front {
             color: white;
         }
     }
+    .wrapping{
+        height:30px;
+        min-height:30px;
+        .item-inner{
+            height:12px;
+            min-height: 12px;
+            border-bottom: none;
+            .input-wrapper{
+                height: 12px;
+                .item-cover{
+                    height:30px;
+                }
+                .post-time {
+                    color: white;
+                    font-size: 12px;
+                    padding:0px;
+                    width:100%;
+                    .datetime-text{
+                        text-align: right;
+                        padding-right: 15px;
+                    }
+                }
+                
+            }
+        } 
+    }
+    .datetime-disabled{
+            opacity: 1;
+        }
+
     ion-refresher {
         background-color: #FFD968;
     }
@@ -107,7 +137,7 @@ Moved scss below to app.scss because these were global.
 MEDIA QUERIES
 *************/
 
-@media (max-width:413px) and (min-width:319px) {
+@media (max-width:500px) {
     page-front {
         .card {
             width: 90%;

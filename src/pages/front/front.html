@@ -44,20 +44,20 @@
             <ion-row>
                 <ion-col>
                     <button ion-button icon-left clear small>
-        <ion-icon class="white-text" name="thumbs-up"></ion-icon>
-        <div class="white-text">{{image.likecount}} likes</div>
-      </button>
+                        <ion-icon class="white-text" name="thumbs-up"></ion-icon>
+                        <div class="white-text">{{image.likecount}} likes</div>
+                    </button>
                 </ion-col>
                 <ion-col>
                     <button ion-button icon-left clear small>
-        <ion-icon class="white-text" name="text"></ion-icon>
-        <div class="white-text">{{image.commentcount}} Comments</div>
-      </button>
+                        <ion-icon class="white-text" name="text"></ion-icon>
+                        <div class="white-text">{{image.commentcount}} Comments</div>
+                    </button>
                 </ion-col>
             </ion-row>
         </ion-item>
-        <ion-item>
-            <ion-datetime displayFormat="DD. MMMM YYYY" [(ngModel)]="image.time_added" class="white-text" disabled></ion-datetime>
+        <ion-item class="wrapping">
+            <ion-datetime displayFormat="DD. MMMM YYYY" [(ngModel)]="image.time_added" class="post-time" disabled></ion-datetime>
         </ion-item>
     </ion-card>
 
