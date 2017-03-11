@@ -26,7 +26,7 @@
 
 <ion-content padding>
     <div class ="uploadcontent">
-    <h2>Post your beer</h2>
+    <h2>Share your beer</h2>
     <form #uploadForm="ngForm" (ngSubmit)="upload($event, uploadForm.value)">
 
         
@@ -42,7 +42,7 @@
             </ion-item>
 
             <ion-item>
-                <ion-label stacked>How did you like it?</ion-label>
+                <ion-label floating>How did you like it?</ion-label>
                 <ion-textarea rows="3" #focusInput  class="white-text" class="scrolling" name="description" [(ngModel)]="uploadCredentials.description"></ion-textarea>
             </ion-item>
 
