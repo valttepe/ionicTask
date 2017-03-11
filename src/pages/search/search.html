@@ -36,7 +36,10 @@
 
         <ion-item *ngFor="let item of items">
             <a class="white-text" (click)="openFile(item.file_id)">
-                <h2> {{ item.title }} </h2>
+                <ion-thumbnail item-left>
+                    <img [alt]="item.title" [src]='url + ( item.filename | thumbnail: "small")' /><br><br>
+                    <h2> {{ item.title }} </h2>
+                </ion-thumbnail>
             </a>
         </ion-item>
 

@@ -18,6 +18,7 @@ import { NavController, NavParams } from 'ionic-angular';
 export class SearchPage {
 
   private images: any = [];
+   private url = "http://media.mw.metropolia.fi/wbma/uploads/";
   searchQuery: string = '';
   items: any =[];
 
