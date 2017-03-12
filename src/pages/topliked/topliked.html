@@ -33,6 +33,7 @@
         <ion-refresher-content>
         </ion-refresher-content>
     </ion-refresher>
+    
     <ion-card *ngFor="let image of images">
         <a (click)="openFile(image.file_id)">
             <ion-item>
@@ -60,7 +61,6 @@
                 <ion-datetime displayFormat="DD. MMMM YYYY" [(ngModel)]="image.time_added" class="post-time" disabled></ion-datetime>
             </ion-item>
         </a>
-    </ion-card>
-            
+    </ion-card>       
 
 </ion-content>

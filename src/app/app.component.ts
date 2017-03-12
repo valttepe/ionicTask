@@ -1,3 +1,4 @@
+import { TabsPage } from './../pages/tabs/tabs';
 import { SearchPage } from './../pages/search/search';
 import { ProfilePage } from './../pages/profile/profile';
 import { UploadPage } from './../pages/upload/upload';
@@ -14,7 +15,7 @@ import { StatusBar, Splashscreen } from 'ionic-native';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = FrontPage;
+  rootPage: any = TabsPage;
 
   pages: Array<{title: string, component: any}>;
 
@@ -73,7 +74,7 @@ export class MyApp {
     console.log('listing pages');
     if (localStorage.getItem("user") != null) {
       this.pages = [
-        { title: 'Front', component: FrontPage },
+        { title: 'Front', component: TabsPage },
         { title: 'Upload', component: UploadPage },
         { title: 'Profile', component: ProfilePage },
         { title: 'Search', component: SearchPage}
@@ -82,7 +83,7 @@ export class MyApp {
     else {
       this.pages = [
 
-        { title: 'Front', component: FrontPage },
+        { title: 'Front', component: TabsPage },
         { title: 'Login', component: LoginPage },
         { title: 'Register', component: RegisterPage}
 

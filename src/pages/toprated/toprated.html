@@ -1,5 +1,5 @@
 <!--
-  Generated template for the Front page.
+  Generated template for the Toprated page.
 
   See http://ionicframework.com/docs/v2/components/#navigation for more info on
   Ionic pages and navigation.
@@ -28,11 +28,13 @@
     </ion-navbar>
 </ion-header>
 
+
 <ion-content>
-    <ion-refresher (ionRefresh)="doRefresh($event)">
+  <ion-refresher (ionRefresh)="doRefresh($event)">
         <ion-refresher-content>
         </ion-refresher-content>
     </ion-refresher>
+    
     <ion-card *ngFor="let image of images">
         <a (click)="openFile(image.file_id)">
             <ion-item>
@@ -61,6 +63,5 @@
             </ion-item>
         </a>
     </ion-card>
-            
 
 </ion-content>

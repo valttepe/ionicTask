@@ -41,22 +41,17 @@ ul {
 html {
     background-color: $lg-color;
 }
-
-.scroll-content {
-    background-color: $lg-color;
-    /*
-    ul {
-        display: flex;
-        flex-flow: column wrap;
-        align-content: center;
-        li {
-            padding: 1em;
-            width: 100%;
-            height:auto;
-        }
+ion-app.md [padding]{
+    
+    .scroll-content {
+        padding:0px;
+        background-color: $lg-color;
     }
-    */
 }
+  .scroll-content {
+        background-color: $lg-color;
+    }
+
 
 
 .toolbar-content {

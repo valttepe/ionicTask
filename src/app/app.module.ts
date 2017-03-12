@@ -1,3 +1,6 @@
+import { TabsPage } from './../pages/tabs/tabs';
+import { ToplikedPage } from './../pages/topliked/topliked';
+import { TopratedPage } from './../pages/toprated/toprated';
 import { SearchPage } from './../pages/search/search';
 import { ProfilePage } from './../pages/profile/profile';
 import { UploadPage } from './../pages/upload/upload';
@@ -24,10 +27,17 @@ import { MyApp } from './app.component';
     UploadPage,
     RegisterPage,
     ProfilePage,
-    SearchPage
+    SearchPage,
+    TopratedPage,
+    ToplikedPage,
+    TabsPage
   ],
   imports: [
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp, {
+      // Configs for your app
+      tabsHideOnSubPages: true
+      // ...
+    },)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -38,7 +48,10 @@ import { MyApp } from './app.component';
     UploadPage,
     RegisterPage,
     ProfilePage,
-    SearchPage
+    SearchPage,
+    ToplikedPage,
+    TopratedPage,
+    TabsPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, Login, Media]
 })

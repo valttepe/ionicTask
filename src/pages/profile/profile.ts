@@ -22,12 +22,13 @@ export class ProfilePage {
   private ownPosts:any = [];
   private username: String;
   private url = "http://media.mw.metropolia.fi/wbma/uploads/";
-
   constructor( public navCtrl: NavController,
                public navParams: NavParams,
                private mediaService: Media,
                private loginService: Login
-               ) {}
+               ) 
+               {
+               }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProfilePage');

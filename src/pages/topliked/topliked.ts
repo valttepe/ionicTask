@@ -1,44 +1,46 @@
+import { MediaPlayerPage } from './../media-player/media-player';
 import { TabsPage } from './../tabs/tabs';
 import { ProfilePage } from './../profile/profile';
-import { Login } from './../../providers/login';
 import { LoginPage } from './../login/login';
-import { MediaPlayerPage } from './../media-player/media-player';
-import { ThumbnailPipe } from './../../app/pipes/thumbnail.pipe';
+import { Login } from './../../providers/login';
 import { Media } from './../../providers/media';
-import { Component, Pipe, ViewChild, Output, EventEmitter } from '@angular/core';
+import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
 /*
-  Generated class for the Front page.
+  Generated class for the Topliked page.
 
   See http://ionicframework.com/docs/v2/components/#navigation for more info on
   Ionic pages and navigation.
 */
 @Component({
-  selector: 'page-front',
-  templateUrl: 'front.html',
+  selector: 'page-topliked',
+  templateUrl: 'topliked.html'
 })
-export class FrontPage {
-
-  @Output() menuPages = new EventEmitter();
+export class ToplikedPage {
   private images: any = [];
   private url = "http://media.mw.metropolia.fi/wbma/uploads/";
   private likecount: any = [];
   private commentcount: any = [];
+  private test: any = [];
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     private mediaService: Media,
-    private loginService: Login
-  ) { }
+    private loginService: Login) {}
+  
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad FrontPage');
+    console.log('ionViewDidLoad ToplikedPage');
     this.checkIflog();
     this.getMedia();
-
+    //this.navCtrl.setRoot(ToplikedPage);
   }
-  
+  ionViewWillEnter(){
+    this.compareLikecount();
+    
+  }
+
   getMedia = (refresher = null) => {
     //this.fill = res;
     this.getFilteredFiles();
@@ -82,8 +84,6 @@ export class FrontPage {
       });
 
     }
-  
-
 
   }
 
@@ -100,9 +100,19 @@ export class FrontPage {
             }
           }
         });
+        
     }
+    console.log(this.images);
+    
   }
-
+ compareLikecount = () => {
+    this.images.sort(function(a, b) {
+          console.log(a.likecount);
+          return parseFloat(a.likecount) - parseFloat(b.likecount);
+        });
+    this.images.reverse();
+ }
+ 
   getPostLikes = () => {
     for (let image of this.images) {
       //console.log(user);
@@ -115,9 +125,11 @@ export class FrontPage {
           
         });
     }
+    
   }
 
   getPostComments = () => {
+    let i = this.images.length - 1;
     for (let image of this.images) {
       //console.log(user);
       this.mediaService.getComments(image.file_id).subscribe(
@@ -128,7 +140,11 @@ export class FrontPage {
           //console.log(this.commentcount);
           
           image.commentcount = this.commentcount.length;
-          
+          this.test[i] = image;
+          if(i == 0){
+            this.compareLikecount();
+          }
+          i--;
         });
     }
 
@@ -153,7 +169,5 @@ export class FrontPage {
 
     this.getMedia(refresher);
   }
-
-
 
 }

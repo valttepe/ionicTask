@@ -1,0 +1,121 @@
+page-toprated {
+   .card {
+        //margin auto centers the content
+        margin: auto;
+        margin-top: 1em;
+        margin-bottom: 1em;
+        width: 50%;
+        //align-content: space-around;
+        .label {
+            /*
+            This is to adjust content on social
+            cards.
+            */
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: center;
+            //h2 {
+            /*
+                Below is division of all blocks in the card
+                */
+            //  flex: 0 0 100%;
+            //border-bottom: solid 1px $lg-color;
+            //   }
+            p {
+                flex: 0 0 100%;
+                padding: 0.5em;
+                margin: 0;
+                border-top: solid 1px $lg-color;
+            }
+            img {
+                padding: 0.2em;
+                margin: 0;
+            }
+        }
+        .white-text {
+            color: white;
+        }
+    }
+    .wrapping{
+        height:30px;
+        min-height:30px;
+        .item-inner{
+            height:12px;
+            min-height: 12px;
+            border-bottom: none;
+            .input-wrapper{
+                height: 12px;
+                .item-cover{
+                    height:30px;
+                }
+                .post-time {
+                    color: white;
+                    font-size: 12px;
+                    padding:0px;
+                    width:100%;
+                    .datetime-text{
+                        text-align: right;
+                        padding-right: 15px;
+                    }
+                }
+                
+            }
+        } 
+    }
+    .datetime-disabled{
+            opacity: 1;
+        }
+
+    ion-refresher {
+        background-color: #FFD968;
+    }
+    .footer {
+        /*
+        This is fixed toolbar at bottom of the screen.
+        It stays at bottom even when scrolling down.
+        Functionality is that you can change what content is shown
+        on frontpage.
+        */
+        .toolbar {
+            /*Trying to flexbox*/
+            display: flex;
+            flex-flow: row wrap;
+            /*padding: 0;*/
+            .toolbar-content {
+                flex: 0 0 100%;
+                /*width: 100%;
+                height: 100%;*/
+                .ion-button {
+                    flex: 0 0 33%;
+                }
+            }
+        }
+    }
+    .imagetitle {
+        flex: 0 0 100%;
+        color: white;
+        border-bottom: solid 1px $lg-color;
+    }
+
+    
+}    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+/************
+MEDIA QUERIES
+*************/
+
+@media (max-width:500px) {
+    page-toprated {
+        .card {
+            width: 90%;
+        }
+    }
+}
