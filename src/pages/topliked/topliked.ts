@@ -38,9 +38,8 @@ export class ToplikedPage {
   }
   ionViewWillEnter(){
     this.compareLikecount();
-    
   }
-
+  
   getMedia = (refresher = null) => {
     //this.fill = res;
     this.getFilteredFiles();

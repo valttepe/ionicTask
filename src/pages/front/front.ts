@@ -38,6 +38,9 @@ export class FrontPage {
     this.getMedia();
 
   }
+  ionViewWillEnter() {
+    this.getMedia();
+  }
   
   getMedia = (refresher = null) => {
     //this.fill = res;
