@@ -61,31 +61,32 @@ html {
     flex-flow: row nowrap;
     align-items: center;
 }
+
 ion-header {
-    ion-navbar {
-    }
+    ion-navbar {}
 }
-        .loginbutton {
-            /*float: right;*/
-            background-color: #ee7600;
-            padding: 1m;
-        }
 
-        .logoutbutton {
-            /*float: right;*/
-            background-color: #ee7600;
-            padding: 1em;
-        }
+.loginbutton {
+    /*float: right;*/
+    background-color: #ee7600;
+    padding: 1m;
+}
 
-        .profilebutton {
-            /*float: right;*/
-            background-color: #ee7600;
-            padding: 1em;
-        }
+.logoutbutton {
+    /*float: right;*/
+    background-color: #ee7600;
+    padding: 1em;
+}
 
-        .button-md:hover:not(.disable-hover) {
-            background-color: #ee7600;
-        }
+.profilebutton {
+    /*float: right;*/
+    background-color: #ee7600;
+    padding: 1em;
+}
+
+.button-md:hover:not(.disable-hover) {
+    background-color: #ee7600;
+}
 
 .bar-button-default-md,
 .bar-button-clear-md-default,
@@ -96,5 +97,9 @@ ion-header {
 .bar-button-default-md:hover:not(.disable-hover),
 .bar-button-clear-md-default:hover:not(.disable-hover),
 .bar-button-md-default:hover:not(.disable-hover) {
+    color: white;
+}
+
+.toolbar-title-md {
     color: white;
 }
