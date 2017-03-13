@@ -168,5 +168,14 @@ export class Media {
       );
   }
 
+  deleteOwnPost = (fileid: any) => {
+    this.token = JSON.parse(localStorage.getItem("user")).token;
+    return this.http.delete(this.url + '/media/' + fileid + '?token=' + this.token)
+    .map(
+      res=>
+        res.json()
+    );
+  }
+
 
 }
