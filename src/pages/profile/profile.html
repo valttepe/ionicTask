@@ -27,7 +27,8 @@
     <div class="container">
         <div class="info">
             <h1 class="white-text">Welcome to your profile page {{username}}!</h1>
-            <ion-label class="white-text">List of your posts. Swipe card left to delete your post.</ion-label>
+            <!--<ion-label class="white-text">List of your posts </ion-label>-->
+            <p class="white-text">List of your posts. Swipe card left to remove your post</p>
         </div>
         <ion-list>
             <ion-item-sliding *ngFor="let post of ownPosts" #item>

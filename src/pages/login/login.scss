@@ -4,9 +4,10 @@ page-login {
     }
 
     .login-box {
-        border-radius:20px;
+
+        border-radius:10px;
         background-color: #ee7600;
-        width: 330px;
+        width: 90%;
         margin-left: auto;
         margin-right: auto;
         margin-top:20px;
@@ -20,7 +21,7 @@ page-login {
             margin: auto;
             display: block;
         }
-        form{
+        form {
             .list{
                 margin:0;
             }
@@ -44,109 +45,19 @@ page-login {
                     }
                 }
             }
-
-
         }
-            .register-btn {
-                color: #ffffff;
-                font-size: 0.7em;
-                margin-top: 10px;
-                padding-bottom: 20px;
-            }
-        
-
-
-
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    /*
-    .item-md {
-        padding-bottom: 1em;
-    }
-    .scroll-content {
-        /*
-    Makes flexbox out of it's content and centers register and login forms
-    Because .scroll-content is inside page-login it doesn't flow out of this page.
-    Background color can be changed from front.scss at this point, because it is set outside of front-page tags.
-    */
-    /*
-        display: flex;
-        form {
-            // Centers form.
-            height: auto;
-            width: 100%;
-            margin: auto;
-            margin-top: 5em;
+        .register-btn {
+            color: #ffffff;
+            font-size: 0.7em;
+            margin-top: 10px;
+            padding-bottom: 20px;
         }
     }
-    .white-text {
-        color: white;
+}
+@media (min-width:500px) {
+    page-login {
+        .login-box {
+            width: 330px;
+        }
     }
-    .login-content {
-        background: #FFD968;
-    }
-    .login-box {
-        background: #ee7600;
-        /*padding: 20px 20px 0px 10px;
-        margin-top: 30px;
-        max-width: 20em;*/
-        /*
-    }
-    ion-item {
-        border-radius: 30px !important;
-        padding-left: 30px !important;
-        font-size: 0.9em;
-        margin-bottom: 10px;
-        border: 1px solid #ffffff;
-        border-bottom: 0px !important;
-        box-shadow: none !important;
-    }
-    .signup-col {
-        margin: 0px 16px 0px 16px;
-        padding-bottom: 20px;
-    }
-    .submit-btn {
-        background: #4169e1;
-        border-radius: 30px !important;
-        border: 1px solid #ffffff;
-        width: 100%;
-    }
-    .register-btn {
-        color: #ffffff;
-        font-size: 0.7em;
-    }
-    .scroll-content form {
-        margin-top: 0;
-    }
-    img {
-        padding: 0 5px 0 5px;
-    }
-    .list-md[inset] {
-        margin: 0;
-    }
-    .scroll-content {
-        background-color: #ee7600;
-    }
-    */
 }
