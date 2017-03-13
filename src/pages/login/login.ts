@@ -75,7 +75,7 @@ export class LoginPage {
 
   }
    getToRegister() {
-    this.navCtrl.setRoot(RegisterPage);
+    this.navCtrl.push(RegisterPage);
   }
   presentAlert(){
     let alert = this.alertCtrl.create({
