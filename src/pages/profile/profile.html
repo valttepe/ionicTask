@@ -43,7 +43,9 @@
                     <button (click)="openFile(post.file_id)" ion-button clear item-right>View</button>
                 </ion-item>
                 <ion-item-options side="right">
-                    <button (click)="openFile(post.file_id)">Del</button>
+                    <button (click)="openFile(post.file_id)">
+                        <ion-icon name="trash"></ion-icon>
+                    </button>
                 </ion-item-options>
             </ion-item-sliding>
         </ion-list>
