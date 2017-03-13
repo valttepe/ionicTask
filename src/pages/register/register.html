@@ -28,13 +28,13 @@
             <ion-list inset>
                 <ion-item>
                     <ion-label floating>Username</ion-label>
-                    <ion-input class="white-text" type="text" name="username" [(ngModel)]="registerCredentials.username" required></ion-input>
+                    <ion-input class="white-text" type="text" minlength="5" name="username" [(ngModel)]="registerCredentials.username" required></ion-input>
                     <br>
                 </ion-item>
 
                 <ion-item>
                     <ion-label floating>Password</ion-label>
-                    <ion-input class="white-text" type="password" name="password" [(ngModel)]="registerCredentials.password" required></ion-input>
+                    <ion-input class="white-text" type="password" minlength="6" name="password" [(ngModel)]="registerCredentials.password" required></ion-input>
                     <br>
                 </ion-item>
 
