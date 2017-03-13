@@ -4,7 +4,7 @@ import { Login } from './../../providers/login';
 import { Media } from './../../providers/media';
 import { ThumbnailPipe } from './../../app/pipes/thumbnail.pipe';
 import { Component, Pipe } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, ActionSheetController } from 'ionic-angular';
 
 /*
   Generated class for the Profile page.
@@ -25,10 +25,9 @@ export class ProfilePage {
   constructor( public navCtrl: NavController,
                public navParams: NavParams,
                private mediaService: Media,
-               private loginService: Login
-               ) 
-               {
-               }
+               private loginService: Login,
+               private actionSheetCtrl: ActionSheetController
+               ) {}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProfilePage');
@@ -64,7 +63,7 @@ export class ProfilePage {
     console.log(this.ownPosts);
 
   }
-
+  
   deletePost = (fileid: any) => {
     this.mediaService.deleteOwnPost(fileid).subscribe(
       res => {
@@ -88,4 +87,24 @@ export class ProfilePage {
     location.reload();
     //this.menuPages.emit(false);
   }
+    private presentActionSheet(id:any) {
+    console.log('actionsheet')
+    let actionSheet = this.actionSheetCtrl.create({
+      title: 'Verify',
+      buttons: [
+        {
+          text: 'Remove this post',
+          handler: () => {
+            this.deletePost(id);
+          }
+        },
+        {
+          text: 'Cancel',
+          role: 'cancel'
+        }
+      ]
+    });
+    actionSheet.present();
+  }
+  
 }
