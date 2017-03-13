@@ -34,13 +34,13 @@
             <ion-item-sliding *ngFor="let post of ownPosts" #item>
                 <ion-item>
                     <ion-thumbnail item-left>
-
-                        <img [alt]="post.title" [src]='url +(post.filename | thumbnail: "small")'>
-
+                        <a (click)="openFile(post.file_id)">
+                            <img [alt]="post.title" [src]='url +(post.filename | thumbnail: "small")'>
+                        </a>
                     </ion-thumbnail>
                     <h2>{{post.title}}</h2>
                     <p class="white-text">{{post.description}}</p>
-                    <button (click)="openFile(post.file_id)" ion-button clear item-right>View</button>
+                    <!--<button (click)="openFile(post.file_id)" ion-button clear item-right>View</button>-->
                 </ion-item>
                 <ion-item-options side="right">
                     <button class="trashbutton" (click)="deletePost(post.file_id)">
