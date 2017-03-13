@@ -14,13 +14,9 @@ page-toprated {
             display: flex;
             flex-flow: row wrap;
             justify-content: center;
-            //h2 {
-            /*
-                Below is division of all blocks in the card
-                */
-            //  flex: 0 0 100%;
-            //border-bottom: solid 1px $lg-color;
-            //   }
+            h2 {
+                flex: 0 0 100%;
+            }
             p {
                 flex: 0 0 100%;
                 padding: 0.5em;
@@ -28,8 +24,10 @@ page-toprated {
                 border-top: solid 1px $lg-color;
             }
             img {
-                padding: 0.2em;
-                margin: 0;
+                padding: 0.5em;
+                width:330px;
+                height:auto;
+                margin: auto;
             }
         }
         .white-text {
