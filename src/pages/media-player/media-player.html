@@ -41,12 +41,12 @@
             <ion-col>
                 <button *ngIf="!likes" (click)="likeMedia()" ion-button icon-left clear small>
                     <ion-icon class="thumb-button" name="thumbs-up" ></ion-icon>
-                    <div class="thumb-button">Likes {{ favorite.length }}</div>
+                    <div class="thumb-button">Like {{ favorite.length }}</div>
                 </button>
 
                 <button *ngIf="likes" (click)="dislikeMedia()" ion-button icon-left clear small>
                     <ion-icon class="thumb-button" name="thumbs-down" ></ion-icon>
-                    <div class="thumb-button">Likes {{ favorite.length }}</div>
+                    <div class="thumb-button">Me not likey {{ favorite.length }}</div>
                 </button>    
             </ion-col>
         </ion-row>

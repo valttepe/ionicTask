@@ -6,8 +6,8 @@ page-media-player {
         display:block;
         background-color: #FFD968;
         h3{
-        width: inherit;
-        margin: inherit; 
+            width: inherit;
+            margin: inherit; 
         }
         img {
             width: 500px;
@@ -86,6 +86,9 @@ page-media-player {
 
         
     }
+    /*.container > ion-content {
+        background-image: url("assets/tablebg.jpg");
+    }*/
     ion-list {
         
         .comment-header {
