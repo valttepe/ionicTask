@@ -30,6 +30,16 @@ page-profile {
                 flex: 0 0 100%;
             }
         }
+        .item-button {
+            color: white;
+        }
+        .trashbutton {
+            background-color: $btn-shadow;
+            .icon {
+                font-size: 30px;
+                color: white;
+            }
+        }
     }
     @media (min-width: 700px) {
         .container {
