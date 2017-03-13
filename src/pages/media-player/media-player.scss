@@ -1,7 +1,9 @@
 page-media-player {  
     .container {
-        width: 100%;
+        width: 360px;
         margin: auto;
+        padding: 20px 20px 20px 10px;
+        display:block;
         background-color: #FFD968;
         h3{
         width: inherit;
@@ -85,6 +87,7 @@ page-media-player {
         
     }
     ion-list {
+        
         .comment-header {
             .label{
                 color: black;
@@ -96,6 +99,7 @@ page-media-player {
         .commentbox {
             border-radius: 8px;
             margin: 5px;
+
             .wrap{
                 display:flex;
                 height:30px;
@@ -152,5 +156,18 @@ page-media-player {
 
     .white-text {
         color: white;
+    }
+}
+
+page-media-player{
+    @media(min-width: 500px ){
+        .container {
+            width: 500px;
+        }
+
+        .comment-container{
+            width: 500px;
+            margin: auto;
+        }
     }
 }
