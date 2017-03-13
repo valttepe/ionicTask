@@ -25,19 +25,27 @@
 <ion-content padding>
 
     <div class="container">
-        <h2 class="white-text">Welcome to your profile page!</h2>
-
-        <p>Username: {{username}}</p>
-        <ion-label>List of your posts </ion-label>
-        <ion-list inset>
-            <ion-item *ngFor="let post of ownPosts">
-                <a class="white-text" (click)="openFile(post.file_id)">
+        <div class="info">
+            <h1 class="white-text">Welcome to your profile page {{username}}!</h1>
+            <!--<ion-label class="white-text">List of your posts </ion-label>-->
+            <p class="white-text">List of your posts. Swipe card left to remove your post</p>
+        </div>
+        <ion-list>
+            <ion-item-sliding *ngFor="let post of ownPosts" #item>
+                <ion-item>
                     <ion-thumbnail item-left>
+
                         <img [alt]="post.title" [src]='url +(post.filename | thumbnail: "small")'>
-                        <h2 class="title">{{post.title}}</h2>
+
                     </ion-thumbnail>
-                </a>
-            </ion-item>
+                    <h2>{{post.title}}</h2>
+                    <p class="white-text">{{post.description}}</p>
+                    <button (click)="openFile(post.file_id)" ion-button clear item-right>View</button>
+                </ion-item>
+                <ion-item-options side="right">
+                    <button (click)="openFile(post.file_id)">Del</button>
+                </ion-item-options>
+            </ion-item-sliding>
         </ion-list>
     </div>
 

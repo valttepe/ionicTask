@@ -1,9 +1,9 @@
 page-register {
 
     .register-content {
-        border-radius:20px;
+        border-radius:10px;
         background-color: #ee7600;
-        width: 330px;
+        width: 95%;
         margin-left: auto;
         margin-right: auto;
         margin-top:20px;
@@ -17,7 +17,7 @@ page-register {
                 margin:0;
             }
             .item-block {
-                width: 50%;
+                width: 80%;
                 margin:auto;
             }
             .submit-btn {
@@ -30,86 +30,24 @@ page-register {
                 height:40px;
                 margin-top: 20px;
                 margin-bottom: 20px;
+                padding: 0;
                 .item-inner {
                     border-bottom: none;
                     .input-wrapper {
                         height: 40px;
                         .button-md{
-                            margin: 30px;
+                            margin: auto;
                         }
                     }
                 }
             }
-
-
-        }
-
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    /*
-    .item-md {
-        padding-bottom: 1em;
-        color: #ee7600;
-        background-color: #ee7600;
-    }
-    .scroll-content {
-        /*
-    Makes floxbox out of it's content and centers register and login forms
-    Because .scroll-content is inside page-register it doesn't flow out of this page.
-    Background color can be changed from front.scss at this point, because it is set outside of front-page tags.
-    *//*
-        display: flex;
-        form {
-            // Centers form.
-            height: 300px;
-            width: 100%;
-            margin: auto;
-            margin-top: 2em;
         }
     }
-    .fixed.content {
-        background-color: $bg-color;
+}
+@media (min-width:500px) {
+    page-register {
+        .register-content {
+            width: 330px;
+        }
     }
-    .white-text {
-        color: white;
-    }
-    .register-content {
-        background: #ee7600;
-    }
-    .scroll-content {
-        background-color: #ee7600;
-    }*/
 }
