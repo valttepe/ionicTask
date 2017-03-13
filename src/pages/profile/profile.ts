@@ -64,6 +64,16 @@ export class ProfilePage {
     console.log(this.ownPosts);
 
   }
+
+  deletePost = (fileid: any) => {
+    this.mediaService.deleteOwnPost(fileid).subscribe(
+      res => {
+        console.log(res);
+        this.getOwnPosts();
+        this.navCtrl.setRoot(ProfilePage);
+      }
+    );
+  }
   openFile = (fileid: any) => {
     if (localStorage.getItem("user") != null) {
       this.navCtrl.push(MediaPlayerPage, {
