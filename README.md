@@ -1,0 +1,2 @@
+# ionicTask
+Ionic Angular schoolproject
