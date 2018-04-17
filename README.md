@@ -1,4 +1,4 @@
-# Angular Ionic project
+# Angular Ionic project - Here For Beer
 
 # Note 
 This doesn't anymore have school provided API so it is just UI skeleton.
